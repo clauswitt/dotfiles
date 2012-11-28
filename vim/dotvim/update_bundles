@@ -1,0 +1,47 @@
+#!/usr/bin/env ruby
+
+git_bundles = [ 
+  "git://github.com/mattn/webapi-vim.git",
+  "git://github.com/ervandew/supertab.git",
+  "git://github.com/hallison/vim-rdoc.git",
+  "git://github.com/garbas/vim-snipmate.git",
+  "git://github.com/pangloss/vim-javascript.git",
+  "git://github.com/kchmck/vim-coffee-script.git", 
+  "git://github.com/tpope/vim-fugitive.git",
+  "git://github.com/tpope/vim-git.git",
+  "git://github.com/tpope/vim-markdown.git",
+  "git://github.com/tpope/vim-rails.git",
+  "git://github.com/tpope/vim-surround.git",
+  "git://github.com/vim-ruby/vim-ruby.git",
+  "git://github.com/vim-scripts/Gist.vim.git",
+  "git://github.com/scrooloose/syntastic.git",
+  "git://github.com/scrooloose/nerdtree.git",
+  "git://github.com/scrooloose/nerdcommenter.git",
+  "git://github.com/tsaleh/vim-matchit.git",
+  "git://github.com/sjl/threesome.vim.git",
+  "git://github.com/mklabs/grunt.vim.git",
+  "https://github.com/tomtom/tlib_vim.git",
+  "https://github.com/MarcWeber/vim-addon-mw-utils.git",
+  "https://github.com/honza/snipmate-snippets.git",
+  "git://github.com/roman/golden-ratio.git",
+  "git://github.com/clauswitt/vim-phpunit.git"
+]
+
+
+require 'fileutils'
+require 'open-uri'
+
+bundles_dir = File.join(File.dirname(__FILE__), "bundle")
+
+FileUtils.cd(bundles_dir)
+
+puts "trashing everything (lookout!)"
+Dir["*"].each {|d| FileUtils.rm_rf d }
+
+git_bundles.each do |url|
+  dir = url.split('/').last.sub(/\.git$/, '')
+  puts "unpacking #{url} into #{dir}"
+  `git clone #{url} #{dir}`
+  FileUtils.rm_rf(File.join(dir, ".git"))
+end
+

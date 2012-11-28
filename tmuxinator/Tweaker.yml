@@ -1,0 +1,12 @@
+# ~/.tmuxinator/Systemet.yml
+# you can make as many tabs as you wish...
+
+project_name: Tweaker
+project_root: ~/Documents/Projects/Property-Media-Data-Preparooor
+tabs:
+  - editor: vim
+  - shell: 
+  - syslog: ssh -t tw tail -f /var/log/syslog
+  - errorlog: ssh -t tw tail -f /var/log/nginx/localhost.error.log
+  - server-top: ssh -t tw top
+  - server: ssh tw

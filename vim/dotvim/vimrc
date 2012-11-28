@@ -1,0 +1,150 @@
+let mapleader = ","
+set nocompatible                  " Must come first because it changes other options.
+
+silent! call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
+syntax enable                     " Turn on syntax highlighting.
+filetype plugin indent on         " Turn on file type detection.
+
+set showcmd                       " Display incomplete commands.
+set showmode                      " Display the mode you're in.
+set pastetoggle=<F2>
+set backspace=indent,eol,start    " Intuitive backspacing.
+
+set hidden                        " Handle multiple buffers better.
+
+set wildmenu                      " Enhanced command line completion.
+set wildmode=list:longest         " Complete files like a shell.
+
+set ignorecase                    " Case-insensitive searching.
+set smartcase                     " But case-sensitive if expression contains a capital letter.
+
+set number                        " Show line numbers.
+set ruler                         " Show cursor position.
+
+set incsearch                     " Highlight matches as you type.
+set hlsearch                      " Highlight matches.
+
+
+
+" highlight current line
+set cursorline
+hi CursorLine cterm=NONE ctermbg=black
+
+
+set wrap                          " Turn on line wrapping.
+set scrolloff=3                   " Show 3 lines of context around the cursor.
+
+set title                         " Set the terminal's title
+
+set visualbell                    " No beeping.
+
+set nobackup                      " Don't make a backup before overwriting a file.
+set nowritebackup                 " And again.
+
+" UNCOMMENT TO USE
+set tabstop=2                    " Global tab width.
+set shiftwidth=2                 " And again, related.
+set expandtab                    " Use spaces instead of tabs
+
+set laststatus=2                  " Show the status line all the time
+" Useful status information at bottom of screen
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+
+" Tab mappings.
+map <leader>tt :tabnew<cr>
+map <leader>te :tabedit
+map <leader>tc :tabclose<cr>
+map <leader>to :tabonly<cr>
+map <leader>tn :tabnext<cr>
+map <leader>tp :tabprevious<cr>
+map <leader>tf :tabfirst<cr>
+map <leader>tl :tablast<cr>
+map <leader>tm :tabmove
+
+" Fugitive mappings
+map <Leader>ga :Gwrite<cr>
+map <Leader>gc :Gcommit<cr>
+map <Leader>gb :Gblame<cr>
+map <Leader>gr :Gread<cr>
+map <Leader>gp :GitPush<cr>
+
+" Ruby mappings
+map <Leader>ra :A<CR>
+map <Leader>rr :R<CR>
+map <Leader>rj :Rjavascript<CR>
+map <Leader>rc :Rscript<CR>
+map <Leader>rg :Rgenerate<SPACE>
+map <Leader>rs :Rserver!<CR>
+
+
+" CoffeeScript mappings
+map <Leader>cc :silent CoffeeCompile<CR>
+map <Leader>cl CoffeeLint<CR>
+
+" Phpunit settings
+let g:phpunit_testroot = 'Tests'
+
+" Php mappings
+map <Leader>pp :!phpunit<CR>
+map <Leader>pl :!php -l %<CR>
+" Js Mappings
+map <Leader>g :silent Grunt<CR>
+map <Leader>yt :!yeoman test<CR>
+map <Leader>yb :!yeoman build<CR>
+
+set background=dark
+let g:solarized_termtrans=1
+let g:solarized_termcolors=256
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
+
+colorscheme solarized
+
+set list listchars=tab:>-,trail:.,extends:>
+
+
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
+autocmd Filetype coffeescript setlocal ts=2 sts=2 sw=2
+autocmd Filetype php setlocal ts=4 sts=4 sw=4
+
+" Remove trailing whitespace
+:nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+:nnoremap <silent> <F6> :let _s=@/<Bar>:%s/\vecho (\$.{-});/if(isset(\1)) echo \1;/g<Bar>:let @/=_s<Bar>:nohl<CR>
+" Reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
+
+" Easy split navigation remapping splits
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Automatically reload vimrc when it's saved
+au BufWritePost .vimrc so ~/.vimrc
+
+" Clear search highlights
+noremap <silent><Leader>/ :nohls<CR>
+noremap <leader>n :NERDTree<cr>
+
+" Protect your fat fingers from the evils of <F1>
+noremap <F1> <Esc>
+
+" split resizing
+:map - <C-W><
+:map + <C-W>>
+
+:map <A-j> <C-W>-
+:map <A-k> <C-W>+
+
+
+" remap zz to Z
+:map Z zz
+
+
+
+set exrc" enable per-directory .vimrc files
+set secure" disable Usefulnsafe commands in local .vimrc files

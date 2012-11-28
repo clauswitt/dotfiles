@@ -1,0 +1,8 @@
+{
+  "name": "ClausWitt",
+  "windows": [
+    {"name": "VIM", "command": "vim"},
+    {"name": "Mutt", "command": "mutt"},
+    {"name": "top", "command": "top"}
+  ]
+}

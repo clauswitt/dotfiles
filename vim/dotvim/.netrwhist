@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/clauswitt/Documents/Projects/whoot'
+let g:netrw_dirhist_2='/Users/clauswitt/Documents/Projects/SystemetProject'
+let g:netrw_dirhist_3='/Users/clauswitt/Documents/Projects/showmethecodes.eu'
+let g:netrw_dirhist_4='/Users/clauswitt/Documents/Projects/test'
+let g:netrw_dirhist_5='/Users/clauswitt/bin/dotfiles/tmuxinator'
+let g:netrw_dirhist_6='/Users/clauswitt/Documents/Projects/SystemetProject/Systemet'

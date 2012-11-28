@@ -1,0 +1,18 @@
+# ~/.tmuxinator/Systemet.yml
+# you can make as many tabs as you wish...
+
+project_name: Systemet
+project_root: ~/Documents/Projects/SystemetProject
+tabs:
+  - editor: vim
+  - shells:
+      layout: main-vertical
+      panes:
+        - cd Systemet
+        - cd SystemJs
+        - cd SystemPublic
+  - syslog: ssh -t asys tail -f /var/log/syslog
+  - apachelog: ssh -t asys tail -f /var/log/apache2/error.log
+  - database: ssh -t asys m
+  - server-top: ssh -t asys top
+  - server: ssh asys
