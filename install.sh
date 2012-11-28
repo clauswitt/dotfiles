@@ -1,8 +1,8 @@
 #!/bin/zsh
-
+ROOT=${1:-~}
 
 function install() {
-  TARGET=~/${2:-.$1}
+  TARGET=$ROOT/${2:-.$1}
   if [[ -e $TARGET ]]; then
     rm $TARGET
   fi
