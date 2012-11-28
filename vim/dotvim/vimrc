@@ -93,6 +93,12 @@ map <Leader>g :silent Grunt<CR>
 map <Leader>yt :!yeoman test<CR>
 map <Leader>yb :!yeoman build<CR>
 
+" Tabular {
+map <Leader>t= :Tab /=<CR>
+map <Leader>t> :Tab /=><CR>
+map <Leader>t: :Tab /:\zs<CR>
+
+
 set background=dark
 let g:solarized_termtrans=1
 let g:solarized_termcolors=256
@@ -144,6 +150,18 @@ noremap <F1> <Esc>
 " remap zz to Z
 :map Z zz
 
+" Rename current file, thanks Gary Bernhardt via Ben Orenstein
+function! RenameFile()
+  let old_name = expand('%')
+  let new_name = input('New file name: ', expand('%'), 'file')
+  if new_name != '' && new_name != old_name
+    exec ':saveas ' . new_name
+    exec ':silent !rm ' . old_name
+    redraw!
+  endif
+endfunction
+
+map <leader>r :call RenameFile()<cr>
 
 
 set exrc" enable per-directory .vimrc files
