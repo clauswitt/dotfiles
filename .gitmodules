@@ -1,57 +1,57 @@
 [submodule "vim/dotvim/bundle/webapi-vim"]
 	path = vim/dotvim/bundle/webapi-vim
-	url = git://github.com/mattn/webapi-vim.git
+	url = https://github.com/mattn/webapi-vim.git
 [submodule "vim/dotvim/bundle/supertab"]
 	path = vim/dotvim/bundle/supertab
-	url = git://github.com/ervandew/supertab.git
+	url = https://github.com/ervandew/supertab.git
 [submodule "vim/dotvim/bundle/vim-snipmate"]
 	path = vim/dotvim/bundle/vim-snipmate
-	url = git://github.com/garbas/vim-snipmate.git
+	url = https://github.com/garbas/vim-snipmate.git
 [submodule "vim/dotvim/bundle/vim-javascript"]
 	path = vim/dotvim/bundle/vim-javascript
-	url = git://github.com/pangloss/vim-javascript.git
+	url = https://github.com/pangloss/vim-javascript.git
 [submodule "vim/dotvim/bundle/vim-coffee-script"]
 	path = vim/dotvim/bundle/vim-coffee-script
-	url = git://github.com/kchmck/vim-coffee-script.git
+	url = https://github.com/kchmck/vim-coffee-script.git
 [submodule "vim/dotvim/bundle/vim-fugitive"]
 	path = vim/dotvim/bundle/vim-fugitive
-	url = git://github.com/tpope/vim-fugitive.git
+	url = https://github.com/tpope/vim-fugitive.git
 [submodule "vim/dotvim/bundle/vim-git"]
 	path = vim/dotvim/bundle/vim-git
-	url = git://github.com/tpope/vim-git.git
+	url = https://github.com/tpope/vim-git.git
 [submodule "vim/dotvim/bundle/vim-markdown"]
 	path = vim/dotvim/bundle/vim-markdown
-	url = git://github.com/tpope/vim-markdown.git
+	url = https://github.com/tpope/vim-markdown.git
 [submodule "vim/dotvim/bundle/vim-rails"]
 	path = vim/dotvim/bundle/vim-rails
-	url = git://github.com/tpope/vim-rails.git
+	url = https://github.com/tpope/vim-rails.git
 [submodule "vim/dotvim/bundle/vim-surround"]
 	path = vim/dotvim/bundle/vim-surround
-	url = git://github.com/tpope/vim-surround.git
+	url = https://github.com/tpope/vim-surround.git
 [submodule "vim/dotvim/bundle/vim-ruby"]
 	path = vim/dotvim/bundle/vim-ruby
-	url = git://github.com/vim-ruby/vim-ruby.git
+	url = https://github.com/vim-ruby/vim-ruby.git
 [submodule "vim/dotvim/bundle/Gist.vim"]
 	path = vim/dotvim/bundle/Gist.vim
-	url = git://github.com/vim-scripts/Gist.vim.git
+	url = https://github.com/vim-scripts/Gist.vim.git
 [submodule "vim/dotvim/bundle/syntastic"]
 	path = vim/dotvim/bundle/syntastic
-	url = git://github.com/scrooloose/syntastic.git
+	url = https://github.com/scrooloose/syntastic.git
 [submodule "vim/dotvim/bundle/nerdtree"]
 	path = vim/dotvim/bundle/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
+	url = https://github.com/scrooloose/nerdtree.git
 [submodule "vim/dotvim/bundle/nerdcommenter"]
 	path = vim/dotvim/bundle/nerdcommenter
-	url = git://github.com/scrooloose/nerdcommenter.git
+	url = https://github.com/scrooloose/nerdcommenter.git
 [submodule "vim/dotvim/bundle/vim-matchit"]
 	path = vim/dotvim/bundle/vim-matchit
-	url = git://github.com/tsaleh/vim-matchit.git
+	url = https://github.com/tsaleh/vim-matchit.git
 [submodule "vim/dotvim/bundle/threesome.vim"]
 	path = vim/dotvim/bundle/threesome.vim
-	url = git://github.com/sjl/threesome.vim.git
+	url = https://github.com/sjl/threesome.vim.git
 [submodule "vim/dotvim/bundle/grunt.vim"]
 	path = vim/dotvim/bundle/grunt.vim
-	url = git://github.com/mklabs/grunt.vim.git
+	url = https://github.com/mklabs/grunt.vim.git
 [submodule "vim/dotvim/bundle/tlib_vim"]
 	path = vim/dotvim/bundle/tlib_vim
 	url = https://github.com/tomtom/tlib_vim.git
@@ -63,10 +63,10 @@
 	url = https://github.com/honza/snipmate-snippets.git
 [submodule "vim/dotvim/bundle/golden-ratio"]
 	path = vim/dotvim/bundle/golden-ratio
-	url = git://github.com/roman/golden-ratio.git
+	url = https://github.com/roman/golden-ratio.git
 [submodule "vim/dotvim/bundle/vim-phpunit"]
 	path = vim/dotvim/bundle/vim-phpunit
-	url = git://github.com/clauswitt/vim-phpunit.git
+	url = https://github.com/clauswitt/vim-phpunit.git
 [submodule "vim/dotvim/bundle/vim-endwise"]
 	path = vim/dotvim/bundle/vim-endwise
 	url = https://github.com/tpope/vim-endwise.git
@@ -82,3 +82,6 @@
 [submodule "vim/dotvim/bundle/tcomment_vim"]
 	path = vim/dotvim/bundle/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim.git
+[submodule "vim/dotvim/bundle/vim-unimpaired"]
+	path = vim/dotvim/bundle/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git

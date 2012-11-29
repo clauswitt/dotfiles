@@ -59,6 +59,8 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*Cap
 set autoindent " Indent at the same level as previous line
 set smartindent
 
+" Make mapping
+map <Leader>m :make<cr>
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
