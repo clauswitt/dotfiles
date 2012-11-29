@@ -33,23 +33,32 @@ hi CursorLine cterm=NONE ctermbg=black
 
 
 set wrap                          " Turn on line wrapping.
-set scrolloff=3                   " Show 3 lines of context around the cursor.
-
+set scrolloff=6                   " Show 3 lines of context around the cursor.
+set showmatch
 set title                         " Set the terminal's title
 
 set visualbell                    " No beeping.
 
 set nobackup                      " Don't make a backup before overwriting a file.
 set nowritebackup                 " And again.
+set noswapfile
+set backupskip=/tmp/*,/private/tmp/*
+set undodir=~/.vim/undo
+
 
 " UNCOMMENT TO USE
 set tabstop=2                    " Global tab width.
+set backspace=2
 set shiftwidth=2                 " And again, related.
+set smarttab
 set expandtab                    " Use spaces instead of tabs
-
 set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+
+set autoindent " Indent at the same level as previous line
+set smartindent
+
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
@@ -68,6 +77,7 @@ map <Leader>gc :Gcommit<cr>
 map <Leader>gb :Gblame<cr>
 map <Leader>gr :Gread<cr>
 map <Leader>gp :GitPush<cr>
+map <Leader>gs :Gstatus<cr>
 
 " Ruby mappings
 map <Leader>ra :A<CR>
