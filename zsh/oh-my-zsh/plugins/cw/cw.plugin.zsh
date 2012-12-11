@@ -11,6 +11,8 @@ alias ezs='subl ~/.oh-my-zsh/plugins/cw/cw.plugin.zsh'
 alias theme="vim ~/.oh-my-zsh/themes/clauswitt.zsh-theme"
 alias themes="subl ~/.oh-my-zsh/themes/clauswitt.zsh-theme"
 alias cw="ssh cw"
+alias vd="vagrant destroy -f"
+alias vu="vagrant up"
 # alias for directories
 alias sys='cd ~/Documents/Projects/SystemetProject/Systemet'
 alias ssh="source ~/.auth_ssh; ssh"
@@ -186,6 +188,13 @@ remotejson() {
   curl $1 | pjson
 }
 
+createTmux() {
+  projectName=$1
+  basefile=~/.tmuxinator/.base.yml
+  filename=~/.tmuxinator/$projectName.yml
+  cp $basefile $filename
+  vim $filename
+}
 # Setup default root paths
 CDPATH=.:~/Documents/Projects:~/Documents/Projects/sites:~/Documents/Projects/SystemetProject:~/Documents/Projects/FLOW3/Packages/Application:~/Documents/Projects/FLOW3/Packages/Application/ArnsboMedia.VideoSystem.Tweaker/Resources/Public:
 # Use vim text as default editor

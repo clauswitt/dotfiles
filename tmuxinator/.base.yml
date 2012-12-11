@@ -1,0 +1,6 @@
+
+project_name: base
+project_root: ~/Documents/Projects/
+tabs:
+  - editor: vim
+  - shell:
