@@ -188,6 +188,14 @@ remotejson() {
   curl $1 | pjson
 }
 
+mkp() {
+  cd ~/Documents/Projects
+  mkdir -p $1
+  cd $1
+  git init
+
+}
+
 createTmux() {
   projectName=$1
   basefile=~/.tmuxinator/.base.yml
