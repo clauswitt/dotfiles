@@ -1,0 +1,9 @@
+project_name: Voiceselector
+project_root: ~/Documents/Projects/voiceselector
+tabs:
+  - editor: vim
+  - guard: bundle exec guard
+  - server: rails s
+  - console: rails c
+  - term:
+

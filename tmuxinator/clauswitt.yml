@@ -1,0 +1,6 @@
+
+project_name: clauswitt
+project_root: ~/Documents/Projects/sites/clauswitt.com
+tabs:
+  - editor: vim
+  - shell:
