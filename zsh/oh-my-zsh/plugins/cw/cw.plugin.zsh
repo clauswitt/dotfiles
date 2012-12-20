@@ -196,6 +196,13 @@ mkp() {
 
 }
 
+clonep() {
+  cd ~/Documents/Projects
+  git clone $1 $2
+  cd $2
+
+}
+
 createTmux() {
   projectName=$1
   basefile=~/.tmuxinator/.base.yml
