@@ -59,6 +59,8 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*Cap
 set autoindent " Indent at the same level as previous line
 set smartindent
 
+map <Leader>h :hide<cr>
+
 " Make mapping
 map <Leader>m :make<cr>
 
@@ -141,6 +143,7 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+map <Tab> <C-w>w
 
 " Clear search highlights
 noremap <silent><Leader>/ :nohls<CR>
@@ -173,6 +176,18 @@ endfunction
 
 map <leader>r :call RenameFile()<cr>
 
+function s:MkNonExDir(file, buf)
+    if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+        let dir=fnamemodify(a:file, ':h')
+        if !isdirectory(dir)
+            call mkdir(dir, 'p')
+        endif
+    endif
+endfunction
+augroup BWCCreateDir
+    autocmd!
+    autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+augroup END
 
 set exrc" enable per-directory .vimrc files
 set secure" disable Usefulnsafe commands in local .vimrc files
