@@ -9,6 +9,9 @@ function install() {
   ln -nfs $PWD/$1 $TARGET
 }
 
+git submodule init
+git submodule update
+
 install "tmuxinator"
 install "git/gitconfig" ".gitconfig"
 install "git/gitignore_global" ".gitignore_global"
