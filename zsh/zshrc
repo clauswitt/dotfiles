@@ -4,7 +4,7 @@ ZSH_THEME="clauswitt"
 DISABLE_AUTO_TITLE=true
 LANG=en_US.UTF-8
 LC_ALL=en_US.UTF-8
-plugins=(git brew github node npm osx phing rake ruby rvm heroku flow3 cw grunt)
+plugins=(cw git brew github node npm osx phing rake ruby rvm heroku flow3 grunt)
 fpath=(~/bin/dotfiles/zsh-completions $fpath)
 source $ZSH/oh-my-zsh.sh
 
