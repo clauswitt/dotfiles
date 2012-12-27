@@ -151,6 +151,7 @@ noremap <leader>n :NERDTree<cr>
 
 " Protect your fat fingers from the evils of <F1>
 noremap <F1> <Esc>
+nnoremap <F3> :NumbersToggle<CR>
 
 " split resizing
 :map - <C-W><
