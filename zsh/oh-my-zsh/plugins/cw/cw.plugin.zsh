@@ -87,7 +87,7 @@ compdef ggpull=git
 alias ggpush='git push origin $(current_branch)'
 compdef ggpush=git
 alias ggpnp='git pull origin $(current_branch) && git push origin $(current_branch)'
-c
+
 # edit zsh settings (this file)
 TERM=screen-256color-bce
 WEBSERVER=root@josephcurwen.diginero.eu:/opt/sites
