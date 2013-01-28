@@ -105,8 +105,6 @@ alias vd="vagrant destroy -f"
 alias vu="vagrant up"
 # alias for directories
 alias sys='cd ~/Documents/Projects/SystemetProject/Systemet'
-alias ssh="source ~/.auth_ssh; ssh"
-alias git="source ~/.auth_ssh; git"
 alias fpm='/usr/local/sbin/php-fpm '
 # open browser
 alias chrome='open -a "Google Chrome" '
