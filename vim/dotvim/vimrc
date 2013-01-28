@@ -76,12 +76,12 @@ map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
 
 " Fugitive mappings
-map <Leader>ga :Gwrite<cr>
-map <Leader>gc :Gcommit<cr>
-map <Leader>gb :Gblame<cr>
-map <Leader>gr :Gread<cr>
-map <Leader>gp :GitPush<cr>
-map <Leader>gs :Gstatus<cr>
+map <Leader><Leader>ga :Gwrite<cr>
+map <Leader><Leader>gc :Gcommit<cr>
+map <Leader><Leader>gb :Gblame<cr>
+map <Leader><Leader>gr :Gread<cr>
+map <Leader><Leader>gp :GitPush<cr>
+map <Leader><Leader>gs :Gstatus<cr>
 
 map <Leader>rj :Rjavascript<CR>
 map <Leader>rc :Rcontroller<CR>
@@ -187,6 +187,32 @@ augroup BWCCreateDir
     autocmd!
     autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
 augroup END
+
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>e :edit %%
+map <leader>v :view %%
+
+" command-t bindings
+
+" Open files with <leader>f
+map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
+" Open files, limited to the directory of the current file, with <leader>gf
+map <leader>gf :CommandTFlush<cr>\|:CommandT %%<cr>
+
+
+" command-t for rails
+map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
+map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
+map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
+map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
+map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
+map <leader>gp :CommandTFlush<cr>\|:CommandT public<cr>
+map <leader>gs :CommandTFlush<cr>\|:CommandT public/stylesheets<cr>
+
+map <leader>gr :topleft :split config/routes.rb<cr>
+map <leader>gg :topleft 100 :split Gemfile<cr>
+
+
 
 " UltiSnip key bindings
 let g:UltiSnipsExpandTrigger="<tab>"
