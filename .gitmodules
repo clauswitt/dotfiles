@@ -4,9 +4,6 @@
 [submodule "vim/dotvim/bundle/supertab"]
 	path = vim/dotvim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
-[submodule "vim/dotvim/bundle/vim-snipmate"]
-	path = vim/dotvim/bundle/vim-snipmate
-	url = https://github.com/garbas/vim-snipmate.git
 [submodule "vim/dotvim/bundle/vim-javascript"]
 	path = vim/dotvim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
@@ -88,3 +85,6 @@
 [submodule "vim/dotvim/bundle/numbers"]
 	path = vim/dotvim/bundle/numbers
 	url = https://github.com/myusuf3/numbers.vim.git
+[submodule "vim/dotvim/bundle/ultisnips"]
+	path = vim/dotvim/bundle/ultisnips
+	url = https://github.com/SirVer/ultisnips
