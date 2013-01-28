@@ -12,6 +12,22 @@
 
 [alias]
     # shotcuts
+    st = status
+    ci = commit
+    co = checkout
+    di = diff
+    dc = diff --cached
+    amend = commit --amend
+    aa = add --all
+    ff = merge --ff-only
+    pullff = pull --ff-only
+    noff = merge --no-ff
+    fa = fetch --all
+    pom = push origin master
+    b = branch
+    ds = diff --stat=160,120
+    dh1 = diff HEAD~1
+
     m = checkout master
 
     # various pretty loggers from various places
@@ -29,7 +45,6 @@
     #  based on http://stackoverflow.com/questions/3357219/expose-the-date-a-commit-was-pushed-to-a-repository
     justpushed = log origin/master@{\"1 hour ago\"}..origin/master --
 
-    
     # show a log without the formating, occasionaly handy for c&p
     rawlog = log --format=\"format:commit %H%nAuthor:%an%n%n%B%n\"
 
@@ -79,8 +94,8 @@
     #  if on master, "git merged topic" will tell you if topic
     #  has been merged
     merged = !sh -c 'git rev-list HEAD | grep $(git rev-parse $0)'
-	l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
-	ll = log --stat --abbrev-commit
+    l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+    ll = log --stat --abbrev-commit
 
 [merge]
 tool = threesome
