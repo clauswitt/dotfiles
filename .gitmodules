@@ -85,3 +85,9 @@
 [submodule "vim/dotvim/bundle/ultisnips"]
 	path = vim/dotvim/bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips
+[submodule "vim/dotvim/bundle/easymotion"]
+	path = vim/dotvim/bundle/easymotion
+	url = https://github.com/Lokaltog/vim-easymotion.git
+[submodule "vim/dotvim/bundle/ruby-refactoring"]
+	path = vim/dotvim/bundle/ruby-refactoring
+	url = https://github.com/ecomba/vim-ruby-refactoring.git
