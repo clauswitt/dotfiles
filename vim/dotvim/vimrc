@@ -101,7 +101,6 @@ let g:phpunit_testroot = 'Tests'
 map <Leader>pp :!phpunit<CR>
 map <Leader>pl :!php -l %<CR>
 " Js Mappings
-map <Leader>g :silent Grunt<CR>
 map <Leader>yt :!yeoman test<CR>
 map <Leader>yb :!yeoman build<CR>
 
