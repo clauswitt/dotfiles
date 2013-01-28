@@ -188,5 +188,14 @@ augroup BWCCreateDir
     autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
 augroup END
 
+" UltiSnip key bindings
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+imap <c-l> <c-r>=UltiSnips_ListSnippets()<cr>
+
 set exrc" enable per-directory .vimrc files
 set secure" disable Usefulnsafe commands in local .vimrc files
+
+
+
