@@ -83,13 +83,11 @@ map <Leader>gr :Gread<cr>
 map <Leader>gp :GitPush<cr>
 map <Leader>gs :Gstatus<cr>
 
-" Ruby mappings
-map <Leader>ra :A<CR>
-map <Leader>rr :R<CR>
 map <Leader>rj :Rjavascript<CR>
-map <Leader>rc :Rscript<CR>
-map <Leader>rg :Rgenerate<SPACE>
-map <Leader>rs :Rserver!<CR>
+map <Leader>rc :Rcontroller<CR>
+map <Leader>rm :Rmodel<CR>
+map <Leader>rv :Rview<CR>
+map <Leader>rs :Rspec<CR>
 
 
 " CoffeeScript mappings
@@ -175,7 +173,7 @@ function! RenameFile()
   endif
 endfunction
 
-map <leader>r :call RenameFile()<cr>
+map <leader>ren :call RenameFile()<cr>
 
 function s:MkNonExDir(file, buf)
     if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
