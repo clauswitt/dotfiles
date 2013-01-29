@@ -22,15 +22,6 @@
 [submodule "vim/dotvim/bundle/syntastic"]
 	path = vim/dotvim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule "vim/dotvim/bundle/vim-matchit"]
-	path = vim/dotvim/bundle/vim-matchit
-	url = https://github.com/tsaleh/vim-matchit.git
-[submodule "vim/dotvim/bundle/tlib_vim"]
-	path = vim/dotvim/bundle/tlib_vim
-	url = https://github.com/tomtom/tlib_vim.git
-[submodule "vim/dotvim/bundle/vim-addon-mw-utils"]
-	path = vim/dotvim/bundle/vim-addon-mw-utils
-	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
 [submodule "vim/dotvim/bundle/golden-ratio"]
 	path = vim/dotvim/bundle/golden-ratio
 	url = https://github.com/roman/golden-ratio.git
