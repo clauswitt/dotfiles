@@ -93,11 +93,6 @@ map <Leader>pl :!php -l %<CR>
 map <Leader>yt :!yeoman test<CR>
 map <Leader>yb :!yeoman build<CR>
 
-" Tabular {
-map <Leader>t= :Tab /=<CR>
-map <Leader>t> :Tab /=><CR>
-map <Leader>t: :Tab /:\zs<CR>
-
 
 set background=dark
 let g:solarized_termtrans=1
