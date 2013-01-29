@@ -34,9 +34,6 @@
 [submodule "vim/dotvim/bundle/vim-liquid"]
 	path = vim/dotvim/bundle/vim-liquid
 	url = https://github.com/tpope/vim-liquid.git
-[submodule "vim/dotvim/bundle/tabular"]
-	path = vim/dotvim/bundle/tabular
-	url = https://github.com/godlygeek/tabular.git
 [submodule "vim/dotvim/bundle/vim-colors-solarized"]
 	path = vim/dotvim/bundle/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
