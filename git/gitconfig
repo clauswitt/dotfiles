@@ -97,12 +97,7 @@
     l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
     ll = log --stat --abbrev-commit
 
-[merge]
-tool = threesome
 
-[mergetool "threesome"]
-cmd = "mvim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
-trustExitCode = true
 
 [color "branch"]
   current = yellow reverse
