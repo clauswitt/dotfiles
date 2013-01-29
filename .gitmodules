@@ -28,27 +28,12 @@
 [submodule "vim/dotvim/bundle/vim-ruby"]
 	path = vim/dotvim/bundle/vim-ruby
 	url = https://github.com/vim-ruby/vim-ruby.git
-[submodule "vim/dotvim/bundle/Gist.vim"]
-	path = vim/dotvim/bundle/Gist.vim
-	url = https://github.com/vim-scripts/Gist.vim.git
 [submodule "vim/dotvim/bundle/syntastic"]
 	path = vim/dotvim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule "vim/dotvim/bundle/nerdtree"]
-	path = vim/dotvim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
-[submodule "vim/dotvim/bundle/nerdcommenter"]
-	path = vim/dotvim/bundle/nerdcommenter
-	url = https://github.com/scrooloose/nerdcommenter.git
 [submodule "vim/dotvim/bundle/vim-matchit"]
 	path = vim/dotvim/bundle/vim-matchit
 	url = https://github.com/tsaleh/vim-matchit.git
-[submodule "vim/dotvim/bundle/threesome.vim"]
-	path = vim/dotvim/bundle/threesome.vim
-	url = https://github.com/sjl/threesome.vim.git
-[submodule "vim/dotvim/bundle/grunt.vim"]
-	path = vim/dotvim/bundle/grunt.vim
-	url = https://github.com/mklabs/grunt.vim.git
 [submodule "vim/dotvim/bundle/tlib_vim"]
 	path = vim/dotvim/bundle/tlib_vim
 	url = https://github.com/tomtom/tlib_vim.git
