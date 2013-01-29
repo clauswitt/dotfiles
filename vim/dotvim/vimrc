@@ -128,7 +128,6 @@ map <Tab> <C-w>w
 
 " Clear search highlights
 noremap <silent><Leader>/ :nohls<CR>
-noremap <leader>n :NERDTree<cr>
 
 " Protect your fat fingers from the evils of <F1>
 noremap <F1> <Esc>
