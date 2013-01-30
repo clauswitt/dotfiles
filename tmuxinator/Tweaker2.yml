@@ -6,18 +6,7 @@ project_root: ~/Documents/Projects/FLOW3
 tabs:
   - backendeditor: vim
   - frontendeditor: cd Packages/Application/ArnsboMedia.VideoSystem.Tweaker/Resources/Public/Frontend && vim
-  - shells:
-      layout: main-vertical
-      panes:
-        - cd Packages/Application
-        - cd Packages/Application/ArnsboMedia.VideoSystem.Tweaker/Resources/Public/Frontend
-        - cd Packages/Application/ArnsboMedia.VideoSystem.Tweaker/Resources/Public/Frontend && ant watchAll
-  - syslog: ssh -t tw2 tail -f /var/log/syslog
-  - errorlog: ssh -t tw2 tail -f /var/log/nginx/localhost.error.log
-  - systemlog: ssh -t tw2 tail -f /var/www/Data/Logs/System.log
-  - securitylog: ssh -t tw2 tail -f /var/www/Data/Logs/Security.log
-  - notificationlog: ssh -t tw2 tail -f /var/log/notification.log
-  - processinglog: ssh -t tw2 tail -f /var/log/processing.log
-  - speaklog: ssh -t tw2 tail -f /var/log/speaks.log
-  - server-top: ssh -t tw2 top
-  - server: ssh tw2
+  - root:
+  - packages: cd Packages/Application
+  - frontend: cd Packages/Application/ArnsboMedia.VideoSystem.Tweaker/Resources/Public/Frontend
+  - watcher:  cd Packages/Application/ArnsboMedia.VideoSystem.Tweaker/Resources/Public/Frontend && ant watchAll
