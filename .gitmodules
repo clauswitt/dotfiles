@@ -58,3 +58,6 @@
 [submodule "vim/dotvim/bundle/matchit"]
 	path = vim/dotvim/bundle/matchit
 	url = https://github.com/clauswitt/vim-matchit.git
+[submodule "vim/dotvim/bundle/supertab"]
+	path = vim/dotvim/bundle/supertab
+	url = https://github.com/ervandew/supertab.git
