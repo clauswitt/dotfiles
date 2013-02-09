@@ -118,7 +118,7 @@
 
 
 [github]
-   user = clauswitt
+	user = clauswitt
 
 [core]
 	excludesfile = ~/.gitignore_global

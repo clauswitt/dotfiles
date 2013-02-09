@@ -55,3 +55,6 @@
 [submodule "vim/dotvim/bundle/ruby-refactoring"]
 	path = vim/dotvim/bundle/ruby-refactoring
 	url = https://github.com/ecomba/vim-ruby-refactoring.git
+[submodule "vim/dotvim/bundle/matchit"]
+	path = vim/dotvim/bundle/matchit
+	url = https://github.com/clauswitt/vim-matchit.git

@@ -126,6 +126,12 @@ nnoremap <C-l> <C-w>l
 
 map <Tab> <C-w>w
 
+map <c-n> :bn<cr>
+map <c-p> :bp<cr>
+map <Leader><Leader>d :bd<cr>
+map <Leader><Leader>c :Bclose<cr>
+map <Leader>q :cw<cr>
+
 " Clear search highlights
 noremap <silent><Leader>/ :nohls<CR>
 
@@ -197,7 +203,28 @@ map <leader>gss :CommandTFlush<cr>\|:CommandT app/assets/stylesheets<cr>
 map <leader>gr :topleft :split config/routes.rb<cr>
 map <leader>gg :topleft 100 :split Gemfile<cr>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ARROW KEYS ARE UNACCEPTABLE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <Left> <Nop>
+map <Right> <Nop>
+map <Up> <Nop>
+map <Down> <Nop>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MULTIPURPOSE TAB KEY
+" Indent if we're at the beginning of a line. Else, do completion.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <s-tab> <c-n>
 
 " UltiSnip key bindings
 let g:UltiSnipsExpandTrigger="<tab>"
