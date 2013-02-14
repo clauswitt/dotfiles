@@ -243,7 +243,7 @@ alias :bd='clear'
 
 alias coffeebone='yeoman init coffeebone'
 alias rest='yeoman init coffeebone:rest'
-
+alias cdg='cd "$(git rev-parse --show-toplevel)"'
 
 acp() {
   git add $1
