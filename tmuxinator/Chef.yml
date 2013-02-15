@@ -5,7 +5,3 @@ project_root: ~/Documents/Projects/chef-repo
 tabs:
   - editor: vim
   - shell: 
-  - db: ssh db.arnsbomedia.com
-  - storage: ssh storage.arnsbomedia.com
-  - tweaker: ssh tweaker2.propertymedia.arnsbomedia.com
-  - poi: ssh poi.propertymedia.arnsbomedia.com:w

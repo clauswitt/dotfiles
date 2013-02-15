@@ -1,9 +1,0 @@
-project_name: Showmethecodes
-project_root: ~/Documents/Projects/showmethecodes.eu
-tabs:
-  - editor: vim
-  - shells:
-      layout: main-vertical
-      panes:
-        - yeoman server:reload
-        - node server.js

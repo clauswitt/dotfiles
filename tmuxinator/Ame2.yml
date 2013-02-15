@@ -6,13 +6,6 @@ project_root: ~/Documents/Projects/SystemetProject
 tabs:
   - frontend: cd ame2;vim
   - backend: cd Systemet;vim
-  - framework: cd Framework;vim
   - frontend-shell: cd ame2
   - backend-shell: cd Systemet
-  - framework-shell: cd Framework
-  - servers:
-      layout: main-vertical
-      panes:
-        - memcached
-        - /usr/local/sbin/php-fpm
   - error-log: tail -f ~/php.log

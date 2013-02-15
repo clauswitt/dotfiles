@@ -1,0 +1,5 @@
+project_name: myyearofawesome
+project_root: ~/Documents/Projects/sites/myyearofawesome.com
+tabs:
+  - editor: vim
+  - shell:
