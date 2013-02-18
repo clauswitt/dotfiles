@@ -4,15 +4,7 @@
 project_name: Systemet
 project_root: ~/Documents/Projects/SystemetProject
 tabs:
-  - editor: vim
-  - shells:
-      layout: main-vertical
-      panes:
-        - cd Systemet
-        - cd SystemJs
-        - cd SystemPublic
-  - syslog: ssh -t asys tail -f /var/log/syslog
-  - apachelog: ssh -t asys tail -f /var/log/apache2/error.log
-  - database: ssh -t asys m
-  - server-top: ssh -t asys top
-  - server: ssh asys
+  - app-vim: cd Systemet; vim
+  - js-vim: cd SystemJs; vim
+  - app-shell: cd Systemet
+  - js-shell: cd SystemJs

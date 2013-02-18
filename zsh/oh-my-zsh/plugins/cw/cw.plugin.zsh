@@ -191,6 +191,13 @@ vim() {
     /usr/bin/vim $@
   fi
 }
+view() {
+if command -v mvim >/dev/null 2>&1; then
+    mvim -Rv $@
+  else
+    /usr/bin/view $@
+  fi
+}
 #git function to checkout last parameter of last command via git checkout
 gcl() {
   last_command=$history[$[HISTCMD-1]];
