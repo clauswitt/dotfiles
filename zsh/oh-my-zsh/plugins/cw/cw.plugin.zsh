@@ -310,4 +310,5 @@ alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resour
 CDPATH=.:~/Documents/Projects:~/Documents/Projects/sites:~/Documents/Projects/SystemetProject:~/Documents/Projects/FLOW3/Packages/Application:~/Documents/Projects/FLOW3/Packages/Application/ArnsboMedia.VideoSystem.Tweaker/Resources/Public:
 # Use vim text as default editor
 EDITOR=vim
+export EDITOR='mvim -v'
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
