@@ -1,0 +1,6 @@
+project_name: Dev Douchebag
+project_root: ~/Documents/Projects/devdouchebag
+tabs:
+  - editor: vim
+  - shell: 
+
