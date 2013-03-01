@@ -1,0 +1,4 @@
+project_name: GameBook
+project_root: /Users/clauswitt/Dropbox/html5-game-projects
+tabs:
+  - Vim: cd manuscript;vim

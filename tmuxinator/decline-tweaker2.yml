@@ -1,0 +1,10 @@
+project_name: DeclineOrder
+project_root: /Users/clauswitt/Dropbox/Projects/FLOW3/
+tabs:
+  - Root:
+  - CustomerNotification: cd Packages/Application/ArnsboMedia.VideoSystem.CustomerNotification;vim
+  - Customers: cd Packages/Application/ArnsboMedia.VideoSystem.Customers;vim
+  - Ordering: cd Packages/Application/ArnsboMedia.VideoSystem.Ordering;vim
+  - Tweaker: cd Packages/Application/ArnsboMedia.VideoSystem.Tweaker;vim
+  - Base: cd Packages/Application/ArnsboMedia.VideoSystem.Base;vim
+  - Frontend: cd Packages/Application/ArnsboMedia.VideoSystem.Tweaker/Resources/Public/Frontend;vim

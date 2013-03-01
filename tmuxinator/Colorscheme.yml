@@ -1,0 +1,5 @@
+project_name: Colorscheme
+project_root: /Users/clauswitt/Dropbox/Projects/colorscheme/
+tabs:
+  - vim: vim
+  - shell: 

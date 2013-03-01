@@ -95,6 +95,7 @@ WEBSERVER=root@josephcurwen.diginero.eu:/opt/sites
 alias tls="tmux ls"
 alias tk="tmux kill-session -t"
 alias ta="tmux attach-session -t "
+alias tc="~/Scripts/tmux-copy-session.sh"
 alias editzsh='vim ~/.oh-my-zsh/plugins/cw/cw.plugin.zsh'
 alias ez="editzsh"
 alias ezs='subl ~/.oh-my-zsh/plugins/cw/cw.plugin.zsh'
