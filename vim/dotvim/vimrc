@@ -218,6 +218,19 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 imap <c-l> <c-r>=UltiSnips_ListSnippets()<cr>
 
+" Search Dash for word under cursor
+function! SearchDash()
+  let s:browser = "/usr/bin/open"
+  let s:wordUnderCursor = expand("<cword>")
+  let s:url = "dash://".s:wordUnderCursor
+  let s:cmd ="silent ! " . s:browser . " " . s:url
+  execute s:cmd
+  redraw!
+endfunction
+map <leader>d :call SearchDash()<CR>
+
+map <C-E> :call g:Execrus()<CR>
+
 set exrc" enable per-directory .vimrc files
 set secure" disable Usefulnsafe commands in local .vimrc files
 

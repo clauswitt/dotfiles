@@ -67,3 +67,6 @@
 [submodule "vim/dotvim/bundle/gitgutter"]
 	path = vim/dotvim/bundle/gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
+[submodule "vim/dotvim/bundle/execrus"]
+	path = vim/dotvim/bundle/execrus
+	url = https://github.com/Sirupsen/vim-execrus.git
