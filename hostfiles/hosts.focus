@@ -1,3 +1,4 @@
+# Social
 127.0.0.1 www.facebook.com
 127.0.0.1 facebook.com
 127.0.0.1 twitter.com
@@ -5,13 +6,13 @@
 127.0.0.1 www.linkedin.com
 127.0.0.1 linkedin.com
 
+# News and opinion
 127.0.0.1 reddit.com
 127.0.0.1 www.reddit.com
 127.0.0.1 news.ycombinator.com
 127.0.0.1 *.reddit.com
 127.0.0.1 dzone.com
 127.0.0.1 www.dzone.com
-
 127.0.0.1 jp.dk
 127.0.0.1 www.jp.dk
 127.0.0.1 pol.dk
@@ -29,12 +30,13 @@
 127.0.0.1 eb.dk
 127.0.0.1 ekstrabladet.dk
 127.0.0.1 www.ekstrabladet.dk
+127.0.0.1 imdb.com
+127.0.0.1 www.imdb.com
 
+# Shopping
 127.0.0.1 www.amazon.com
 127.0.0.1 amazon.com
 127.0.0.1 www.amazon.co.uk
 127.0.0.1 amazon.co.uk
-127.0.0.1 imdb.com
-127.0.0.1 www.imdb.com
 
 
