@@ -5,6 +5,10 @@
 127.0.0.1 www.twitter.com
 127.0.0.1 www.linkedin.com
 127.0.0.1 linkedin.com
+127.0.0.1 youtube.com
+127.0.0.1 www.youtube.com
+127.0.0.1 vimeo.com
+127.0.0.1 www.vimeo.com
 
 # News and opinion
 127.0.0.1 reddit.com
