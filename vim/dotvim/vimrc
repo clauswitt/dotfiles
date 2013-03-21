@@ -230,7 +230,8 @@ endfunction
 map <leader>d :call SearchDash()<CR>
 
 map <C-E> :call g:Execrus()<CR>
-
+map <C-W> :w<CR>
+map <Leader>w :w<CR>
 set exrc" enable per-directory .vimrc files
 set secure" disable Usefulnsafe commands in local .vimrc files
 
