@@ -59,6 +59,8 @@ alias gpoat='git push origin --all && git push origin --tags'
 # or submodule.
 alias grt='cd $(git rev-parse --show-toplevel || echo ".")'
 
+alias gls='git ls-files'
+
 # Git and svn mix
 alias git-svn-dcommit-push='git svn dcommit && git push github master:svntrunk'
 compdef git-svn-dcommit-push=git
