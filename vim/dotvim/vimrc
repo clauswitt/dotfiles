@@ -327,6 +327,7 @@ map <Leader>w :w<CR>
 set exrc" enable per-directory .vimrc files
 nnoremap <Leader>x :e .exrc<cr>
 set secure" disable Usefulnsafe commands in local .vimrc files
+nnoremap <F2> <C-]>
 
 
 set shortmess+=I
