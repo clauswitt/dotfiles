@@ -1,5 +1,6 @@
 let mapleader = ","
 set nocompatible                  " Must come first because it changes other options.
+set timeout timeoutlen=1000 ttimeoutlen=100
 
 silent! call pathogen#runtime_append_all_bundles()
 call pathogen#infect()
