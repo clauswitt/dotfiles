@@ -13,8 +13,7 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:/usr/local/Cellar/php54/bin
 PATH=$PATH:/usr/local/sbin
-PATH=$PATH:/usr/texbin
-PATH=$PATH:~/Scripts/play
+PATH="/usr/local/share/npm/bin:$PATH"
 preexec () {  }
 . ~/Scripts/z.sh
 function precmd () {
