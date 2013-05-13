@@ -1,0 +1,7 @@
+project_name: hastur
+project_root: /Users/clauswitt/Documents/Projects/hastur/
+tabs:
+  - vim: vim
+  - console: rails c
+  - server: rails s
+  - terminal: 
