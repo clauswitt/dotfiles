@@ -14,11 +14,14 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:/usr/local/Cellar/php54/bin
 PATH=$PATH:/usr/local/sbin
 PATH="/usr/local/share/npm/bin:$PATH"
+
+
 preexec () {  }
 . ~/Scripts/z.sh
 function precmd () {
   z --add "$(pwd -P)"
 }
-
-PATH=$PATH:/Users/clauswitt/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:/usr/local/texlive/2012/bin/universal-darwin
 echo "export SSH_AUTH_SOCK=$SSH_AUTH_SOCK" > ~/.auth_ssh
+
+PATH=$PATH:/Users/claus/.rvm/bin # Add RVM to PATH for scripting

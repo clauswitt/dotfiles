@@ -118,7 +118,6 @@ alias chrome='open -a "Google Chrome" '
 alias canary='open -a "Google Chrome Canary" '
 alias safari='open -a "Safari" '
 alias firefox='open -a "Firefox" '
-alias sp='subl `find . -maxdepth 1 -name "*.sublime-project"`'
 alias yb='yeoman build'
 alias yt='yeoman test'
 
@@ -314,6 +313,17 @@ createTmux() {
   cp $basefile $filename
   vim $filename
 }
+
+# Install a grunt plugin and save to devDependencies
+gi() {
+  npm install --save-dev grunt-"$@"
+}
+
+# Install a grunt-contrib plugin and save to devDependencies
+gci() {
+  npm install --save-dev grunt-contrib-"$@"
+}
+
 alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc'
 # Setup default root paths
 CDPATH=.:~/Documents/Projects:~/Documents/Projects/sites:~/Documents/Projects/SystemetProject:~/Documents/Projects/FLOW3/Packages/Application:~/Documents/Projects/FLOW3/Packages/Application/ArnsboMedia.VideoSystem.Tweaker/Resources/Public:
@@ -341,5 +351,15 @@ _rake () {
 }
 
 compdef _rake rake
+
+sp () {
+  PLAYING=`~/Scripts/spotify status|grep playing|wc -l`
+  if [[ $PLAYING -eq 1  ]]; then
+    STATUS=`~/Scripts/spotify pause`
+  else
+    STATUS=`~/Scripts/spotify play`
+  fi
+  echo $STATUS
+}
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator

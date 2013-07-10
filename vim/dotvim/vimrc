@@ -331,4 +331,5 @@ set secure" disable Usefulnsafe commands in local .vimrc files
 nnoremap <F2> <C-]>
 
 
+
 set shortmess+=I
