@@ -4,7 +4,7 @@ ZSH_THEME="clauswitt"
 DISABLE_AUTO_TITLE=true
 LANG=en_US.UTF-8
 LC_ALL=en_US.UTF-8
-plugins=(cw brew github node npm osx phing rake ruby rvm heroku flow3)
+plugins=(brew github node npm osx phing rake ruby rvm heroku flow3 cw)
 fpath=(~/bin/dotfiles/zsh-completions $fpath)
 source $ZSH/oh-my-zsh.sh
 
@@ -25,3 +25,4 @@ PATH=$PATH:/usr/local/texlive/2012/bin/universal-darwin
 echo "export SSH_AUTH_SOCK=$SSH_AUTH_SOCK" > ~/.auth_ssh
 
 PATH=$PATH:/Users/claus/.rvm/bin # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
