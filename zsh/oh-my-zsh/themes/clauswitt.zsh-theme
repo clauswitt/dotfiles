@@ -76,5 +76,5 @@ function get_pwd() {
 }
 
 PROMPT='
-%{$fg[cyan]%}[%~% ]%(?.%{$fg[green]%}.%{$fg[red]%})
+%{$fg[cyan]%}[%~% ]
 %{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} %B$%b '
