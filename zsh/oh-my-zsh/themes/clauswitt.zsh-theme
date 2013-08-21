@@ -65,21 +65,14 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 
 
-#RVM and git settings
-nodeVersion=`node -v`
-npmVersion=`npm -v`
 if [[ -s ~/.rvm/scripts/rvm ]] ; then
-  RPS1='$(git_time_since_commit)|$(git_custom_status)%{$fg[red]%}[`~/.rvm/bin/rvm-prompt`]%{$reset_color%} $EPS1'
+  RPROMPT='$(git_time_since_commit)|$(git_custom_status)%{$fg[white]%}[`~/.rvm/bin/rvm-prompt`][node `node -v`]%{$reset_color%} $EPS1'
 else
-  if which rbenv &> /dev/null; then
-    RPS1='$(git_time_since_commit)|$(git_custom_status)%{$fg[red]%}[`rbenv version | sed -e "s/ (set.*$//"`]%{$reset_color%} $EPS1'
-  else
-    RPS1='$(git_time_since_commit)|$(git_custom_status) $EPS1'
-  fi
+  RPROMPT='$(git_time_since_commit)|$(git_custom_status) $EPS1'
 fi
 
 function get_pwd() {
-   echo "${PWD/$HOME/~}"
+  echo "${PWD/$HOME/~}"
 }
 
 PROMPT='
