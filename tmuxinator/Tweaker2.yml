@@ -2,7 +2,7 @@
 # you can make as many tabs as you wish...
 
 project_name: Tweaker2
-project_root: ~/Documents/Projects/FLOW3
+project_root: ~/Documents/Projects/work/tweaker2
 tabs:
   - backendeditor: vim
   - frontendeditor: cd Packages/Application/ArnsboMedia.VideoSystem.Tweaker/Resources/Public/Frontend && vim

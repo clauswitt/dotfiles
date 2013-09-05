@@ -2,9 +2,11 @@
 # you can make as many tabs as you wish...
 
 project_name: Systemet
-project_root: ~/Documents/Projects/SystemetProject
+project_root: ~/Documents/Projects/work/systemet
 tabs:
-  - app-vim: cd Systemet; vim
+  - app-vim: cd Application; vim
   - js-vim: cd SystemJs; vim
-  - app-shell: cd Systemet
+  - app-shell: cd Application
   - js-shell: cd SystemJs
+  - public: cd SystemPublic; vim
+  - framework: cd Framework; vim

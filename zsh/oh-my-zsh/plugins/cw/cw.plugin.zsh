@@ -185,13 +185,6 @@ memain() {
 }
 
 
-#git function to add last parameter of last command via git add (used after a diff)
-gal() {
-  last_command=$history[$[HISTCMD-1]];
-  last_command_array=("${(s/ /)last_command}")
-  echo $last_command_array[-1];
-  git add $last_command_array[-1];
-}
 vim() {
   if command -v mvim >/dev/null 2>&1; then
     mvim -v $@
@@ -206,12 +199,18 @@ if command -v mvim >/dev/null 2>&1; then
     /usr/bin/view $@
   fi
 }
-#git function to checkout last parameter of last command via git checkout
-gcl() {
+last_command_last_parameter() {
   last_command=$history[$[HISTCMD-1]];
   last_command_array=("${(s/ /)last_command}")
   echo $last_command_array[-1];
-  git checkout $last_command_array[-1];
+}
+#git function to add last parameter of last command via git add (used after a diff)
+gal() {
+  git add $(last_command_last_parameter)
+}
+#git function to checkout last parameter of last command via git checkout
+gcl() {
+  git checkout $(last_command_last_parameter)
 }
 
 _mux() {

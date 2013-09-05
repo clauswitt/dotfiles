@@ -41,3 +41,6 @@ Build
 ehthumbs.db
 Icon?
 Thumbs.db
+
+plugins/cw
+themes/clauswitt.zsh-theme

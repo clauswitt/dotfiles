@@ -1,7 +1,7 @@
 # ~/.tmuxinator/Ame2.yml
 
 project_name: Chef
-project_root: ~/Documents/Projects/chef-repo
+project_root: ~/Documents/Projects/work/chef-repo
 tabs:
   - editor: vim
   - shell: 
