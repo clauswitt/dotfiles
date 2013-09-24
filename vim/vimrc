@@ -131,6 +131,7 @@ map <c-n> :bn<cr>
 map <c-p> :bp<cr>
 map <Leader><Leader>d :bd<cr>
 map <Leader><Leader>c :Bclose<cr>
+map <Leader><Leader>bd :bufdo bdelete<cr>
 map <Leader>q :cw<cr>
 
 " Clear search highlights
