@@ -324,6 +324,7 @@ endfunction
 map <leader>d :call SearchDash()<CR>
 
 map <C-E> :call g:Execrus()<CR>
+map <C-F> :!open .<cr>
 map <C-W> :w<CR>
 map <Leader>w :w<CR>
 set exrc" enable per-directory .vimrc files
