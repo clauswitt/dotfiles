@@ -4,13 +4,13 @@ ZSH_THEME="clauswitt"
 DISABLE_AUTO_TITLE=true
 LANG=en_US.UTF-8
 LC_ALL=en_US.UTF-8
-plugins=(brew github node npm osx phing rake ruby rvm heroku flow3 cw)
-fpath=(~/bin/dotfiles/zsh-completions $fpath)
+plugins=(brew node npm osx rake ruby rvm cw)
+fpath=(~/dotfiles/zsh-completions $fpath)
 source $ZSH/oh-my-zsh.sh
 
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+export PATH=/usr/local/bin::/usr/local/sbin:$PATH
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:/usr/local/rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:/usr/local/Cellar/php54/bin
 PATH=$PATH:/usr/local/sbin
 PATH="/usr/local/share/npm/bin:$PATH"
@@ -24,5 +24,3 @@ function precmd () {
 PATH=$PATH:/usr/local/texlive/2012/bin/universal-darwin
 echo "export SSH_AUTH_SOCK=$SSH_AUTH_SOCK" > ~/.auth_ssh
 
-PATH=$PATH:/Users/claus/.rvm/bin # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
