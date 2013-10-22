@@ -330,6 +330,10 @@ daemons() {
   launchctl list|grep "$1" |awk '{print $3}' 
 }
 
+newpost() {
+  middleman article $1
+  vim `gsts |awk '{print \$2}'`
+}
 
 
 alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc'

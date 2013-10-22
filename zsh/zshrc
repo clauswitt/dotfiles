@@ -24,3 +24,4 @@ function precmd () {
 PATH=$PATH:/usr/local/texlive/2012/bin/universal-darwin
 echo "export SSH_AUTH_SOCK=$SSH_AUTH_SOCK" > ~/.auth_ssh
 
+[[ -s "/usr/local/rvm/scripts/rvm" ]] && source "/usr/local/rvm/scripts/rvm"
