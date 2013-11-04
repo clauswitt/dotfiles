@@ -1,6 +1,6 @@
-
+pre_window: reattach-to-user-namespace -l zsh
 project_name: base
 project_root: ~/Documents/Projects/
-tabs:
+windows:
   - editor: vim
   - shell:

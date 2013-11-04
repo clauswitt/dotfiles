@@ -22,6 +22,9 @@ function precmd () {
   z --add "$(pwd -P)"
 }
 PATH=$PATH:/usr/local/texlive/2012/bin/universal-darwin
+export PATH="$HOME/bin:$PATH"
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 echo "export SSH_AUTH_SOCK=$SSH_AUTH_SOCK" > ~/.auth_ssh
 
 [[ -s "/usr/local/rvm/scripts/rvm" ]] && source "/usr/local/rvm/scripts/rvm"

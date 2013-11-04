@@ -335,6 +335,15 @@ newpost() {
   vim `gsts |awk '{print \$2}'`
 }
 
+gsb() {
+  if (( $# == 0 )) then
+    git branch | cut -c 3- | selecta | xargs git checkout
+  fi
+  if (( $# == 1 )) then
+    git branch | cut -c 3- | selecta -s $1 | xargs git checkout
+  fi
+}
+
 
 alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc'
 # Setup default root paths
