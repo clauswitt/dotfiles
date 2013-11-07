@@ -1,9 +1,12 @@
 project_name: Voiceselector
-project_root: ~/Documents/Projects/voiceselector
-tabs:
+project_root: ~/Documents/Projects/work/voiceselector
+windows:
   - editor: vim
   - guard: bundle exec guard
   - server: rails s
   - console: rails c
-  - term:
+  - admin: cd app/assets/frontend/admin; vim
+  - admin-server: cd app/assets/frontend/admin;grunt server
+  - term: 
+  - admin-term: cd app/assets/frontend/admin
 
