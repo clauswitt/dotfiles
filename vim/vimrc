@@ -323,6 +323,7 @@ function! SearchDash()
   redraw!
 endfunction
 map <leader>d :call SearchDash()<CR>
+map <leader>r :redraw!<cr>
 
 map <C-E> :call g:Execrus()<CR>
 map <C-F> :!open .<cr>
