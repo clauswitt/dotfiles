@@ -1,0 +1,77 @@
+extends coffee
+
+snippet defc "Define Collection" !b
+define ['application', '$1'], (Application, Model) ->
+  Backbone.Collection.extend({
+    model: Model
+    url: '$2'
+    $0
+  })
+endsnippet
+
+snippet defm "Define Model" !b
+define ['application'], (Application) ->
+  Backbone.Model.extend({
+    $0
+  })
+endsnippet
+
+snippet defmod "Define module" !b
+define ['application'$1], (Application$2) ->
+1 Application.module("$3", () ->
+    this.startWithParent = false
+    self = @
+    $0
+
+    @on 'before:start', (options) ->
+
+    @on 'start', (options) ->
+
+    @on 'before:stop', () ->
+
+  )
+endsnippet
+
+snippet bm "Backbone Model" !b
+Backbone.Model.extend({$0})
+endsnippet
+
+snippet bc "Backbone Collection" !b
+Backbone.Collection.extend({
+  model: $1
+  url: '$2'
+  $0
+})
+endsnippet
+
+snippet im "Marionette ItemView" !b
+Backbone.Marionette.ItemView.extend({
+  tagName: '$1'
+  template: '$2'
+})
+endsnippet
+
+snippet cv "Marionette CollectionView" !b
+Backbone.Marionette.CollectionView.extend({
+  tagName: '$1'
+  itemView: $2
+  $0
+})
+endsnippet
+
+snippet mod "Module" !b
+Application.module("$1", () ->
+  this.startWithParent = false
+  self = @
+  $0
+
+  @on 'before:start', (options) ->
+
+  @on 'start', (options) ->
+
+  @on 'before:stop', () ->
+
+)
+endsnippet
+
+
