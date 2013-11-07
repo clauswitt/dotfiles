@@ -183,7 +183,7 @@ augroup END
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
-
+nmap cp :let @" = expand("%")<cr>
 " command-t bindings
 
 " Open files with <leader>f
