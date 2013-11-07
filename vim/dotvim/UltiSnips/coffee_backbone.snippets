@@ -44,11 +44,21 @@ Backbone.Collection.extend({
 })
 endsnippet
 
-snippet im "Marionette ItemView" !b
+snippet iv "Marionette ItemView" !b
 Backbone.Marionette.ItemView.extend({
   tagName: '$1'
   template: '$2'
+	$0
 })
+endsnippet
+
+snippet div "Define item view" !b
+define ['application'], (Application) ->
+  Backbone.Marionette.ItemView.extend({
+    tagName: '$1'
+    template: '$2'
+		$0
+  })
 endsnippet
 
 snippet cv "Marionette CollectionView" !b
@@ -57,6 +67,15 @@ Backbone.Marionette.CollectionView.extend({
   itemView: $2
   $0
 })
+endsnippet
+
+snippet dcv "Define Collection view" !b
+define ['application', '${1:./item_view}'], (Application, ${2:ItemView}) ->
+	Backbone.Marionette.CollectionView.extend({
+		tagName: '${3:div}'
+		itemView: $2
+		$0
+	})
 endsnippet
 
 snippet mod "Module" !b
