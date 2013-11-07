@@ -1,0 +1,11 @@
+extends html
+
+snippet {{ "Var" !b
+{{$1}}
+endsnippet
+
+snippet each "Each" !b
+{{#each $1}}
+$0
+{{/each}}
+endsnippet
