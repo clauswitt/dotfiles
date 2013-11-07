@@ -1,6 +1,6 @@
 project_name: Settings
 project_root: ~/dotfiles
-tabs:
+windows:
   - vim: cd vim;vim
   - zsh: cd zsh;vim
   - git: cd git;vim
