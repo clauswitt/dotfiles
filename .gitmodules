@@ -79,6 +79,3 @@
 [submodule "vim/dotvim/bundle/jsbeautify"]
 	path = vim/dotvim/bundle/jsbeautify
 	url = https://github.com/maksimr/vim-jsbeautify.git
-[submodule "vim/dotvim/bundle/mustache"]
-	path = vim/dotvim/bundle/mustache
-	url = git://github.com/mustache/vim-mode.git
