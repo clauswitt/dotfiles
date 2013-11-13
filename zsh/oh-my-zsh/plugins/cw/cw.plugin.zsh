@@ -362,4 +362,13 @@ sp () {
   echo $STATUS
 }
 
+get_path_part() {
+  count=${1:-2}
+  print -P %$count~
+}
+
+set_title_from_path() {
+  printf "\033k`get_path_part $1`\033\\"
+}
+
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
