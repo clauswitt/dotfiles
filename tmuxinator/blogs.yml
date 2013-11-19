@@ -1,5 +1,3 @@
-# ~/.tmuxinator/blogs.yml
-
 name: blogs
 root: ~/Documents/Projects/sites
 

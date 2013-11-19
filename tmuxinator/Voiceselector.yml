@@ -1,4 +1,4 @@
-project_name: Voiceselector
+project_name: work/voiceselector
 project_root: ~/Documents/Projects/work/voiceselector
 windows:
   - editor: vim

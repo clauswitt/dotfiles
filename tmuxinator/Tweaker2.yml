@@ -1,7 +1,4 @@
-# ~/.tmuxinator/Systemet.yml
-# you can make as many tabs as you wish...
-
-project_name: Tweaker2
+project_name: work/tweaker2
 project_root: ~/Documents/Projects/work/tweaker2
 tabs:
   - backendeditor: vim

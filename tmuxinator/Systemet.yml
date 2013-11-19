@@ -1,7 +1,4 @@
-# ~/.tmuxinator/Systemet.yml
-# you can make as many tabs as you wish...
-
-project_name: Systemet
+project_name: work/Systemet
 project_root: ~/Documents/Projects/work/systemet
 tabs:
   - app-vim: cd Application; vim
