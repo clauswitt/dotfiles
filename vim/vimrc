@@ -111,6 +111,7 @@ function! SetScreenTitle()
   let titlestring = "vim - " . expand("%:t") . ""
   let cmd = "!~/Scripts/name.sh \"".titlestring."\""
   silent execute(cmd)
+  redraw!
 endfunction
 
 autocmd BufEnter * call SetScreenTitle()
