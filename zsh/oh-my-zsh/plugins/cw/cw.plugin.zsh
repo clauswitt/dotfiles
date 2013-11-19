@@ -327,7 +327,35 @@ gci() {
 }
 
 daemons() {
-  launchctl list|grep "$1" |awk '{print $3}' 
+  if (( $# == 0 )) then
+    echo "Usage: daemons [pattern] [command]"
+    echo "\n"
+    return
+  fi
+  daemon_list=`launchctl list|grep "$1" |awk '{print $3}'`
+  if (( $# == 1 )) then
+    echo $daemon_list
+    return
+  fi
+  if (( $# == 2 )) then
+    if [[ $2 == "start" ]] then
+      echo 'starting'
+      launchctl start $daemon_list
+      return
+    fi
+    if [[ $2 == "stop" ]] then
+      echo 'stopping'
+      launchctl stop $daemon_list
+      return
+    fi
+    if [[ $2 == "restart" ]] then
+      echo 'restarting'
+      launchctl stop $daemon_list
+      launchctl start $daemon_list
+      return
+    fi
+    echo "'$2' is not a legal command - I only support start, stop and restart"
+  fi
 }
 
 newpost() {
