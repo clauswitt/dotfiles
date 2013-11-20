@@ -108,7 +108,7 @@ colorscheme solarized
 
 function! SetScreenTitle()
   silent !clear
-  let titlestring = "vim - " . expand("%:t") . ""
+  let titlestring = "Program: vim | File: " . expand("%") . ""
   let cmd = "!~/Scripts/name.sh \"".titlestring."\""
   silent execute(cmd)
   redraw!

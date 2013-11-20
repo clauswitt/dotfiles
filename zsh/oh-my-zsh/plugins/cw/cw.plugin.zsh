@@ -399,4 +399,8 @@ set_title_from_path() {
   printf "\033k`get_path_part $1`\033\\"
 }
 
+selfstats() {
+  /usr/local/share/python/selfstats $@
+}
+
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
