@@ -39,6 +39,7 @@ brew install rename
 brew install rhino
 brew install tree
 brew install webkit2png
+brew install ag
 
 brew install macvim --override-system-vim
 brew linkapps
