@@ -146,6 +146,10 @@ map <Leader><Leader>c :Bclose<cr>
 map <Leader><Leader>bd :bufdo bdelete<cr>
 map <Leader>q :cw<cr>
 
+
+map <Leader>n :cn<cr>
+map <Leader>p :cp<cr>
+
 " Clear search highlights
 noremap <silent><Leader>/ :nohls<CR>
 
