@@ -33,13 +33,15 @@ brew install mysql
 brew install ack
 brew install git
 brew install imagemagick
-brew install lynx
+brew install ffmpeg
 brew install node
 brew install rename
 brew install rhino
 brew install tree
 brew install webkit2png
 brew install ag
+brew install go --cross-compile-all
+brew install reattach-to-user-namespace
 
 brew install macvim --override-system-vim
 brew linkapps
