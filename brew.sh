@@ -16,7 +16,7 @@ brew install findutils
 brew tap homebrew/dupes
 brew install homebrew/dupes/grep
 brew tap josegonzalez/homebrew-php
-brew install php54
+brew install php55
 
 brew install tmux
 

@@ -185,13 +185,6 @@ memain() {
 }
 
 
-vim() {
-  if command -v mvim >/dev/null 2>&1; then
-    mvim -v $@
-  else
-    /usr/bin/vim $@
-  fi
-}
 emacs() {
   /usr/local/bin/emacs
 }
