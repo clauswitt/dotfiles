@@ -20,6 +20,7 @@ function install_packages {
   install "zsh/oh-my-zsh/themes/clauswitt.zsh-theme" ".oh-my-zsh/themes/clauswitt.zsh-theme"
   install "zsh/zshrc" ".zshrc"
   install "Scripts" "Scripts"
+  install "bin" "bin"
 }
 function install() {
   TARGET=$ROOT/${2:-.$1}
