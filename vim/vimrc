@@ -105,6 +105,10 @@ let g:solarized_visibility="high"
 
 colorscheme solarized
 
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn', '\%81v', 100)
+
+
 
 function! SetScreenTitle()
   silent !clear
@@ -381,5 +385,6 @@ command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 nnoremap \ :Ag<SPACE>
 
 set clipboard=unnamed
+
 
 set shortmess+=I
