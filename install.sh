@@ -25,7 +25,7 @@ function install_packages {
 function install() {
   TARGET=$ROOT/${2:-.$1}
   if [[ -e $TARGET ]]; then
-    rm $TARGET
+    rm -rf $TARGET
   fi
   ln -nfs $PWD/$1 $TARGET
 }

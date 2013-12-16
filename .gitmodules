@@ -79,3 +79,15 @@
 [submodule "vim/dotvim/bundle/jsbeautify"]
 	path = vim/dotvim/bundle/jsbeautify
 	url = https://github.com/maksimr/vim-jsbeautify.git
+[submodule "vim/dotvim/bundle/vmath"]
+	path = vim/dotvim/bundle/vmath
+	url = https://github.com/jondkinney/vmath.vim.git
+[submodule "vim/dotvim/bundle/vis"]
+	path = vim/dotvim/bundle/vis
+	url = https://github.com/vim-scripts/vis.git
+[submodule "vim/dotvim/bundle/emmet"]
+	path = vim/dotvim/bundle/emmet
+	url = https://github.com/mattn/emmet-vim.git
+[submodule "vim/dotvim/bundle/vimux"]
+	path = vim/dotvim/bundle/vimux
+	url = https://github.com/benmills/vimux.git
