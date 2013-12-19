@@ -91,3 +91,6 @@
 [submodule "vim/dotvim/bundle/vimux"]
 	path = vim/dotvim/bundle/vimux
 	url = https://github.com/benmills/vimux.git
+[submodule "vim/dotvim/bundle/multiple-cursors"]
+	path = vim/dotvim/bundle/multiple-cursors
+	url = https://github.com/terryma/vim-multiple-cursors.git
