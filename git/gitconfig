@@ -123,3 +123,6 @@
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = mvim -f
+
+[commit]
+  template = ~/.gitmessage
