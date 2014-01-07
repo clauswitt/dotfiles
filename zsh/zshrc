@@ -6,7 +6,7 @@ export DISABLE_AUTO_TITLE="true"
 LANG=en_US.UTF-8
 LC_ALL=en_US.UTF-8
 plugins=(osx rake ruby rvm cw)
-fpath=(~/dotfiles/zsh-completions $fpath)
+fpath=(/usr/local/share/zsh-completions $fpath)
 source $ZSH/oh-my-zsh.sh
 
 export PATH=/usr/local/bin::/usr/local/sbin:$PATH
