@@ -371,7 +371,7 @@ alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resour
 CDPATH=.:~/Documents/Projects:~/Documents/Projects/sites:~/Documents/Projects/SystemetProject:~/Documents/Projects/FLOW3/Packages/Application:~/Documents/Projects/FLOW3/Packages/Application/ArnsboMedia.VideoSystem.Tweaker/Resources/Public:
 # Use vim text as default editor
 EDITOR=vim
-export EDITOR='mvim -v'
+export EDITOR='vim'
 
 sp () {
   PLAYING=`~/Scripts/spotify status|grep playing|wc -l`
