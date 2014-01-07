@@ -364,6 +364,11 @@ nnoremap <Leader>x :e .exrc<cr>
 set secure" disable Usefulnsafe commands in local .vimrc files
 nnoremap <F2> <C-]>
 
+map <Leader>erc :e ~/.vimrc<cr>
+map <Leader>src :so ~/.vimrc<cr>
+map <Leader>j :e ~/Dropbox/notes/journal.md<cr>
+
+
 
 " The Silver Searcher
 if executable('ag')
