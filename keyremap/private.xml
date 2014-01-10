@@ -1,6 +1,21 @@
 <?xml version="1.0"?>
 <root>
     <list>
+      <item>
+        <name>Omnifocus remapping</name>
+        <item>
+          <name>Remap caps lock to shift command space</name>
+          <identifier>caps_lock_to_omnifocus</identifier>
+          <autogen>
+            --KeyToKey--
+            KeyCode::PC_APPLICATION,
+            KeyCode::SPACE,
+            ModifierFlag::SHIFT_L | ModifierFlag::COMMAND_L
+          </autogen>
+        </item>
+      </item>
+    </list>
+    <list>
         <item>
             <name>Proper Shift Usage</name>
 
