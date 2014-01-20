@@ -87,6 +87,8 @@ map <Leader>cl CoffeeLint<CR>
 " Phpunit settings
 let g:phpunit_testroot = 'Tests'
 
+
+
 " Php mappings
 map <Leader>pp :!phpunit<CR>
 map <Leader>pl :!php -l %<CR>
@@ -144,8 +146,7 @@ nnoremap <C-l> <C-w>l
 
 map <Tab> <C-w>w
 
-map <c-n> :bn<cr>
-map <c-p> :bp<cr>
+
 map <Leader><Leader>d :bd<cr>
 map <Leader><Leader>c :Bclose<cr>
 map <Leader><Leader>bd :bufdo bdelete<cr>
