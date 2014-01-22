@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if ! type "brew" > /dev/null; then
+  ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+fi
+
 # Make sure we’re using the latest Homebrew
 brew update
 
@@ -45,6 +49,38 @@ brew install reattach-to-user-namespace
 
 brew install macvim --override-system-vim
 brew linkapps
+
+brew tap phinze/cask
+brew install brew-cask
+
+brew cask install charles
+brew cask install skype
+brew cask install virtualbox
+brew cask install scrivener
+brew cask install vlc
+brew cask install omnifocus
+brew cask install camtasia
+brew cask install google-drive
+brew cask install sequel-pro
+brew cask install alfred
+brew cask install concentrate
+brew cask install rescuetime
+brew cask install hipchat
+brew cask install pckeyboardhack
+brew cask install keyremap4macbook
+brew cask install caffeine
+brew cask install vagrant
+brew cask install spotify
+brew cask install google-chrome
+brew cask install firefox
+
+
+
+
+
+
+
+
 
 # Remove outdated versions from the cellar
 brew cleanup
