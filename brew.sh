@@ -59,7 +59,6 @@ brew cask install virtualbox
 brew cask install scrivener
 brew cask install vlc
 brew cask install omnifocus
-brew cask install camtasia
 brew cask install google-drive
 brew cask install sequel-pro
 brew cask install alfred
