@@ -1,2 +1,2 @@
 " Make mapping
-map <Leader>m :make<cr>
+noremap <Leader>m :make<cr>

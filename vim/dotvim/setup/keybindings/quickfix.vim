@@ -1,2 +1,2 @@
-map <Leader>n :cn<cr>
-map <Leader>p :cp<cr>
+noremap <Leader>n :cn<cr>
+noremap <Leader>p :cp<cr>

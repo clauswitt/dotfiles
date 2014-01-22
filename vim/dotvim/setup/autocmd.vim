@@ -30,7 +30,7 @@ function! RenameFile()
   endif
 endfunction
 
-map <leader>ren :call RenameFile()<cr>
+noremap <leader>ren :call RenameFile()<cr>
 
 function s:MkNonExDir(file, buf)
     if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'

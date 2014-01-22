@@ -1,7 +1,7 @@
 if exists('$TMUX')
 
-  map <leader>rr :call VimuxRunCommand("irb")<CR>
-  map <leader>nr :call VimuxRunCommand("node")<cr>
+  noremap <leader>rr :call VimuxRunCommand("irb")<CR>
+  noremap <leader>nr :call VimuxRunCommand("node")<cr>
 
   function! VimuxSlime()
     call VimuxSendText(@v)
