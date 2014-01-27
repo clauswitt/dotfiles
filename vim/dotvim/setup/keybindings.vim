@@ -20,7 +20,6 @@ nnoremap <F3> :NumbersToggle<CR>
 
 " copy file name or parent path from current file
 noremap cp :let @" = expand("%")<cr>
-noremap cpp :let @" = expand("%:h")<cr>
 
 
 noremap <leader>r :redraw!<cr>
