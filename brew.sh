@@ -47,7 +47,7 @@ brew install ag
 brew install go --cross-compile-all
 brew install reattach-to-user-namespace
 
-brew install macvim --override-system-vim
+brew install vim
 brew linkapps
 
 brew tap phinze/cask
