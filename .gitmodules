@@ -97,3 +97,6 @@
 [submodule "vim/dotvim/bundle/ruby-textobj"]
 	path = vim/dotvim/bundle/ruby-textobj
 	url = https://github.com/rhysd/vim-textobj-ruby.git
+[submodule "vim/dotvim/bundle/variable-segment"]
+	path = vim/dotvim/bundle/variable-segment
+	url = https://github.com/Julian/vim-textobj-variable-segment.git
