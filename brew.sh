@@ -53,6 +53,7 @@ brew linkapps
 brew tap phinze/cask
 brew install brew-cask
 
+brew cask install iterm2
 brew cask install charles
 brew cask install skype
 brew cask install virtualbox

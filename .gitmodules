@@ -94,3 +94,6 @@
 [submodule "vim/dotvim/bundle/multiple-cursors"]
 	path = vim/dotvim/bundle/multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors.git
+[submodule "vim/dotvim/bundle/ruby-textobj"]
+	path = vim/dotvim/bundle/ruby-textobj
+	url = https://github.com/rhysd/vim-textobj-ruby.git
