@@ -21,6 +21,7 @@ function install_packages {
   install "zsh/oh-my-zsh/plugins/cw" ".oh-my-zsh/plugins/cw"
   install "zsh/oh-my-zsh/themes/clauswitt.zsh-theme" ".oh-my-zsh/themes/clauswitt.zsh-theme"
   install "zsh/zshrc" ".zshrc"
+  install "zsh/zshenv" ".zshenv"
   install "Scripts" "Scripts"
   install "bin" "bin"
 }

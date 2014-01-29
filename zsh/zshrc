@@ -11,7 +11,7 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH=/usr/local/bin::/usr/local/sbin:$PATH
 
-PATH=$PATH:/usr/local/rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:/usr/local/Cellar/php54/bin
 PATH=$PATH:/usr/local/sbin
 PATH="/usr/local/share/npm/bin:$PATH"
@@ -23,4 +23,5 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
 echo "export SSH_AUTH_SOCK=$SSH_AUTH_SOCK" > ~/.auth_ssh
 
-[[ -s "/usr/local/rvm/scripts/rvm" ]] && source "/usr/local/rvm/scripts/rvm"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
