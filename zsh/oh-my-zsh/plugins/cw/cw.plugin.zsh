@@ -368,7 +368,7 @@ gsb() {
 
 alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc'
 # Setup default root paths
-CDPATH=.:~/Documents/Projects:~/Documents/Projects/sites:~/Documents/Projects/SystemetProject:~/Documents/Projects/FLOW3/Packages/Application:~/Documents/Projects/FLOW3/Packages/Application/ArnsboMedia.VideoSystem.Tweaker/Resources/Public:
+CDPATH=.:~/Documents/Projects:~/Documents/Projects/private:~/Documents/Projects/work:~/Dropbox:~
 # Use vim text as default editor
 EDITOR=vim
 export EDITOR='vim'
