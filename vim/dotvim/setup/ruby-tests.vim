@@ -65,23 +65,37 @@ function! SetTestFile()
 endfunction
 
 function! RunTests(filename)
-    " Write the file and run tests for the given filename
-    :w
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    if match(a:filename, '\.feature$') != -1
-        exec ":!script/features " . a:filename
+    if exists('$TMUX')
+      if match(a:filename, '\.feature$') != -1
+          call VimuxRunCommand("script/features " . a:filename)
+      else
+          if filereadable("script/test")
+              call VimuxRunCommand("script/test " . a:filename)
+          elseif filereadable("Gemfile")
+              call VimuxRunCommand("bundle exec rspec --color " . a:filename)
+          else
+              call VimuxRunCommand("rspec --color " . a:filename)
+          end
+      end
     else
-        if filereadable("script/test")
-            exec ":!script/test " . a:filename
-        elseif filereadable("Gemfile")
-            exec ":!bundle exec rspec --color " . a:filename
-        else
-            exec ":!rspec --color " . a:filename
-        end
+      " Write the file and run tests for the given filename
+      :w
+      :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+      :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+      :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+      :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+      :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+      :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+      if match(a:filename, '\.feature$') != -1
+          exec ":!script/features " . a:filename
+      else
+          if filereadable("script/test")
+              exec ":!script/test " . a:filename
+          elseif filereadable("Gemfile")
+              exec ":!bundle exec rspec --color " . a:filename
+          else
+              exec ":!rspec --color " . a:filename
+          end
+      end
     end
 endfunction
