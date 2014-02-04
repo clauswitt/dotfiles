@@ -5,6 +5,7 @@ source ~/.vim/setup/keybindings/splits.vim
 source ~/.vim/setup/keybindings/buffers.vim
 source ~/.vim/setup/keybindings/quickfix.vim
 
+nnoremap <c-c> <esc>
 noremap <Tab> <C-w>w
 noremap <F1> <Esc>
 noremap Z zz
