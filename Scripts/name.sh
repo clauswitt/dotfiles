@@ -1,2 +1,2 @@
-#!/usr/local/bin/zsh
+#!/bin/zsh
 printf "\033]2;$1\033\\"
