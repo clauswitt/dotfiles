@@ -9,7 +9,7 @@ function main {
 
 function install_packages {
   install "tmuxinator"
-  install "ag/agignore", ".agignore"
+  install "ag/agignore" ".agignore"
   install "git/gitconfig" ".gitconfig"
   install "git/gitmessage" ".gitmessage"
   install "git/gitignore_global" ".gitignore_global"
