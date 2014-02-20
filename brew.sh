@@ -46,6 +46,14 @@ brew install webkit2png
 brew install ag
 brew install go --cross-compile-all
 brew install reattach-to-user-namespace
+brew install asciidoc
+brew install fop
+
+brew tap thoughtbot/formulae
+brew install gitsh
+
+brew tap jingweno/gh
+brew install gh
 
 brew install vim
 brew linkapps
@@ -73,6 +81,8 @@ brew cask install vagrant
 brew cask install spotify
 brew cask install google-chrome
 brew cask install firefox
+brew cask install send-to-kindle
+brew cask install calibre
 
 
 
