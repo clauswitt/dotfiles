@@ -48,6 +48,18 @@ brew install go --cross-compile-all
 brew install reattach-to-user-namespace
 brew install asciidoc
 brew install fop
+brew install qt
+brew install graphviz
+brew install qcachegrind
+brew install haskell-platform
+brew install rust
+brew install erlang
+brew install elixir
+brew install scala
+brew install leiningen
+
+brew tap homebrew/science
+brew install r
 
 brew tap thoughtbot/formulae
 brew install gitsh
