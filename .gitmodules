@@ -100,3 +100,6 @@
 [submodule "vim/dotvim/bundle/variable-segment"]
 	path = vim/dotvim/bundle/variable-segment
 	url = https://github.com/Julian/vim-textobj-variable-segment.git
+[submodule "vim/dotvim/bundle/rust"]
+	path = vim/dotvim/bundle/rust
+	url = https://github.com/wting/rust.vim.git
