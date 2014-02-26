@@ -12,3 +12,4 @@ endfunction
 
 command! -nargs=0 CommandTFlush :call CmdTNoOp()
 com! -n=? -com=dir CommandT         cal ctrlp#init(0, { 'dir': <q-args> })
+nnoremap <leader><leader>cs :CtrlPColorScheme<cr>
