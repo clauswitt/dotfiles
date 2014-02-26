@@ -23,6 +23,9 @@ function install_packages {
   install "zsh/extensions/themes/clauswitt.zsh-theme" ".oh-my-zsh/themes/clauswitt.zsh-theme"
   install "zsh/zshrc" ".zshrc"
   install "zsh/zshenv" ".zshenv"
+
+  install "fish/oh-my-fish/" ".oh-my-fish"
+  install "fish/config.fish" ".config/fish/config.fish"
   install "Scripts" "Scripts"
   install "bin" "bin"
 }
