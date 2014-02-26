@@ -16,7 +16,6 @@ endfunction
 
 " Find all files in all non-dot directories starting in the working directory.
 " Fuzzy select one of those. Open the selected file with :e.
-nnoremap <leader>f :call SelectaCommand("ag -l -g \".*\"", "", ":e")<cr>
 nnoremap <leader>g :call SelectaCommand("git ls-files", "", ":e")<cr>
 
 function! SelectaIdentifier()
@@ -26,5 +25,4 @@ function! SelectaIdentifier()
   " the cursor
   call SelectaCommand("find * -type f", "-s " . @z, ":e")
 endfunction
-nnoremap <c-g> :call SelectaIdentifier()<cr>
 

@@ -4,7 +4,6 @@ source ~/.vim/setup/basics.vim
 source ~/.vim/setup/theme.vim
 source ~/.vim/setup/keybindings.vim
 source ~/.vim/setup/autocmd.vim
-source ~/.vim/setup/selecta.vim
 source ~/.vim/setup/remove_arrow_keys.vim
 source ~/.vim/setup/ruby-tests.vim
 source ~/.vim/setup/dash.vim
