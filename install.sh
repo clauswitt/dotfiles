@@ -27,6 +27,8 @@ function install_packages {
   install "fish/oh-my-fish/" ".oh-my-fish"
   install "fish/config.fish" ".config/fish/config.fish"
   install "Scripts" "Scripts"
+
+  install "ruby/gemrc" ".gemrc"
   install "bin" "bin"
 }
 function install() {
