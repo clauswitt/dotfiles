@@ -103,15 +103,12 @@
 [submodule "vim/dotvim/bundle/rust"]
 	path = vim/dotvim/bundle/rust
 	url = https://github.com/wting/rust.vim.git
-[submodule "zsh/plugins/autosuggestions"]
-	path = zsh/plugins/autosuggestions
-	url = https://github.com/tarruda/zsh-autosuggestions
-[submodule "zsh/plugins/fuzzy-match"]
-	path = zsh/plugins/fuzzy-match
-	url = https://github.com/tarruda/zsh-fuzzy-match.git
 [submodule "vim/dotvim/bundle/ctrlp"]
 	path = vim/dotvim/bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
 [submodule "vim/dotvim/bundle/ctrlp-colorscheme"]
 	path = vim/dotvim/bundle/ctrlp-colorscheme
 	url = https://github.com/markwu/ctrlp-colorscheme.git
+[submodule "oh-my-zsh"]
+	path = zsh/oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git

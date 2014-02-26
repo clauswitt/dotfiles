@@ -24,8 +24,6 @@ function install_packages {
   install "zsh/zshenv" ".zshenv"
   install "Scripts" "Scripts"
   install "bin" "bin"
-  install "zsh/plugins/autosuggestions/" ".zsh-autosuggestions"
-  install "zsh/plugins/fuzzy-match/" ".zsh-fuzzy-match"
 }
 function install() {
   TARGET=$ROOT/${2:-.$1}
