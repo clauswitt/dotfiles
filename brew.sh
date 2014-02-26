@@ -58,6 +58,8 @@ brew install elixir
 brew install scala
 brew install leiningen
 
+brew install zsh
+
 brew tap homebrew/science
 brew install r
 
