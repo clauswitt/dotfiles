@@ -109,3 +109,6 @@
 [submodule "zsh/plugins/fuzzy-match"]
 	path = zsh/plugins/fuzzy-match
 	url = https://github.com/tarruda/zsh-fuzzy-match.git
+[submodule "vim/dotvim/bundle/ctrlp"]
+	path = vim/dotvim/bundle/ctrlp
+	url = https://github.com/kien/ctrlp.vim.git

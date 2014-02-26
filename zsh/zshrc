@@ -24,14 +24,3 @@ echo "export SSH_AUTH_SOCK=$SSH_AUTH_SOCK" > ~/.auth_ssh
 
 bindkey -v
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-source $HOME/.zsh-fuzzy-match/fuzzy-match.zsh
-source ~/.zsh-autosuggestions/autosuggestions.zsh
-
-# Enable autosuggestions automatically
-zle-line-init() {
-    zle autosuggest-start
-}
-zle -N zle-line-init
-
-bindkey '^f' vi-forward-word
