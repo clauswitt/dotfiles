@@ -64,7 +64,7 @@ ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}*%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 
-RPROMPT='$(git_time_since_commit)|$(git_custom_status) $EPS1'
+RPROMPT='$(rvm-prompt) $(git_time_since_commit)|$(git_custom_status) $EPS1'
 
 function get_pwd() {
   echo "${PWD/$HOME/~}"

@@ -4,23 +4,12 @@ ZSH_THEME="clauswitt"
 export DISABLE_AUTO_TITLE="true"
 LANG=en_US.UTF-8
 LC_ALL=en_US.UTF-8
-plugins=(osx rake ruby rvm cw)
+plugins=(osx rake ruby cw)
 fpath=(/usr/local/share/zsh-completions $fpath)
 source $ZSH/oh-my-zsh.sh
 
-export PATH=/usr/local/bin::/usr/local/sbin:$PATH
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-PATH=$PATH:/usr/local/Cellar/php54/bin
-PATH=$PATH:/usr/local/sbin
-PATH="/usr/local/share/npm/bin:$PATH"
-
-
-PATH=$PATH:/usr/local/texlive/2012/bin/universal-darwin
-export PATH="$HOME/bin:$PATH"
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
+GOPATH=$HOME/go
 echo "export SSH_AUTH_SOCK=$SSH_AUTH_SOCK" > ~/.auth_ssh
 
 bindkey -v
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
