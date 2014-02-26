@@ -59,6 +59,7 @@ brew install scala
 brew install leiningen
 
 brew install zsh
+brew install fish
 
 brew tap homebrew/science
 brew install r
