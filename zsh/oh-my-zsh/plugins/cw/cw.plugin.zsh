@@ -140,7 +140,6 @@ alias push="ggpush"
 alias pull="ggpull"
 
 alias here='open . '
-alias dot='cd ~/bin/dotfiles'
 alias doc='cd ~/Documents'
 alias drop='cd ~/Dropbox'
 
