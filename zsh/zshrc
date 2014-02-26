@@ -12,4 +12,5 @@ GOPATH=$HOME/go
 echo "export SSH_AUTH_SOCK=$SSH_AUTH_SOCK" > ~/.auth_ssh
 
 bindkey -v
+bindkey '^R' history-incremental-pattern-search-backward
 
