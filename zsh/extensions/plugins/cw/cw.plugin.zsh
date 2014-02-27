@@ -6,10 +6,6 @@ alias theme="vim ~/.oh-my-zsh/themes/clauswitt.zsh-theme"
 
 alias here='open . '
 
-_mux() {
-  compadd `mux list|grep -v "tmuxinator" | sed -e 's/^[ \t]*//'`
-}
-compdef _mux mux
 
 alias cdg='cd "$(git rev-parse --show-toplevel)"'
 

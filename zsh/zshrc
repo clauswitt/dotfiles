@@ -4,7 +4,7 @@ ZSH_THEME="clauswitt"
 export DISABLE_AUTO_TITLE="true"
 LANG=en_US.UTF-8
 LC_ALL=en_US.UTF-8
-plugins=(git battery osx rake ruby rvm cw)
+plugins=(docker gem coffee tmux tmuxinator brew git battery osx rake ruby rvm cw)
 fpath=(/usr/local/share/zsh-completions $fpath)
 source $ZSH/oh-my-zsh.sh
 
