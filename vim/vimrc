@@ -9,6 +9,7 @@ source ~/.vim/setup/ruby-tests.vim
 source ~/.vim/setup/dash.vim
 source ~/.vim/setup/ultisnips.vim
 source ~/.vim/setup/silversearcher.vim
+source ~/.vim/setup/selecta.vim
 source ~/.vim/setup/vimux.vim
 
 
