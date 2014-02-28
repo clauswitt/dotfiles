@@ -1,7 +1,5 @@
-Install homebrew, node and npm.
-install rvm
-Install iTerm2 , and install solarized color scheme
-Set default shell to zsh
-Install oh-my-zsh and link cw plugin and cw theme in.
-run install.sh
+Run brew.sh to install homebrew and a lot of packages and applications (see brew.sh for details)
+Run install-rvm.sh to install rvm (and some rubies)
+Set default shell to zsh (or fish)
+run install.sh to install dotfiles
 
