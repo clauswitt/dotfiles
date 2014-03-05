@@ -94,8 +94,6 @@ brew cask install keyremap4macbook
 brew cask install caffeine
 brew cask install vagrant
 brew cask install spotify
-brew cask install google-chrome
-brew cask install firefox
 brew cask install send-to-kindle
 brew cask install calibre
 
