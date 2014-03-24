@@ -84,6 +84,10 @@ _tmux_pane_words() {
   _wanted values expl 'words from current tmux pane' compadd -a w
 }
 
+now() {
+  echo $(date "+%Y-%m-%d %H:%M:%S") "|" $(get_path_part)  "|" "$@" >> $HOME/.now
+}
+
 
 zle -C tmux-pane-words-prefix   complete-word _generic
 zle -C tmux-pane-words-anywhere complete-word _generic
