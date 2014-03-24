@@ -115,3 +115,6 @@
 [submodule "fish/oh-my-fish"]
 	path = fish/oh-my-fish
 	url = https://github.com/bpinto/oh-my-fish.git
+[submodule "vim/dotvim/bundle/honza-vim-snippets"]
+	path = vim/dotvim/bundle/honza-vim-snippets
+	url = https://github.com/honza/vim-snippets.git
