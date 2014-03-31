@@ -25,8 +25,6 @@ function install_packages {
   install "zsh/zshrc" ".zshrc"
   install "zsh/zshenv" ".zshenv"
 
-  install "fish/oh-my-fish/" ".oh-my-fish"
-  install "fish/config.fish" ".config/fish/config.fish"
   install "Scripts" "Scripts"
 
   install "ruby/gemrc" ".gemrc"
