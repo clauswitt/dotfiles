@@ -3,6 +3,7 @@ set -e
 ROOT=${1:-~}
 
 function main {
+  test -d "$ROOT/.config" || mkdir -p "$ROOT/.config"
   update_git
   install_packages
 }
