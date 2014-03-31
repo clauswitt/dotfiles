@@ -57,6 +57,7 @@ brew install erlang
 brew install elixir
 brew install scala
 brew install leiningen
+brew install chicken
 
 brew install zsh
 brew install fish
