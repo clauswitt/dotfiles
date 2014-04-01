@@ -59,6 +59,9 @@ brew install scala
 brew install leiningen
 brew install chicken
 
+brew tap mcuadros/homebrew-hhvm
+brew install hhvm --HEAD
+
 brew install zsh
 brew install fish
 
