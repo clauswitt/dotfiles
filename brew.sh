@@ -75,6 +75,7 @@ brew tap jingweno/gh
 brew install gh
 
 brew install vim
+brew install emacs
 brew linkapps
 
 brew tap phinze/cask
