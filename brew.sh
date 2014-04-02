@@ -35,6 +35,7 @@ brew install postgresql
 brew install mongodb
 brew install mysql
 brew install ack
+brew install hg
 brew install git
 brew install imagemagick
 brew install ffmpeg
