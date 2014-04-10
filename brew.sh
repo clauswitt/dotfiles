@@ -77,6 +77,11 @@ brew install gh
 
 brew install vim
 brew install emacs
+
+brew install docker
+brew install boot2docker
+
+
 brew linkapps
 
 brew tap phinze/cask
@@ -89,7 +94,6 @@ brew cask install virtualbox
 brew cask install scrivener
 brew cask install vlc
 brew cask install omnifocus
-brew cask install google-drive
 brew cask install sequel-pro
 brew cask install alfred
 brew cask install concentrate
