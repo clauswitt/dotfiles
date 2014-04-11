@@ -29,6 +29,7 @@ function install_packages {
 
   install "ruby/gemrc" ".gemrc"
   install "bin" "bin"
+  install "profile"
 }
 function install() {
   TARGET=$ROOT/${2:-.$1}
