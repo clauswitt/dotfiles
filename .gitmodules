@@ -118,3 +118,6 @@
 [submodule "vim/dotvim/bundle/honza-vim-snippets"]
 	path = vim/dotvim/bundle/honza-vim-snippets
 	url = https://github.com/honza/vim-snippets.git
+[submodule "vim/dotvim/bundle/rvm"]
+	path = vim/dotvim/bundle/rvm
+	url = https://github.com/tpope/vim-rvm.git
