@@ -1,4 +1,3 @@
-
 PATH=/usr/local/bin::/usr/local/sbin:$PATH
 PATH=$PATH:/usr/local/Cellar/php54/bin
 PATH=$PATH:/usr/local/sbin

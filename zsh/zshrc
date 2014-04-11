@@ -15,3 +15,4 @@ bindkey -v
 bindkey '^R' history-incremental-pattern-search-backward
 export DOCKER_HOST=tcp://localhost:4243
 
+PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin
