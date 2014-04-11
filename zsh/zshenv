@@ -5,5 +5,3 @@ PATH="/usr/local/share/npm/bin:$PATH"
 PATH=$PATH:/usr/local/texlive/2012/bin/universal-darwin
 PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
 PATH="$HOME/bin:$PATH"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
