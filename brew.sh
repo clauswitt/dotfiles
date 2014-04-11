@@ -59,6 +59,8 @@ brew install elixir
 brew install scala
 brew install leiningen
 brew install chicken
+brew install fontforge
+brew install ttfautohint
 
 brew tap mcuadros/homebrew-hhvm
 brew install hhvm --HEAD
