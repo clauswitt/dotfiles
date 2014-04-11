@@ -24,12 +24,12 @@ function install_packages {
   install "zsh/extensions/themes/clauswitt.zsh-theme" ".oh-my-zsh/themes/clauswitt.zsh-theme"
   install "zsh/zshrc" ".zshrc"
   install "zsh/zshenv" ".zshenv"
+  install "zsh/profile" ".profile"
 
   install "Scripts" "Scripts"
 
   install "ruby/gemrc" ".gemrc"
   install "bin" "bin"
-  install "profile"
 }
 function install() {
   TARGET=$ROOT/${2:-.$1}
