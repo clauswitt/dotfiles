@@ -10,7 +10,6 @@ noremap <Tab> <C-w>w
 noremap <F1> <Esc>
 noremap Z zz
 " Mappings for write
-noremap <C-W> :w<CR>
 noremap <Leader>w :w<CR>
 
 " Clear search highlights
