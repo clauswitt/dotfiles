@@ -121,3 +121,12 @@
 [submodule "vim/dotvim/bundle/rvm"]
 	path = vim/dotvim/bundle/rvm
 	url = https://github.com/tpope/vim-rvm.git
+[submodule "vim/dotvim/bundle/fireplace"]
+	path = vim/dotvim/bundle/fireplace
+	url = https://github.com/tpope/vim-fireplace.git
+[submodule "vim/dotvim/bundle/classpath"]
+	path = vim/dotvim/bundle/classpath
+	url = https://github.com/tpope/vim-classpath.git
+[submodule "vim/dotvim/bundle/clojure-static"]
+	path = vim/dotvim/bundle/clojure-static
+	url = https://github.com/guns/vim-clojure-static.git
