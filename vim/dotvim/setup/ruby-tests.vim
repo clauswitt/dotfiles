@@ -111,6 +111,10 @@ function! GetTestCommand(filename)
       return "phpunit"
     elseif filereadable("phpunit.xml.dist")
       return "phpunit"
+    elseif filereadable("karma.conf")
+      return "node_modules/karma/bin/karma start karma.conf --single-run"
+    elseif filereadable("karma-conf.js")
+      return "node_modules/karma/bin/karma start karma-conf.js --single-run"
     elseif filereadable("Gruntfile.js")
       return "grunt test"
     elseif filereadable("package.xml")
