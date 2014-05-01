@@ -148,9 +148,9 @@ function! GetTestCommand(filename)
     elseif filereadable("Gemfile")
       return "bundle exec rspec --color " . a:filename
     elseif filereadable("phpunit.xml")
-      return "phpunit"
+      return "phpunit " . a:filename
     elseif filereadable("phpunit.xml.dist")
-      return "phpunit"
+      return "phpunit " . a:filename
     elseif filereadable("karma.conf")
       return "node_modules/karma/bin/karma start karma.conf --single-run"
     elseif filereadable("karma-conf.js")
@@ -165,7 +165,7 @@ function! GetTestCommand(filename)
     return GetRubyTestCommand(a:filename)
   endif
   if current_file_type == 'php'
-    return 'phpunit'
+    return 'phpunit ' . a:filename
   endif
 endfunction
 
