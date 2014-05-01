@@ -36,6 +36,43 @@ function! AlternateRubyFileForCurrentFile(current_file)
   return new_file
 endfunction
 
+function! AlternatePhpFileForCurrentFile(current_file)
+  if (exists ("g:php_test_dir"))
+    let test_dir = g:php_test_dir
+  else
+    let test_dir = "Tests/"
+  endif
+  if (exists ("g:php_root_dir"))
+    let root_dir = g:php_root_dir
+  else
+    let root_dir = "Classes/"
+  endif
+
+  let current_file = a:current_file
+  let in_tests = match(current_file, '^'.test_dir) != -1
+  let going_to_tests = !in_tests
+  let new_file = current_file
+
+  let in_classes = match(current_file, '\<Classes\>') != -1
+  let in_src = match(current_file, '\<src\>') != -1
+
+  if going_to_tests
+    if in_classes
+      let new_file = substitute(new_file, '^Classes/', '', '')
+    end
+    if in_src
+      let new_file = substitute(new_file, '^src/', '', '')
+    endif
+    let new_file = substitute(new_file, '\.php$', 'Test.php', '')
+    let new_file = test_dir . new_file
+  else
+    let new_file = substitute(new_file, 'Test\.php$', '.php', '')
+    let new_file = substitute(new_file, '^'.test_dir, root_dir, '')
+  endif
+  return new_file
+endfunction
+
+
 function! AlternateForCurrentFile()
   let current_file_type = &filetype
   let current_file = expand("%")
@@ -43,6 +80,9 @@ function! AlternateForCurrentFile()
 
   if current_file_type == 'ruby'
     let new_file = AlternateRubyFileForCurrentFile(current_file)
+  endif
+  if current_file_type == 'php'
+    let new_file = AlternatePhpFileForCurrentFile(current_file)
   endif
 
   return new_file
