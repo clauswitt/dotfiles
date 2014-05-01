@@ -45,7 +45,7 @@ function! AlternatePhpFileForCurrentFile(current_file)
   if (exists ("g:php_root_dir"))
     let root_dir = g:php_root_dir
   else
-    let root_dir = "Classes/"
+    let root_dir = ""
   endif
 
   let current_file = a:current_file
