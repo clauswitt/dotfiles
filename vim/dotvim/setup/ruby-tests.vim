@@ -1,3 +1,10 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" RUNNING TESTS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <leader>t :call RunTestFile()<cr>
+map <leader>T :call RunNearestTest()<cr>
+map <leader>a :call RunTests('')<cr>
+nnoremap <leader>. :call OpenTestAlternate()<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SWITCH BETWEEN TEST AND PRODUCTION CODE
@@ -6,11 +13,12 @@ function! OpenTestAlternate()
   let new_file = AlternateForCurrentFile()
   exec ':e ' . new_file
 endfunction
-function! AlternateForCurrentFile()
-  let current_file = expand("%")
-  let new_file = current_file
+
+function! AlternateRubyFileForCurrentFile(current_file)
+  let current_file = a:current_file
   let in_spec = match(current_file, '^spec/') != -1
   let going_to_spec = !in_spec
+  let new_file = current_file
   let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1 || match(current_file, '\<helpers\>') != -1
   if going_to_spec
     if in_app
@@ -27,15 +35,28 @@ function! AlternateForCurrentFile()
   endif
   return new_file
 endfunction
-nnoremap <leader>. :call OpenTestAlternate()<cr>
 
+function! AlternateForCurrentFile()
+  let current_file_type = &filetype
+  let current_file = expand("%")
+  let new_file = current_file
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" RUNNING TESTS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>t :call RunTestFile()<cr>
-map <leader>T :call RunNearestTest()<cr>
-map <leader>a :call RunTests('')<cr>
+  if current_file_type == 'ruby'
+    let new_file = AlternateRubyFileForCurrentFile(current_file)
+  endif
+
+  return new_file
+endfunction
+
+function! InTestFile()
+  let current_file_type = &filetype
+  if current_file_type == 'ruby'
+    return match(expand("%"), '\(.feature\|_spec.rb\)$') != -1
+  endif
+  if current_file_type == 'php'
+    return match(expand("%"), '\(Test.php\)$') != -1
+  endif
+endfunction
 
 function! RunTestFile(...)
     if a:0
@@ -45,13 +66,13 @@ function! RunTestFile(...)
     endif
 
     " Run the tests for the previously-marked file.
-    let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\)$') != -1
+    let in_test_file = InTestFile()
     if in_test_file
         call SetTestFile()
-    elseif !exists("t:grb_test_file")
+    elseif !exists("t:cw_test_file")
         return
     end
-    call RunTests(t:grb_test_file . command_suffix)
+    call RunTests(t:cw_test_file . command_suffix)
 endfunction
 
 function! RunNearestTest()
@@ -61,22 +82,53 @@ endfunction
 
 function! SetTestFile()
     " Set the spec file that tests will be run for.
-    let t:grb_test_file=@%
+    let t:cw_test_file=@%
+endfunction
+
+function! GetRubyTestCommand(filename)
+      if match(a:filename, '\.feature$') != -1
+          return "script/features " . a:filename
+      else
+          if filereadable("script/test")
+              return "script/test " . a:filename
+          elseif filereadable("Gemfile")
+              return "bundle exec rspec --color " . a:filename
+          else
+              return "rspec --color " . a:filename
+          end
+      end
+      return ''
+endfunction
+
+function! GetTestCommand(filename)
+  let current_file_type = &filetype
+  if current_file_type == ''
+    if filereadable("script/test")
+      return "script/test " . a:filename
+    elseif filereadable("Gemfile")
+      return "bundle exec rspec --color " . a:filename
+    elseif filereadable("phpunit.xml")
+      return "phpunit"
+    elseif filereadable("phpunit.xml.dist")
+      return "phpunit"
+    elseif filereadable("Gruntfile.js")
+      return "grunt test"
+    elseif filereadable("package.xml")
+      return "npm test"
+    endif
+  endif
+  if current_file_type == 'ruby'
+    return GetRubyTestCommand(a:filename)
+  endif
+  if current_file_type == 'php'
+    return 'phpunit'
+  endif
 endfunction
 
 function! RunTests(filename)
+    let test_command = GetTestCommand(a:filename)
     if exists('$TMUX')
-      if match(a:filename, '\.feature$') != -1
-          call VimuxRunCommand("script/features " . a:filename)
-      else
-          if filereadable("script/test")
-              call VimuxRunCommand("script/test " . a:filename)
-          elseif filereadable("Gemfile")
-              call VimuxRunCommand("bundle exec rspec --color " . a:filename)
-          else
-              call VimuxRunCommand("rspec --color " . a:filename)
-          end
-      end
+      call VimuxRunCommand(test_command)
     else
       " Write the file and run tests for the given filename
       :w
@@ -86,16 +138,6 @@ function! RunTests(filename)
       :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
       :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
       :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-      if match(a:filename, '\.feature$') != -1
-          exec ":!script/features " . a:filename
-      else
-          if filereadable("script/test")
-              exec ":!script/test " . a:filename
-          elseif filereadable("Gemfile")
-              exec ":!bundle exec rspec --color " . a:filename
-          else
-              exec ":!rspec --color " . a:filename
-          end
-      end
+      exec ":!".test_command
     end
 endfunction
