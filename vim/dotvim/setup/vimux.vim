@@ -1,4 +1,6 @@
 if exists('$TMUX')
+  let g:VimuxOrientation = "h"
+  let VimuxUseNearest = 1
 
   noremap <leader>rr :call VimuxRunCommand("irb")<CR>
   noremap <leader>nr :call VimuxRunCommand("node")<cr>
