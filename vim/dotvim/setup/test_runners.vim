@@ -143,7 +143,9 @@ endfunction
 function! GetTestCommand(filename)
   let current_file_type = &filetype
   if current_file_type == ''
-    if filereadable("script/test")
+    if (exists ("g:test_default_command"))
+      return g:test_default_command
+    elseif filereadable("script/test")
       return "script/test " . a:filename
     elseif filereadable("Gemfile")
       return "bundle exec rspec --color " . a:filename
