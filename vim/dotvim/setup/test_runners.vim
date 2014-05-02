@@ -38,12 +38,12 @@ function! AlternateRubyFileForCurrentFile(current_file)
 endfunction
 
 function! AlternatePhpFileForCurrentFile(current_file)
-  if (exists ("g:phpunit_testroot"))
+  if (exists ("g:phpunit_testroot")) && g:phpunit_testroot != ''
     let test_dir = g:phpunit_testroot ."/"
   else
     let test_dir = "Tests/"
   endif
-  if (exists ("g:phpunit_sourceroot"))
+  if (exists ("g:phpunit_sourceroot")) && g:phpunit_sourceroot != ''
     let root_dir = g:phpunit_sourceroot ."/"
   else
     let root_dir = ""
