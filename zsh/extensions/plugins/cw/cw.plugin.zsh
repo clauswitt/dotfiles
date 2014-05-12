@@ -88,6 +88,11 @@ now() {
   echo $(date "+%Y-%m-%d %H:%M:%S") "|" $(get_path_part)  "|" "$@" >> $HOME/.now
 }
 
+git-php-lint() {
+  for file in $(gss |cut -d ' ' -f3); php -l $file
+}
+
+alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"
 
 zle -C tmux-pane-words-prefix   complete-word _generic
 zle -C tmux-pane-words-anywhere complete-word _generic
