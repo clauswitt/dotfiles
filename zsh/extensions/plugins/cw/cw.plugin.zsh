@@ -92,6 +92,14 @@ git-php-lint() {
   for file in $(gss |cut -d ' ' -f3); php -l $file
 }
 
+git-select-lint() {
+  file=$(gss |cut -d ' ' -f3 | selecta); php -l $file
+}
+
+git-select-checkout() {
+  file=$(gss |cut -d ' ' -f3 | selecta); git checkout $file
+}
+
 alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"
 
 zle -C tmux-pane-words-prefix   complete-word _generic

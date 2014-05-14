@@ -25,6 +25,7 @@ brew install php55
 brew install tmux
 
 # Install everything else
+brew install dnsmasq
 brew install ssh-copy-id
 brew install nginx
 brew install memcached
