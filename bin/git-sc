@@ -1,4 +1,3 @@
-#!/bin/zsh
-cmd=$@
+#!/usr/local/bin/zsh
 file=$(git status --short |cut -d ' ' -f3 | selecta)
-$cmd $file
+git checkout $file

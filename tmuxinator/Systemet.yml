@@ -1,6 +1,6 @@
-project_name: work/Systemet
-project_root: ~/Documents/Projects/work/systemet
-tabs:
+name: work/Systemet
+root: ~/Documents/Projects/work/systemet
+windows:
   - app-vim: cd Application; vim
   - js-vim: cd SystemJs; vim
   - app-shell: cd Application

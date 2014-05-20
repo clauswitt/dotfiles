@@ -130,3 +130,6 @@
 [submodule "vim/dotvim/bundle/clojure-static"]
 	path = vim/dotvim/bundle/clojure-static
 	url = https://github.com/guns/vim-clojure-static.git
+[submodule "vim/dotvim/bundle/abolish"]
+	path = vim/dotvim/bundle/abolish
+	url = https://github.com/tpope/vim-abolish.git
