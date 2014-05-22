@@ -133,3 +133,6 @@
 [submodule "vim/dotvim/bundle/abolish"]
 	path = vim/dotvim/bundle/abolish
 	url = https://github.com/tpope/vim-abolish.git
+[submodule "vim/dotvim/bundle/dart"]
+	path = vim/dotvim/bundle/dart
+	url = https://github.com/dart-lang/dart-vim-plugin.git
