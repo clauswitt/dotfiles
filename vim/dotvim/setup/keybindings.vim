@@ -27,5 +27,4 @@ noremap <leader>r :redraw!<cr>
 " jk is escape
 inoremap jk <esc>
 nnoremap <leader>ex :e .exrc<cr>
-let g:user_emmet_leader_key = '<c-m>'
 
