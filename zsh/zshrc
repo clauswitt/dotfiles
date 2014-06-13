@@ -18,3 +18,9 @@ export DOCKER_HOST=tcp://localhost:4243
 PATH="/usr/local/share/npm/bin:$PATH"
 PATH="$HOME/bin:$PATH"
 PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin
+
+export NARWHAL_ENGINE=jsc
+
+export PATH="/usr/local/narwhal/bin:$PATH"
+
+export CAPP_BUILD="/Users/clauswitt/Downloads/Starter/Build"

@@ -5,4 +5,4 @@ tmp
 doc
 coverage
 .git
-
+bower_components

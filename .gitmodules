@@ -136,3 +136,6 @@
 [submodule "vim/dotvim/bundle/dart"]
 	path = vim/dotvim/bundle/dart
 	url = https://github.com/dart-lang/dart-vim-plugin.git
+[submodule "vim/dotvim/bundle/tabular"]
+	path = vim/dotvim/bundle/tabular
+	url = https://github.com/godlygeek/tabular.git
