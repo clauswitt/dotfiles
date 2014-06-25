@@ -19,8 +19,6 @@ function install_packages {
   install "vim/vimrc" ".vimrc"
   install "vim/gvimrc" ".gvimrc"
   install "vim/dotvim" ".vim"
-  install "vim/vimrc" ".nvimrc"
-  install "vim/dotvim" ".nvim"
   install "zsh/oh-my-zsh/" ".oh-my-zsh"
   install "zsh/extensions/plugins/cw" ".oh-my-zsh/plugins/cw"
   install "zsh/extensions/themes/clauswitt.zsh-theme" ".oh-my-zsh/themes/clauswitt.zsh-theme"

@@ -5,6 +5,8 @@ alias ez="editzsh"
 alias theme="vim ~/.oh-my-zsh/themes/clauswitt.zsh-theme"
 
 alias here='open . '
+alias dup='open . -a "iTerm.app"'
+alias deck='open -a "DeckSet.app"'
 
 
 alias cdg='cd "$(git rev-parse --show-toplevel)"'
