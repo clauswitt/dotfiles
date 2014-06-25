@@ -80,6 +80,7 @@ brew install gh
 
 brew install vim
 brew install emacs
+brew intsall ctags
 
 brew install docker
 brew install boot2docker
