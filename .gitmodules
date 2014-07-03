@@ -139,3 +139,12 @@
 [submodule "vim/dotvim/bundle/tabular"]
 	path = vim/dotvim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
+[submodule "vim/dotvim/bundle/dispatch"]
+	path = vim/dotvim/bundle/dispatch
+	url = https://github.com/tpope/vim-dispatch.git
+[submodule "vim/dotvim/bundle/limelight"]
+	path = vim/dotvim/bundle/limelight
+	url = https://github.com/junegunn/limelight.vim.git
+[submodule "vim/dotvim/bundle/goyo"]
+	path = vim/dotvim/bundle/goyo
+	url = https://github.com/junegunn/goyo.vim.git

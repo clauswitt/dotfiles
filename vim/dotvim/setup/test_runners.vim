@@ -173,17 +173,6 @@ endfunction
 
 function! RunTests(filename)
     let test_command = GetTestCommand(a:filename)
-    if exists('$TMUX')
-      call VimuxRunCommand(test_command)
-    else
-      " Write the file and run tests for the given filename
-      :w
-      :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-      :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-      :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-      :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-      :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-      :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-      exec ":!".test_command
-    end
+    :w
+    exec ":Dispatch ".test_command
 endfunction

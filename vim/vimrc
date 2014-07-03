@@ -2,6 +2,7 @@ silent! call pathogen#runtime_append_all_bundles()
 call pathogen#infect()
 source ~/.vim/setup/basics.vim
 source ~/.vim/setup/theme.vim
+source ~/.vim/setup/goyo.vim
 source ~/.vim/setup/keybindings.vim
 source ~/.vim/setup/autocmd.vim
 source ~/.vim/setup/remove_arrow_keys.vim
