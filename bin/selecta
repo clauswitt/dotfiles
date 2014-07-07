@@ -23,35 +23,49 @@ require "io/console"
 KEY_CTRL_C = ?\C-c
 KEY_CTRL_N = ?\C-n
 KEY_CTRL_P = ?\C-p
+KEY_CTRL_U = ?\C-u
+KEY_CTRL_H = ?\C-h
 KEY_CTRL_W = ?\C-w
+KEY_CTRL_J = ?\C-j
+KEY_CTRL_M = ?\C-m
 KEY_DELETE = 127.chr # Equivalent to ?\C-?
 
 class Selecta
-  def main
-    # We have to parse options before trying to read the input in case the user
-    # did '-h', an invalid option, etc. and we need to terminate.
-    options = Configuration.parse_options(ARGV)
-    config = Configuration.from_inputs($stdin.readlines, options)
-    search = Search.blank(config)
+  VERSION = [0, 0, 2]
 
-    search = run_in_screen(config, search)
-    puts search.selected_choice
+  def main
+    # We have to parse options before setting up the screen or trying to read
+    # the input in case the user did '-h', an invalid option, etc. and we need
+    # to terminate.
+    options = Configuration.parse_options(ARGV)
+
+    search = Screen.with_screen do |screen, tty|
+      config = Configuration.from_inputs($stdin.readlines, options, screen.height)
+      run_in_screen(config, screen, tty)
+    end
+
+    unless search.selection == Search::NoSelection
+      puts search.selection
+    end
+  rescue ScreenValidator::NotATTY
+    $stderr.puts(
+      "Can't get a working TTY. Selecta requires an ANSI-compatible terminal.")
   end
 
-  # Initialize the screen (and tear it down properly when done).
-  def run_in_screen(config, search)
-    Screen.with_screen do |screen, tty|
-      # We emit the number of lines we'll use later so we don't clobber whatever
-      # was already on the screen.
-      config.visible_choices.times { tty.puts }
-      begin
-        ui_event_loop(search, screen, tty)
-      ensure
-        # Always move the cursor to the bottom so the next program doesn't draw
-        # over whatever we left on the screen.
-        screen.move_cursor(screen.height - 1, 0)
-      end
+  def run_in_screen(config, screen, tty)
+    search = Search.blank(config)
+
+    # We emit the number of lines we'll use later so we don't clobber whatever
+    # was already on the screen.
+    config.visible_choices.times { tty.puts }
+    begin
+      search = ui_event_loop(search, screen, tty)
+    ensure
+      # Always move the cursor to the bottom so the next program doesn't draw
+      # over whatever we left on the screen.
+      screen.move_cursor(screen.height - 1, 0)
     end
+    search
   end
 
   # Use the search and screen to process user actions until they quit.
@@ -70,11 +84,11 @@ class Selecta
     when KEY_CTRL_N then search.down
     when KEY_CTRL_P then search.up
 
+    when KEY_CTRL_U then search.clear_query
     when KEY_CTRL_W then search.delete_word
-    when KEY_DELETE then search.backspace
+    when KEY_CTRL_H, KEY_DELETE then search.backspace
 
-    when ?\r then search.done
-    when KEY_CTRL_C then raise SystemExit
+    when ?\r, KEY_CTRL_J, KEY_CTRL_M then search.done
 
     when /[[:print:]]/ then search.append_search_string(key.chr)
 
@@ -90,9 +104,12 @@ class Configuration < Struct.new(:visible_choices, :initial_search, :choices)
     super
   end
 
-  def self.from_inputs(choices, options)
+  def self.from_inputs(choices, options, screen_height=21)
+    # Shrink the number of visible choices if the screen is too small
+    visible_choices = [20, screen_height - 1].min
+
     choices = massage_choices(choices)
-    Configuration.new(20, options.fetch(:search), choices)
+    Configuration.new(visible_choices, options.fetch(:search), choices)
   end
 
   def self.default_options
@@ -105,8 +122,13 @@ class Configuration < Struct.new(:visible_choices, :initial_search, :choices)
     parser = OptionParser.new do |opts|
       opts.banner = "Usage: #{$PROGRAM_NAME} [options]"
 
-      opts.on("-h", "--help", "Show this message") do |v|
+      opts.on_tail("-h", "--help", "Show this message") do |v|
         puts opts
+        exit
+      end
+
+      opts.on_tail("--version", "Show version") do
+        puts Selecta::VERSION.join('.')
         exit
       end
 
@@ -172,9 +194,8 @@ class Search
     @done
   end
 
-  def selected_choice
-    raise SystemExit if matches.empty?
-    matches.fetch(@index)
+  def selection
+    matches.fetch(@index) { NoSelection }
   end
 
   def down
@@ -194,6 +215,11 @@ class Search
   def backspace
     merge(:index => 0,
           :query => @query[0...-1])
+  end
+
+  def clear_query
+    merge(:index => 0,
+          :query => "")
   end
 
   def delete_word
@@ -216,6 +242,8 @@ class Search
   def done
     merge(:done => true)
   end
+
+  class NoSelection; end
 end
 
 class Score
@@ -316,6 +344,7 @@ class Screen
       screen = self.new(tty)
       screen.configure_tty
       begin
+        ScreenValidator.raise_unless_screen_is_valid(screen.height)
         yield screen, tty
       ensure
         screen.restore_tty
@@ -334,10 +363,9 @@ class Screen
 
 
   def configure_tty
-    # raw: Disable input and output processing
-    # -echo: Don't echo keys back
-    # cbreak: Set up lots of standard stuff, including INTR signal on ^C
-    tty.stty("raw -echo cbreak")
+    # -echo: terminal doesn't echo typed characters back to the terminal
+    # -icanon: terminal doesn't  interpret special characters (like backspace)
+    tty.stty("-echo -icanon")
   end
 
   def restore_tty
@@ -430,6 +458,14 @@ class Screen
       end
     end
   end
+end
+
+class ScreenValidator
+  def self.raise_unless_screen_is_valid(screen_height)
+    raise NotATTY if screen_height == 0
+  end
+
+  class NotATTY < RuntimeError; end
 end
 
 class Text
@@ -578,7 +614,7 @@ end
 if $0 == __FILE__
   begin
     Selecta.new.main
-  rescue SystemExit, Interrupt
+  rescue Interrupt
     exit(1)
   end
 end
