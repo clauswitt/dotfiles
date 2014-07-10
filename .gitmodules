@@ -148,3 +148,6 @@
 [submodule "vim/dotvim/bundle/goyo"]
 	path = vim/dotvim/bundle/goyo
 	url = https://github.com/junegunn/goyo.vim.git
+[submodule "vim/dotvim/bundle/windowswap"]
+	path = vim/dotvim/bundle/windowswap
+	url = https://github.com/wesQ3/vim-windowswap.git
