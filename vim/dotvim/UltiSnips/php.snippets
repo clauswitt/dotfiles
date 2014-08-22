@@ -1,0 +1,128 @@
+snippet tc "TestClass"
+/*
+ * Class ${1:`!p snip.rv=snip.fn.split('.')[0]`} 
+ */
+class $1 extends ${3:PHPUnit_Framework_TestCase} {
+	protected function setUp() {
+		${0:code ...}
+	}
+}
+endsnippet
+
+snippet setup "setup method" !b
+protected function setUp() {
+	${0:code ...}
+}
+endsnippet
+
+snippet teardown "teardown method" !b
+protected function tearDown() {
+	${0:code ...}
+}
+endsnippet
+
+snippet tm "testMethod sceleton" b
+function test${1:MethodToTest}_Given${2:Scenario}_Should${3:ExpectedOutcome}() {
+	$0
+}
+endsnippet
+
+snippet stub "create a new stub" b
+$${1/\w+\s*/\l$0/g}Stub = $this->getMock('${1:TheClassToStub}');
+
+$$1Stub->expects($this->any())
+	 ->method('${2:theAPIMethod}')
+	 ->will($this->returnValue(${3:fakeReturnValue}));
+endsnippet
+
+snippet tgm "getMock" b
+$mock${1/\w+\s*/\u$0/g} = $this->getMock('${1:TheClassToMock}'${2:, array('${3:methodToMock',$4})});
+endsnippet
+
+snippet tem "test: expect mock to" b
+$${1:mock}->expects($this->once())
+                 ->method('update')
+                 ->with($this->equalTo('something'));
+$${1/\w+\s*/\l$0/g} = new $1{Subject};
+$${1/\w+\s*/\l$0/g}->attach($1);
+endsnippet
+
+snippet tdp "test data provider"
+public function ${1:name}Provider() {
+    return array(
+	array(${2:param1}),
+    );
+}
+endsnippet
+
+
+### ASSERT
+
+snippet ta "test assert" b
+$this->assert($1);
+endsnippet
+
+snippet taeq "assert equals" b
+$this->assertEquals(${1:value}, ${2:mock});$0
+endsnippet
+
+snippet tac "assert contains" b
+$this->assertContains(${1:value}, ${2:haystack});$0
+endsnippet
+
+snippet taco "assert contains only" b
+$this->assertContainsOnly(${1:type}, ${2:var});$0
+endsnippet
+
+
+snippet tacn "assert count" b
+$this->assertCount(${1:number}, ${2:array});$0
+endsnippet
+
+snippet taem "assert empty" b
+$this->assertEmpty(${1:var});
+endsnippet
+
+snippet tat "assert true" b
+$this->assertTrue(${1:var});
+endsnippet
+
+snippet taf "assert false" b
+$this->assertFalse(${1:var});
+endsnippet
+
+snippet tagt "assert greater than" b
+$this->assertGreaterThan(${1:reference}, ${2:testValue});
+endsnippet
+
+snippet tajf "assert json string equals json file" b
+$this->assertJsonStringEqualsJsonFile(${1:jsonString}, ${2:jsonFile});
+endsnippet
+
+snippet tajs "assert json string equals json string" b
+$this->assertJsonStringEqualsJsonString(${1:jsonString}, ${2:jsonString2});
+endsnippet
+
+
+snippet taahk "test: assert array has key" b
+$this->assertArrayHasKey(${1:key}, ${2:array});
+endsnippet
+
+snippet tacha "test: class has attribute" b
+$this->assertArrayHasKey(${1:attribute}, '${2:class}'');
+endsnippet
+
+snippet teos "test: expect output string" b
+$this->expectOutputString(${1:var});
+print "$1";
+endsnippet
+
+snippet teor "test: expect output regex" b
+$this->expectOutputRegex(${1:regex});
+endsnippet
+
+snippet tt "test method"
+public function test${1:name}() {
+	$2
+}
+endsnippet
