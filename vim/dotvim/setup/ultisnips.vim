@@ -2,6 +2,6 @@
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-imap <c-l> <c-r>=UltiSnips_ListSnippets()<cr>
+let g:UltiSnipsListSnippets ="<c-l>"
 noremap <leader>u :UltiSnipsEdit<cr>
 
