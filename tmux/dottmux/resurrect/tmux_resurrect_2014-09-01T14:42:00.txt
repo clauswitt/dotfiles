@@ -1,0 +1,23 @@
+pane	2	1	:reattach-to-user-namespace	1	:*	1	:/Users/clauswitt/Documents/Projects/work/tweaker2	1	vim	:vim
+pane	central_notification_dispatch	1	:vim	1	:*	1	:/Users/clauswitt/Documents/Projects/work/central_notification_dispatch	1	zsh	:vim
+pane	central_notification_dispatch	2	:redis	0	:#	1	:/Users/clauswitt/Documents/Projects/work/central_notification_dispatch	1	redis-server	:redis-server *:6379
+pane	central_notification_dispatch	3	:server	0	:-	1	:/Users/clauswitt/Documents/Projects/work/central_notification_dispatch	1	ruby	:foreman: master Apple_PubSub_Socket_Render=/tmp/launch-A2VgYN/Render CAPP_BUILD=/Users/clauswitt/Downloads/Starter/Build DISABLE_AUTO_TITLE=true
+pane	central_notification_dispatch	4	:reattach-to-user-namespace	0	: 	1	:/Users/clauswitt/Documents/Projects/work/central_notification_dispatch	1	ruby	:/Users/clauswitt/.rvm/rubies/ruby-2.1.1/bin/ruby bin/rails c
+pane	central_notification_dispatch	5	:reattach-to-user-namespace	0	:#	1	:/Users/clauswitt/Documents/Projects/work/central_notification_dispatch	1	zsh	:
+pane	cnd_admin	1	:cnd_admin	1	:*	1	:/Users/clauswitt/Documents/Projects/work/cnd_admin	1	vim	:vim
+pane	cnd_admin	2	:server	0	:#-	1	:/Users/clauswitt/Documents/Projects/work/cnd_admin	1	node	:node /usr/local/bin/mrt
+pane	work/systemet	1	:vim	1	:*	1	:/Users/clauswitt/Documents/Projects/work/systemet	1	zsh	:
+pane	work/systemet	2	:Application	0	:-	1	:/Users/clauswitt/Documents/Projects/work/systemet/Application	1	zsh	:vim /Users/clauswitt/bin/taste
+pane	work/systemet	3	:Framework	0	:#	1	:/Users/clauswitt/Documents/Projects/work/systemet/Framework	1	vim	:vim
+window	2	1	1	:*	ba64,270x72,0,0,7
+window	central_notification_dispatch	1	1	:*	ba5d,270x72,0,0,0
+window	central_notification_dispatch	2	0	:#	5d61,270x72,0,0,12
+window	central_notification_dispatch	3	0	:-	5d62,270x72,0,0,13
+window	central_notification_dispatch	4	0	: 	5d64,270x72,0,0,15
+window	central_notification_dispatch	5	0	:#	5d66,270x72,0,0,17
+window	cnd_admin	1	1	:*	5d60,270x72,0,0,11
+window	cnd_admin	2	0	:#-	5d63,270x72,0,0,14
+window	work/systemet	1	1	:*	ba5e,270x72,0,0,1
+window	work/systemet	2	0	:-	ba5f,270x72,0,0,2
+window	work/systemet	3	0	:#	ba62,270x72,0,0,5
+state	central_notification_dispatch	

@@ -157,3 +157,6 @@
 [submodule "vim/dotvim/bundle/fidget"]
 	path = vim/dotvim/bundle/fidget
 	url = https://github.com/mohitleo9/vim-fidget.git
+[submodule "tmux/dottmux/plugins/tpm"]
+	path = tmux/dottmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm

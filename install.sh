@@ -16,6 +16,7 @@ function install_packages {
   install "git/gitignore_global" ".gitignore_global"
   install "grunt"
   install "tmux/tmux.conf" ".tmux.conf"
+  install "tmux/dottmux" ".tmux"
   install "vim/vimrc" ".vimrc"
   install "vim/gvimrc" ".gvimrc"
   install "vim/dotvim" ".vim"
