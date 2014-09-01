@@ -154,3 +154,6 @@
 [submodule "vim/dotvim/bundle/lightline"]
 	path = vim/dotvim/bundle/lightline
 	url = https://github.com/itchyny/lightline.vim.git
+[submodule "vim/dotvim/bundle/fidget"]
+	path = vim/dotvim/bundle/fidget
+	url = https://github.com/mohitleo9/vim-fidget.git

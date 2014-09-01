@@ -11,6 +11,7 @@
 
 
 [alias]
+    aliases = config --get-regexp alias
     # shotcuts
     st = status
     ci = commit
@@ -72,6 +73,7 @@
 
     # url of origin, about 99% of what I use git config --list for
     cloneurl = config --get remote.origin.url
+    ldf = "!f() { git diff --name-only \"$(git merge-base HEAD master)\"; }; f"
 
     # show a list of files with bug fixes in them, sorted by popularity of occurance
     #  aka, list the buggy files

@@ -69,3 +69,5 @@ function! RemoveRubyEval() range
   set nolz
   redraw
 endfunction
+
+nnoremap ,,t :!taste the soup<cr>
