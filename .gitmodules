@@ -160,3 +160,6 @@
 [submodule "tmux/dottmux/plugins/tpm"]
 	path = tmux/dottmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "vim/dotvim/bundle/obsession"]
+	path = vim/dotvim/bundle/obsession
+	url = https://github.com/tpope/vim-obsession.git
