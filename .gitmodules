@@ -163,3 +163,6 @@
 [submodule "vim/dotvim/bundle/obsession"]
 	path = vim/dotvim/bundle/obsession
 	url = https://github.com/tpope/vim-obsession.git
+[submodule "vim/dotvim/bundle/vimwiki"]
+	path = vim/dotvim/bundle/vimwiki
+	url = https://github.com/vim-scripts/vimwiki.git
