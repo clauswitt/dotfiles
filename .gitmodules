@@ -166,3 +166,6 @@
 [submodule "vim/dotvim/bundle/vimwiki"]
 	path = vim/dotvim/bundle/vimwiki
 	url = https://github.com/vim-scripts/vimwiki.git
+[submodule "vim/dotvim/bundle/glsl"]
+	path = vim/dotvim/bundle/glsl
+	url = https://github.com/tikhomirov/vim-glsl.git
