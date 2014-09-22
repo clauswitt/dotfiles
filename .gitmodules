@@ -169,3 +169,6 @@
 [submodule "vim/dotvim/bundle/glsl"]
 	path = vim/dotvim/bundle/glsl
 	url = https://github.com/tikhomirov/vim-glsl.git
+[submodule "vim/dotvim/bundle/rainbow-parentheses"]
+	path = vim/dotvim/bundle/rainbow-parentheses
+	url = https://github.com/dbarsam/vim-rainbow-parentheses.git
