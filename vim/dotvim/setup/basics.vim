@@ -28,6 +28,7 @@ set hlsearch                      " Highlight matches.
 
 " highlight current line
 set cursorline
+set cursorcolumn
 hi CursorLine cterm=NONE ctermbg=black
 
 
