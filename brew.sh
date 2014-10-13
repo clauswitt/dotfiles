@@ -209,6 +209,10 @@ brew linkapps
 brew install caskroom/cask/brew-cask
 brew tap caskroom/versions
 
+brew tap dart-lang/dart
+brew install dart
+brew install dartium # if you build Dart client apps
+
 apps=(
   dropbox
   firefox
