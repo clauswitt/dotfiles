@@ -8,7 +8,7 @@ function get_pwd() {
 }
 
 PROMPT='
-%{$fg[cyan]%}[%~% ]
+%{$fg[white]%}╯°□°）╯︵ ┻━┻ %{$fg[cyan]%}[%~% ]
 %{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} %B$%b '
 
 
