@@ -172,3 +172,6 @@
 [submodule "vim/dotvim/bundle/rainbow-parentheses"]
 	path = vim/dotvim/bundle/rainbow-parentheses
 	url = https://github.com/dbarsam/vim-rainbow-parentheses.git
+[submodule "vim/dotvim/bundle/dockerfile"]
+	path = vim/dotvim/bundle/dockerfile
+	url = https://github.com/clauswitt/Dockerfile.vim.git

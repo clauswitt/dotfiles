@@ -1,0 +1,49 @@
+global !p
+def map_path_to_namespace(p,filename,prefix):
+  param, value = p.replace('/'+filename, '').split("/",1)
+  tmp = value.split('/')
+  indent_level = 0
+  out_string = ""
+  
+  if prefix != "":
+    out_string += "namespace " + prefix + " {\n"
+    indent_level = indent_level + 1
+
+  for ns in tmp:
+    out_string += indent_level*"  " + "namespace " + ns + " {\n"
+    indent_level = indent_level + 1
+
+  out_string += snip.v.text
+
+  for ns in tmp:
+    indent_level = indent_level - 1
+    out_string += indent_level*"  " + "}\n"
+
+  if prefix != "":
+    indent_level = indent_level - 1
+    out_string += indent_level*"  " + "}\n"
+    
+  return out_string
+
+endglobal
+
+snippet cerr "std::cerr "
+std::cout << ${1} << std::endl;
+endsnippet
+
+snippet guard "header guard"
+#ifndef ${1:`!p snip.rv = snip.basename.upper() + '_H'`}
+#define ${2:`!p snip.rv = t[1]`}
+${0:// code}
+#endif
+endsnippet
+
+snippet nms "namespace"
+${0:`!p snip.rv = map_path_to_namespace(path, fn, "") `}
+endsnippet
+
+snippet rnms "renderr namespace"
+${0:`!p snip.rv = map_path_to_namespace(path, fn, "renderr") `}
+endsnippet
+
+
