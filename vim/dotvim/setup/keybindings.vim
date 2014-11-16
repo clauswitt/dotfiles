@@ -72,3 +72,5 @@ endfunction
 
 nnoremap ,,t :!taste the soup<cr>
 nnoremap <tab><tab>r :!open "http://www.youtube.com/watch?v=Eky6bCnCLOI\#t=171"<cr>
+nnoremap ,,gr :GoldenRatioToggle<cr>
+nnoremap ,,re :GoldenRatioResize<cr>

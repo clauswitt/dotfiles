@@ -4,6 +4,7 @@ endif
 source ~/.vim/setup/rainbow.vim
 silent! call pathogen#runtime_append_all_bundles()
 call pathogen#infect()
+Helptags
 source ~/.vim/setup/basics.vim
 source ~/.vim/setup/theme.vim
 source ~/.vim/setup/goyo.vim
@@ -20,4 +21,5 @@ source ~/.vim/setup/lightline.vim
 source ~/.vim/setup/neocomplete.vim
 
 
+let g:syntastic_always_populate_loc_list = 1
 

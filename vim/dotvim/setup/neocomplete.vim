@@ -74,10 +74,29 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
-"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+
+let g:neocomplete#force_overwrite_completefunc = 1
+let g:neocomplete#force_omni_input_patterns.c =
+      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+let g:neocomplete#force_omni_input_patterns.cpp =
+      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+let g:neocomplete#force_omni_input_patterns.objc =
+      \ '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)'
+let g:neocomplete#force_omni_input_patterns.objcpp =
+      \ '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)\|\h\w*::\w*'
+
+let g:clang_complete_auto = 0
+let g:clang_auto_select = 0
+" let g:clang_use_library = 1

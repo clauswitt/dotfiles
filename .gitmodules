@@ -181,3 +181,6 @@
 [submodule "vim/dotvim/bundle/neocomplete"]
 	path = vim/dotvim/bundle/neocomplete
 	url = https://github.com/Shougo/neocomplete.vim.git
+[submodule "vim/dotvim/bundle/clang_complete"]
+	path = vim/dotvim/bundle/clang_complete
+	url = https://github.com/Rip-Rip/clang_complete.git
