@@ -1,5 +1,5 @@
 global !p
-def map_path_to_namespace(p,filename,prefix):
+def map_path_to_namespace(p,filename,prefix,insert):
   param, value = p.replace('/'+filename, '').split("/",1)
   tmp = value.split('/')
   indent_level = 0
@@ -13,7 +13,7 @@ def map_path_to_namespace(p,filename,prefix):
     out_string += indent_level*"  " + "namespace " + ns + " {\n"
     indent_level = indent_level + 1
 
-  out_string += snip.v.text
+  out_string += insert
 
   for ns in tmp:
     indent_level = indent_level - 1
@@ -24,6 +24,19 @@ def map_path_to_namespace(p,filename,prefix):
     out_string += indent_level*"  " + "}\n"
     
   return out_string
+
+def map_path_to_classname(snip):
+  out_string = ""
+  out_string += snip.mkline( "class " + snip.basename.title().replace("_", "") + " {")
+  out_string += snip.mkline("\n")
+  out_string += snip.mkline("};")
+  out_string += snip.mkline("\n")
+  return out_string
+
+def map_path_to_namespace_and_class(path, snip, prefix):
+  cls = map_path_to_classname(snip)
+  return map_path_to_namespace(path, snip.fn, prefix, cls)
+
 
 endglobal
 
@@ -39,11 +52,18 @@ ${0:// code}
 endsnippet
 
 snippet nms "namespace"
-${0:`!p snip.rv = map_path_to_namespace(path, fn, "") `}
+${0:`!p snip.rv = map_path_to_namespace(path, fn, "", snip.v.text) `}
 endsnippet
 
 snippet rnms "renderr namespace"
-${0:`!p snip.rv = map_path_to_namespace(path, fn, "renderr") `}
+${0:`!p snip.rv = map_path_to_namespace(path, fn, "renderr", snip.v.text) `}
 endsnippet
 
+snippet cl "class from file name"
+${0:`!p snip.rv = map_path_to_classname(snip) `}
+endsnippet
+
+snippet rncl "namespace and class from file name"
+${0:`!p snip.rv = map_path_to_namespace_and_class(path, snip, "renderr") `}
+endsnippet
 
