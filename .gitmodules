@@ -187,3 +187,6 @@
 [submodule "vim/dotvim/bundle/vimproc"]
 	path = vim/dotvim/bundle/vimproc
 	url = https://github.com/Shougo/vimproc.vim.git
+[submodule "vim/dotvim/bundle/vimshell"]
+	path = vim/dotvim/bundle/vimshell
+	url = https://github.com/Shougo/vimshell.vim.git
