@@ -4,6 +4,7 @@ if exists('$TMUX')
 
   noremap <leader>rr :call VimuxRunCommand("irb")<CR>
   noremap <leader>nr :call VimuxRunCommand("node")<cr>
+  noremap <leader>pr :call VimuxRunCommand("php -a")<cr>
 
   function! VimuxSlime()
     call VimuxSendText(@v)
@@ -32,6 +33,8 @@ if exists('$TMUX')
 
   " Zoom the runner pane (use <bind-key> z to restore runner pane)
   map <Leader>vz :call VimuxZoomRunner()<CR>
+
+  let g:tmuxcomplete#trigger = ''
 
 endif
 
