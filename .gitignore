@@ -3,3 +3,4 @@ vim/dotvim/.netrwhist
 tmux/dottmux/resurrect
 Session.vim
 tmux/dottmux/sidebar
+tmux/dottmux/plugins
