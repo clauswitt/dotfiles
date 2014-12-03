@@ -184,3 +184,6 @@
 [submodule "vim/dotvim/bundle/tmuxcomplete"]
 	path = vim/dotvim/bundle/tmuxcomplete
 	url = https://github.com/wellle/tmux-complete.vim.git
+[submodule "vim/dotvim/bundle/neocomplete"]
+	path = vim/dotvim/bundle/neocomplete
+	url = https://github.com/Shougo/neocomplete.vim.git
