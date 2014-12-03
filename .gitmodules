@@ -91,9 +91,6 @@
 [submodule "vim/dotvim/bundle/vimux"]
 	path = vim/dotvim/bundle/vimux
 	url = https://github.com/benmills/vimux.git
-[submodule "vim/dotvim/bundle/multiple-cursors"]
-	path = vim/dotvim/bundle/multiple-cursors
-	url = https://github.com/terryma/vim-multiple-cursors.git
 [submodule "vim/dotvim/bundle/ruby-textobj"]
 	path = vim/dotvim/bundle/ruby-textobj
 	url = https://github.com/rhysd/vim-textobj-ruby.git
@@ -175,12 +172,6 @@
 [submodule "vim/dotvim/bundle/dockerfile"]
 	path = vim/dotvim/bundle/dockerfile
 	url = https://github.com/clauswitt/Dockerfile.vim.git
-[submodule "vim/dotvim/bundle/omnisharp"]
-	path = vim/dotvim/bundle/omnisharp
-	url = https://github.com/nosami/Omnisharp.git
-[submodule "vim/dotvim/bundle/neocomplete"]
-	path = vim/dotvim/bundle/neocomplete
-	url = https://github.com/Shougo/neocomplete.vim.git
 [submodule "vim/dotvim/bundle/clang_complete"]
 	path = vim/dotvim/bundle/clang_complete
 	url = https://github.com/Rip-Rip/clang_complete.git
