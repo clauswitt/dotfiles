@@ -24,3 +24,6 @@ export NARWHAL_ENGINE=jsc
 export PATH="/usr/local/narwhal/bin:$PATH"
 
 export CAPP_BUILD="/Users/clauswitt/Downloads/Starter/Build"
+
+# added by travis gem
+[ -f /Users/clauswitt/.travis/travis.sh ] && source /Users/clauswitt/.travis/travis.sh
