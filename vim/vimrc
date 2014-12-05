@@ -19,6 +19,8 @@ source ~/.vim/setup/selecta.vim
 source ~/.vim/setup/vimux.vim
 source ~/.vim/setup/lightline.vim
 source ~/.vim/setup/neocomplete.vim
+source ~/.vim/setup/calendar.vim
+
 
 
 let g:syntastic_always_populate_loc_list = 1

@@ -187,3 +187,6 @@
 [submodule "vim/dotvim/bundle/unite"]
 	path = vim/dotvim/bundle/unite
 	url = https://github.com/Shougo/unite.vim.git
+[submodule "vim/dotvim/bundle/calendar.vim"]
+	path = vim/dotvim/bundle/calendar.vim
+	url = https://github.com/itchyny/calendar.vim

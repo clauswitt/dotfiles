@@ -36,3 +36,4 @@ noremap <Leader><Leader>bd :noautocmd bufdo bdelete<cr>
 noremap <Leader><Leader>n  :enew<cr>
 noremap <Leader><Leader>sn  :new<cr>
 noremap <Leader><Leader>vn  :vnew<cr>
+noremap ; :bp<cr>
