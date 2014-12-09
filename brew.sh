@@ -51,6 +51,7 @@ binaries=(
   dnsmasq
   docbook
   docker
+  doxygen
   elixir
   emacs
   emscripten
