@@ -25,4 +25,5 @@ source ~/.vim/setup/vimwiki.vim
 
 let g:syntastic_always_populate_loc_list = 1
 
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+" autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+let g:hardtime_default_on = 1 

@@ -184,3 +184,6 @@
 [submodule "vim/dotvim/bundle/hardmode"]
 	path = vim/dotvim/bundle/hardmode
 	url = https://github.com/wikitopian/hardmode.git
+[submodule "vim/dotvim/bundle/hardtime"]
+	path = vim/dotvim/bundle/hardtime
+	url = https://github.com/takac/vim-hardtime.git
