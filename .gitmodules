@@ -181,3 +181,6 @@
 [submodule "vim/dotvim/bundle/calendar.vim"]
 	path = vim/dotvim/bundle/calendar.vim
 	url = https://github.com/itchyny/calendar.vim
+[submodule "vim/dotvim/bundle/hardmode"]
+	path = vim/dotvim/bundle/hardmode
+	url = https://github.com/wikitopian/hardmode.git
