@@ -187,3 +187,6 @@
 [submodule "vim/dotvim/bundle/hardtime"]
 	path = vim/dotvim/bundle/hardtime
 	url = https://github.com/takac/vim-hardtime.git
+[submodule "vim/dotvim/bundle/fist"]
+	path = vim/dotvim/bundle/fist
+	url = https://github.com/ajh17/vim-fist.git
