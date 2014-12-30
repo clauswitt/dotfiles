@@ -190,3 +190,6 @@
 [submodule "vim/dotvim/bundle/fist"]
 	path = vim/dotvim/bundle/fist
 	url = https://github.com/ajh17/vim-fist.git
+[submodule "vim/dotvim/bundle/taboo"]
+	path = vim/dotvim/bundle/taboo
+	url = https://github.com/gcmt/taboo.vim.git

@@ -1,4 +1,5 @@
 let g:fist_in_private = 1
+let g:fist_anonymously = 0
 
 nmap <leader><leader>l <plug>fov_list
 

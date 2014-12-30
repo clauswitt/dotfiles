@@ -84,3 +84,4 @@ augroup checktime
         autocmd CursorMovedI    * silent! checktime
     endif
 augroup END
+set sessionoptions+=tabpages,globals
