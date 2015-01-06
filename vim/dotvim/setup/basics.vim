@@ -85,3 +85,5 @@ augroup checktime
     endif
 augroup END
 set sessionoptions+=tabpages,globals
+
+au BufAdd,BufNewFile * nested tab sball
