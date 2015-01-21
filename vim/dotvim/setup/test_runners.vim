@@ -14,6 +14,16 @@ function! OpenTestAlternate()
   exec ':e ' . new_file
 endfunction
 
+function! AlternateGoFileForCurrentFile(current_file)
+  let current_file = a:current_file
+  let new_file = current_file
+  if match(current_file, '\(_test.go\)$') != -1
+      let new_file = substitute(new_file, '_test\.go', '.go', '')
+  else
+    let new_file = substitute(new_file, '\.go', '_test.go', '')
+  endif
+  return new_file
+endfunction
 function! AlternateRubyFileForCurrentFile(current_file)
   let current_file = a:current_file
   let in_spec = match(current_file, '^spec/') != -1
@@ -78,6 +88,9 @@ function! AlternateForCurrentFile()
   let current_file = expand("%")
   let new_file = current_file
 
+  if current_file_type == 'go'
+    let new_file = AlternateGoFileForCurrentFile(current_file)
+  endif
   if current_file_type == 'ruby'
     let new_file = AlternateRubyFileForCurrentFile(current_file)
   endif
@@ -95,6 +108,9 @@ function! InTestFile()
   endif
   if current_file_type == 'php'
     return match(expand("%"), '\(Test.php\)$') != -1
+  endif
+  if current_file_type == 'go'
+    return match(expand("%"), '\(_test.go\)$') != -1
   endif
 endfunction
 
@@ -140,6 +156,10 @@ function! GetRubyTestCommand(filename)
       return ''
 endfunction
 
+function! GetGoTestCommand(filename)
+  return "go test " . a:filename . " " . AlternateGoFileForCurrentFile(a:filename)
+endfunction
+
 function! GetTestCommand(filename)
   let current_file_type = &filetype
   if current_file_type == ''
@@ -162,6 +182,9 @@ function! GetTestCommand(filename)
     elseif filereadable("package.xml")
       return "npm test"
     endif
+  endif
+  if current_file_type == 'go'
+    return GetGoTestCommand(a:filename)
   endif
   if current_file_type == 'ruby'
     return GetRubyTestCommand(a:filename)
