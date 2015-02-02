@@ -4,7 +4,9 @@ ZSH_THEME="clauswitt"
 export DISABLE_AUTO_TITLE="true"
 LANG=en_US.UTF-8
 LC_ALL=en_US.UTF-8
-plugins=(docker gem coffee tmux tmuxinator brew git battery osx rake ruby rvm cw)
+export LC_ALL=en_US.UTF-8  
+export LANG=en_US.UTF-8
+plugins=(golang docker gem coffee tmux tmuxinator brew git battery osx rake ruby rvm cw)
 fpath=(/usr/local/share/zsh-completions $fpath)
 source $ZSH/oh-my-zsh.sh
 
@@ -17,7 +19,7 @@ export DOCKER_HOST=tcp://localhost:4243
 
 PATH="/usr/local/share/npm/bin:$PATH"
 PATH="$HOME/bin:$PATH"
-PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin
+PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin:$HOME/go/bin
 
 export NARWHAL_ENGINE=jsc
 

@@ -1,0 +1,4 @@
+#compdef cg
+#autoload
+
+_files -W $GOPATH/src/github.com/ -/

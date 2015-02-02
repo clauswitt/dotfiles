@@ -1,3 +1,4 @@
+scriptencoding utf-8
 let mapleader = ","
 set nocompatible                  " Must come first because it changes other options.
 set timeout timeoutlen=1000 ttimeoutlen=100

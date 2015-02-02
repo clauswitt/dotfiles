@@ -102,6 +102,13 @@ git-select-checkout() {
   file=$(gss |cut -d ' ' -f3 | selecta); git checkout $file
 }
 
+
+cg() {
+    cd $GOPATH/src/github.com/$1;
+}
+compdef _files -W $GOPATH/src/github.com/ -/
+
+
 alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"
 
 zle -C tmux-pane-words-prefix   complete-word _generic
