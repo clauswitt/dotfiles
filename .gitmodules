@@ -193,3 +193,6 @@
 [submodule "vim/dotvim/bundle/taboo"]
 	path = vim/dotvim/bundle/taboo
 	url = https://github.com/gcmt/taboo.vim.git
+[submodule "vim/dotvim/bundle/neomake"]
+	path = vim/dotvim/bundle/neomake
+	url = https://github.com/benekastah/neomake.git
