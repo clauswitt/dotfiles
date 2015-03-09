@@ -196,3 +196,6 @@
 [submodule "vim/dotvim/bundle/neomake"]
 	path = vim/dotvim/bundle/neomake
 	url = https://github.com/benekastah/neomake.git
+[submodule "vim/dotvim/bundle/a.vim"]
+	path = vim/dotvim/bundle/a.vim
+	url = https://github.com/vim-scripts/a.vim.git
