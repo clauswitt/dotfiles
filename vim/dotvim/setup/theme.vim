@@ -1,2 +1,2 @@
 set background=dark
-colorscheme wells-colors
+colorscheme grb256
