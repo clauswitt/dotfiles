@@ -199,3 +199,6 @@
 [submodule "vim/dotvim/bundle/a.vim"]
 	path = vim/dotvim/bundle/a.vim
 	url = https://github.com/vim-scripts/a.vim.git
+[submodule "vim/dotvim/bundle/wells-colorscheme"]
+	path = vim/dotvim/bundle/wells-colorscheme
+	url = https://github.com/wellsjo/wells-colorscheme.vim.git
