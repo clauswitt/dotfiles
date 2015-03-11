@@ -1,10 +1,19 @@
 scriptencoding utf-8
 let mapleader = ","
 set nocompatible                  " Must come first because it changes other options.
-set timeout timeoutlen=1000 ttimeoutlen=100
+set notimeout
+set ttimeout
+set ttimeoutlen=100
+set ttyfast
+set ttyscroll=3
+set lazyredraw
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
+
+set linespace=0                 " number of pixels between the lines
+set splitright                  " open vertical splits on the right
+set splitbelow                  " open the horizontal split below
 
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.

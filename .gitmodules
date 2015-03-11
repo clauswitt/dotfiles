@@ -22,9 +22,6 @@
 [submodule "vim/dotvim/bundle/syntastic"]
 	path = vim/dotvim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule "vim/dotvim/bundle/golden-ratio"]
-	path = vim/dotvim/bundle/golden-ratio
-	url = https://github.com/roman/golden-ratio.git
 [submodule "vim/dotvim/bundle/vim-phpunit"]
 	path = vim/dotvim/bundle/vim-phpunit
 	url = https://github.com/clauswitt/vim-phpunit.git
@@ -202,3 +199,9 @@
 [submodule "vim/dotvim/bundle/wells-colorscheme"]
 	path = vim/dotvim/bundle/wells-colorscheme
 	url = https://github.com/wellsjo/wells-colorscheme.vim.git
+[submodule "vim/dotvim/bundle/jsx"]
+	path = vim/dotvim/bundle/jsx
+	url = https://github.com/mxw/vim-jsx.git
+[submodule "vim/dotvim/bundle/javascript"]
+	path = vim/dotvim/bundle/javascript
+	url = https://github.com/pangloss/vim-javascript.git
