@@ -205,3 +205,6 @@
 [submodule "vim/dotvim/bundle/javascript"]
 	path = vim/dotvim/bundle/javascript
 	url = https://github.com/pangloss/vim-javascript.git
+[submodule "vim/dotvim/bundle/ctrlp-funky"]
+	path = vim/dotvim/bundle/ctrlp-funky
+	url = https://github.com/tacahiroy/ctrlp-funky.git
