@@ -28,6 +28,7 @@
     b = branch
     ds = diff --stat=160,120
     dh1 = diff HEAD~1
+	wd = diff --word-diff
 
     m = checkout master
 
@@ -134,3 +135,5 @@
 	templatedir = ~/.git_template
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[help]
+	autocorrect = 1
