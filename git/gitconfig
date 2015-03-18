@@ -130,10 +130,12 @@
 [commit]
   template = ~/.gitmessage
 [push]
-	default = simple
+	default = tracking
 [init]
 	templatedir = ~/.git_template
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [help]
 	autocorrect = 1
+[branch]
+	autosetuprebase = always
