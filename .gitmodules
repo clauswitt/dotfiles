@@ -208,3 +208,6 @@
 [submodule "vim/dotvim/bundle/ctrlp-funky"]
 	path = vim/dotvim/bundle/ctrlp-funky
 	url = https://github.com/tacahiroy/ctrlp-funky.git
+[submodule "vim/dotvim/bundle/vim-tmux-focus-events"]
+	path = vim/dotvim/bundle/vim-tmux-focus-events
+	url = https://github.com/tmux-plugins/vim-tmux-focus-events.git
