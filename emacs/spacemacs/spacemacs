@@ -30,6 +30,7 @@
                                             git-gutter-use-fringe t)
                                        evernote
                                        org-repo-todo
+                                       org-pomodoro
                                        (colors :variables colors-enable-rainbow-identifiers t)
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
