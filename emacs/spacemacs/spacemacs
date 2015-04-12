@@ -127,23 +127,35 @@ before layers configuration."
   )
 
 (defun dotspacemacs/config ()
+   ;; Ruby settings
    (setq-default ruby-version-manager 'rvm)
    (setq-default ruby-enable-ruby-on-rails-support t)
+   ;; Tab settings 
    (setq-default tab-width 4 indent-tabs-mode nil)
    (setq-default c-basic-offset 4 c-default-style "bsd")
-   (setq paradox-github-token "4d2d0ebb154fc843e1f6a76c159b3b4ad1e5078e")
+   ;; Whitespace settings
+   (setq whitespace-action '(auto-cleanup))
+   (setq whitespace-style '(trailing space-before-tab indentation empty space-after-tab))
+   ;; Use command key as meta key in os x
    (setq mac-option-key-is-meta nil)
    (setq mac-command-key-is-meta t)
    (setq mac-command-modifier 'meta)
    (setq mac-option-modifier nil)
+
+   ;; I usually write .h files for cpp
+   (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+
+   ;; Command to open marked to preview markdown files
+   (setq markdown-open-command "/usr/local/bin/mark")
+
+   ;; Org settings
    (setq org-directory "~/Dropbox/org/")
    (setq org-agenda-files '("~/Dropbox/org/gtd/main.org" "~/Dropbox/org/groceries.org"))
-   (setq whitespace-action '(auto-cleanup))
-   (setq whitespace-style '(trailing space-before-tab indentation empty space-after-tab))
-   (setq markdown-open-command "/usr/local/bin/mark")
-   (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+   ;; The habit package for org is awesome!
    (require 'org-habit)
+   ;; Ifttt auto appends .txt to filenames for dropbox append to file action
    (add-to-list 'auto-mode-alist '("\\Dropbox/org/.*\.txt\\'" . org-mode))
+   ;; Quick searches in org mode
     (setq org-agenda-custom-commands
             '(("x" agenda)
                 ("y" agenda*)
@@ -170,28 +182,30 @@ before layers configuration."
                 ("hr" tags "+HOME+RUNA")
             )
         )
-                                        ; Targets include this file and any file contributing to the agenda - up to 9 levels deep
+    ; Targets include this file and any file contributing to the agenda - up to 9 levels deep
     (setq org-refile-targets (quote ((nil :maxlevel . 9)
                                      (org-agenda-files :maxlevel . 9))))
 
-                                        ; Use full outline paths for refile targets - we file directly with IDO
+    ; Use full outline paths for refile targets - we file directly with IDO
     (setq org-refile-use-outline-path t)
 
-                                        ; Targets complete directly with IDO
+    ; Targets complete directly with IDO
     (setq org-outline-path-complete-in-steps nil)
 
-                                        ; Allow refile to create parent tasks with confirmation
+    ; Allow refile to create parent tasks with confirmation
     (setq org-refile-allow-creating-parent-nodes (quote confirm))
 
-                                        ; Use IDO for both buffer and file completion and ido-everywhere to t
+    ; Use IDO for both buffer and file completion and ido-everywhere to t
     (setq org-completion-use-ido t)
     (setq ido-everywhere t)
     (setq ido-max-directory-size 100000)
     (ido-mode (quote both))
-                                        ; Use the current window when visiting files and buffers with ido
+
+    ; Use the current window when visiting files and buffers with ido
     (setq ido-default-file-method 'selected-window)
     (setq ido-default-buffer-method 'selected-window)
-                                        ; Use the current window for indirect buffer display
+
+    ; Use the current window for indirect buffer display
     (setq org-indirect-buffer-display 'current-window)
 
 ;;;; Refile settings
