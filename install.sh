@@ -31,6 +31,8 @@ function install_packages {
 
   install "ruby/gemrc" ".gemrc"
   install "bin" "bin"
+  install "emacs/spacemacs/spacemacs" ".spacemacs"
+  install "emacs/spacemacs/layers" ".emacs.d/private"
 }
 function install() {
   TARGET=$ROOT/${2:-.$1}
