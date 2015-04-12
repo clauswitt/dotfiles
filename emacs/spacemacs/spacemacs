@@ -153,6 +153,15 @@ before layers configuration."
                 ("S" todo-tree "STARTED")
                 ("c" tags "+COMPUTER")
                 ("t" tags "+TELEPHONE")
+                ("o" . "OFFICE tag searches") ; description for "h" prefix
+                ("os" tags "+OFFICE+SOREN")
+                ("op" tags "+OFFICE+CARSTEN")
+                ("oc" tags "+OFFICE+COLSTRUP")
+                ("ol" tags "+OFFICE+LUNCHTIME")
+                ("ot" tags "+OFFICE+TELEPHONE")
+                ("or" tags "+OFFICE+RETROSPECTIVE")
+                ("od" tags "+OFFICE+DAILYSCRUM")
+                ("oa" tags "+OFFICE+ASAP")
                 ("h" . "HOME tag searches") ; description for "h" prefix
                 ("hi" tags "+HOME+IBEN")
                 ("hc" tags "+HOME+COMPUTER")
