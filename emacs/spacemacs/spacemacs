@@ -137,7 +137,7 @@ before layers configuration."
    (setq mac-command-modifier 'meta)
    (setq mac-option-modifier nil)
    (setq org-directory "~/Dropbox/org/")
-   (setq org-agenda-files '("~/Dropbox/org/habits.org" "~/Dropbox/org/gtd/main.org" "~/Dropbox/org/groceries.org"))
+   (setq org-agenda-files '("~/Dropbox/org/gtd/main.org" "~/Dropbox/org/groceries.org"))
    (setq whitespace-action '(auto-cleanup))
    (setq whitespace-style '(trailing space-before-tab indentation empty space-after-tab))
    (setq markdown-open-command "/usr/local/bin/mark")
