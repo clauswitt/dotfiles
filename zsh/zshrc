@@ -29,3 +29,5 @@ export CAPP_BUILD="/Users/clauswitt/Downloads/Starter/Build"
 
 # added by travis gem
 [ -f /Users/clauswitt/.travis/travis.sh ] && source /Users/clauswitt/.travis/travis.sh
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh

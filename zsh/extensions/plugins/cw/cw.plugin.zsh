@@ -3,6 +3,7 @@ alias tc="~/Scripts/tmux-copy-session.sh"
 alias editzsh='vim ~/.oh-my-zsh/plugins/cw/cw.plugin.zsh'
 alias ez="editzsh"
 alias theme="vim ~/.oh-my-zsh/themes/clauswitt.zsh-theme"
+alias r="/usr/local/bin/r"
 
 alias here='open . '
 alias dup='open . -a "iTerm.app"'
