@@ -1,0 +1,9 @@
+# -*- mode: Web; require-final-newline: nil -*-
+# name: Something
+# key: some
+# binding: direct-keybinding
+# --
+
+This is a test $1 / $2
+
+and $1 and $2 are different
