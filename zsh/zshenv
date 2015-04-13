@@ -1,1 +1,3 @@
 alias r="/usr/local/bin/r"
+PATH=$PATH:$HOME/Scripts
+export PATH=$PATH

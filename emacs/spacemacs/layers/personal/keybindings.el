@@ -1,7 +1,7 @@
 (evil-leader/set-key "oo" 'open-org-dir)
 (evil-leader/set-key "oa" 'my-org-archive-done-tasks)
 (evil-leader/set-key "og" 'gtd)
-(evil-leader/set-key "oj" 'journal)
+(evil-leader/set-key "ojo" 'journal)
 (evil-leader/set-key "ot" 'org-capture)
 (evil-leader/set-key "on" 'notes)
 (evil-leader/set-key "oG" 'groceries)
@@ -14,4 +14,13 @@
 (evil-leader/set-key "of" 'ff-find-other-file)
 (evil-leader/set-key "*y" 'clipboard-kill-region)
 (evil-leader/set-key "*p" 'clipboard-yank)
+(evil-leader/set-key "ojt" 'org-jira-todo-to-jira)
+(evil-leader/set-key "ojc" 'org-jira-create-issue)
+(evil-leader/set-key "ojs" 'org-jira-create-subtask)
+(evil-leader/set-key "ojp" 'org-jira-get-projects)
+(evil-leader/set-key "ojr" 'org-jira-refresh-issue)
+(evil-leader/set-key "ojP" 'org-jira-progress-issue)
+(evil-leader/set-key "ojb" 'org-jira-browse-issue)
+
+
 

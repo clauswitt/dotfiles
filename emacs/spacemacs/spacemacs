@@ -10,7 +10,6 @@
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers '(
-                                       personal
                                        dash
                                        c-c++
                                        ruby
@@ -20,7 +19,7 @@
                                        javascript
                                        html
                                        go
-                                       company-mode
+                                       auto-completion
                                        restclient
                                        osx
                                        ess
@@ -29,12 +28,14 @@
                                             git-enable-github-support t
                                             git-gutter-use-fringe t)
                                        evernote
-                                       org-repo-todo
+                                       syntax-checking
+                                       org
                                        org-pomodoro
                                        (colors :variables colors-enable-rainbow-identifiers t)
+                                       personal
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(ox-gfm)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'
@@ -232,6 +233,7 @@ before layers configuration."
        (C . t)
        ))
     (setq org-confirm-babel-evaluate nil)
+    (setq jiralib-url "http://jira.arnsbomedia.com")
 )
 
 ;; Do not write anything past this comment. This is where Emacs will

@@ -211,3 +211,6 @@
 [submodule "vim/dotvim/bundle/vim-tmux-focus-events"]
 	path = vim/dotvim/bundle/vim-tmux-focus-events
 	url = https://github.com/tmux-plugins/vim-tmux-focus-events.git
+[submodule "emacs/spacemacs/layers/snippets"]
+	path = emacs/spacemacs/layers/snippets
+	url = https://github.com/clauswitt/yasnippet-snippets.git
