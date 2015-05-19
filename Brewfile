@@ -15,7 +15,7 @@ install dartium
 install dnsmasq
 install doxygen
 install elixir
-install --with-cocoa --srgb emacs
+install emacs --HEAD --use-git-head --with-cocoa --srgb
 install erlang
 install exiftool
 install faac

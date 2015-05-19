@@ -1,6 +1,7 @@
 (evil-leader/set-key "oo" 'open-org-dir)
 (evil-leader/set-key "oa" 'my-org-archive-done-tasks)
 (evil-leader/set-key "og" 'gtd)
+(evil-leader/set-key "oA" 'gtd-archive)
 (evil-leader/set-key "ojo" 'journal)
 (evil-leader/set-key "ot" 'org-capture)
 (evil-leader/set-key "on" 'notes)
@@ -21,6 +22,13 @@
 (evil-leader/set-key "ojr" 'org-jira-refresh-issue)
 (evil-leader/set-key "ojP" 'org-jira-progress-issue)
 (evil-leader/set-key "ojb" 'org-jira-browse-issue)
+(evil-leader/set-key "ocg" 'org-clock-goto)
+(evil-leader/set-key "oco" 'org-clock-out)
+(evil-leader/set-key "ocl" 'org-clock-in-last)
+(evil-leader/set-key "ocn" 'org-add-note)
+(evil-leader/set-key "ozi" 'spacemacs/scale-up-font)
+(evil-leader/set-key "ozo" 'spacemacs/scale-down-font)
+(evil-leader/set-key "ozr" 'spacemacs/reset-font-size)
 
 
 

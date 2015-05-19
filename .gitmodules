@@ -214,3 +214,6 @@
 [submodule "emacs/spacemacs/layers/snippets"]
 	path = emacs/spacemacs/layers/snippets
 	url = https://github.com/clauswitt/yasnippet-snippets.git
+[submodule "vim/dotvim/bundle/wakatime"]
+	path = vim/dotvim/bundle/wakatime
+	url = https://github.com/wakatime/vim-wakatime.git

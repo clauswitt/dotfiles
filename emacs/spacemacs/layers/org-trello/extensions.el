@@ -1,4 +1,4 @@
-;;; extensions.el --- org-pomodoro Layer extensions File for Spacemacs
+;;; extensions.el --- org-trello Layer extensions File for Spacemacs
 ;;
 ;; Copyright (c) 2012-2014 Sylvain Benner
 ;; Copyright (c) 2014-2015 Sylvain Benner & Contributors
@@ -10,21 +10,21 @@
 ;;
 ;;; License: GPLv3
 
-(defvar org-pomodoro-pre-extensions
+(defvar org-trello-pre-extensions
   '(
-    ;; pre extension org-pomodoros go here
+    ;; pre extension org-trellos go here
     )
   "List of all extensions to load before the packages.")
 
-(defvar org-pomodoro-post-extensions
+(defvar org-trello-post-extensions
   '(
-    ;; post extension org-pomodoros go here
+    ;; post extension org-trellos go here
     )
   "List of all extensions to load after the packages.")
 
-;; For each extension, define a function org-pomodoro/init-<extension-org-pomodoro>
+;; For each extension, define a function org-trello/init-<extension-org-trello>
 ;;
-;; (defun org-pomodoro/init-my-extension ()
+;; (defun org-trello/init-my-extension ()
 ;;   "Initialize my extension"
 ;;   )
 ;;

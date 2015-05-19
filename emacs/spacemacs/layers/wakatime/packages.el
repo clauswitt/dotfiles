@@ -1,4 +1,4 @@
-;;; packages.el --- personal Layer packages File for Spacemacs
+;;; packages.el --- wakatime Layer packages File for Spacemacs
 ;;
 ;; Copyright (c) 2012-2014 Sylvain Benner
 ;; Copyright (c) 2014-2015 Sylvain Benner & Contributors
@@ -10,28 +10,24 @@
 ;;
 ;;; License: GPLv3
 
-(defvar personal-packages
+(defvar wakatime-packages
   '(
-    ;; package personals go here
-    org-jira
+    ;; package wakatimes go here
+    wakatime-mode
     )
   "List of all packages to install and/or initialize. Built-in packages
 which require an initialization must be listed explicitly in the list.")
 
-(defvar personal-excluded-packages '()
+(defvar wakatime-excluded-packages '()
   "List of packages to exclude.")
 
-;; For each package, define a function personal/init-<package-personal>
+;; For each package, define a function wakatime/init-<package-wakatime>
 ;;
-;; (defun personal/init-my-package ()
-;;   "Initialize my package"
-;;   )
+
+(defun wakatime/init-wakatime ()
+  (global-wakatime-mode)
+  )
 ;;
 ;; Often the body of an initialize function uses `use-package'
 ;; For more info on `use-package', see readme:
 ;; https://github.com/jwiegley/use-package
-
-(defun personal/init-org-jira ()
-  "Initialize personal"
-)
-

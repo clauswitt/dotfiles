@@ -13,8 +13,13 @@ brew upgrade
 # Install more recent versions of some OS X tools
 brew tap homebrew/dupes
 
-brew tap josegonzalez/homebrew-php brew install go --cross-compile-all brew tap mcuadros/homebrew-hhvm brew install hhvm --HEAD brew tap homebrew/science brew tap thoughtbot/formulae brew install gh
-
+brew tap josegonzalez/homebrew-php 
+brew install go --cross-compile-all 
+brew tap mcuadros/homebrew-hhvm 
+brew install hhvm --HEAD 
+brew tap homebrew/science 
+brew tap thoughtbot/formulae 
+brew install gh
 brew linkapps
 
 brew tap dart-lang/dart brew install dart brew install dartium # if you build Dart client apps

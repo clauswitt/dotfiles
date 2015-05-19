@@ -31,3 +31,6 @@ export CAPP_BUILD="/Users/clauswitt/Downloads/Starter/Build"
 [ -f /Users/clauswitt/.travis/travis.sh ] && source /Users/clauswitt/.travis/travis.sh
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
+
+PERL_MB_OPT="--install_base \"/Users/clauswitt/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/clauswitt/perl5"; export PERL_MM_OPT;
