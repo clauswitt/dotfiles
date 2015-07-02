@@ -95,6 +95,11 @@ git-php-lint() {
   for file in $(gss |cut -d ' ' -f3|grep php); php -l $file
 }
 
+
+git-php-cs-psr2() {
+  for file in $(gss |cut -d ' ' -f3|grep php); php-cs-fixer fix $file
+}
+
 git-select-lint() {
   file=$(gss |cut -d ' ' -f3 | selecta); php -l $file
 }
