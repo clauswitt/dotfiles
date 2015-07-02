@@ -92,7 +92,7 @@ now() {
 }
 
 git-php-lint() {
-  for file in $(gss |cut -d ' ' -f3); php -l $file
+  for file in $(gss |cut -d ' ' -f3|grep php); php -l $file
 }
 
 git-select-lint() {
