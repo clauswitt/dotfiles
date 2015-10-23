@@ -115,6 +115,24 @@ cg() {
 compdef _files -W $GOPATH/src/github.com/ -/
 
 
+emacsd() {
+  CHECK=`ps aux|grep emacs|grep daemon|wc -l|bc`
+  if [[ "$CHECK" == 0 ]]; then
+    command emacs --daemon
+  fi
+}
+
+emacsg() {
+  emacsd
+  command emacsclient -c &
+}
+
+emacs() {
+  emacsd
+  command emacsclient -t
+}
+
+
 alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"
 
 zle -C tmux-pane-words-prefix   complete-word _generic

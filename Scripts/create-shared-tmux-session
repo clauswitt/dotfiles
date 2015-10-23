@@ -1,0 +1,2 @@
+#!/bin/sh 
+tmux -S /tmp/shareds attach -t shared || tmux -S /tmp/shareds new -s shared 'chgrp staff /tmp/shareds && zsh'
