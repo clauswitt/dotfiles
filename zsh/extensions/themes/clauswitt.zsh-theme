@@ -4,7 +4,7 @@ function get_pwd() {
 }
 
 PROMPT='
-%{$fg[cyan]%}[%~% ] | %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} | $(rvm-prompt) 
+%{$fg[cyan]%}%~%    %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%}    $(rvm-prompt) 
 %{$fg[magenta]%}λ%{$reset_color%} '
 
 
