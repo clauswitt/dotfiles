@@ -22,7 +22,8 @@ function get_pwd() {
 
 setopt prompt_subst
 PROMPT='
-%B%F{magenta}%c%B%F{green}${vcs_info_msg_0_}%B%F{magenta} %{$reset_color%}% $(rvm-prompt) 
+%B%F{magenta}%c%B%F{green}${vcs_info_msg_0_}%B%F{magenta} %{$reset_color%}%
+
 %{$fg[red]%}λ%{$reset_color%} '
 
 
