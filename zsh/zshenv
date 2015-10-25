@@ -1,3 +1,4 @@
 alias r="/usr/local/bin/r"
 PATH=$PATH:$HOME/Scripts
 export PATH=$PATH
+skip_global_compinit=1

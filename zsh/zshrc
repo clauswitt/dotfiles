@@ -6,8 +6,14 @@ LANG=en_US.UTF-8
 LC_ALL=en_US.UTF-8
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
-plugins=(golang docker gem coffee tmux tmuxinator brew git battery osx rake ruby rvm cw)
+plugins=(tmux git osx cw)
 fpath=(/usr/local/share/zsh-completions $fpath)
+
+
+PATH="/usr/local/share/npm/bin:$PATH"
+PATH="$HOME/bin:$PATH"
+PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin:$HOME/go/bin
+
 source $ZSH/oh-my-zsh.sh
 
 export GOPATH=$HOME/go
@@ -17,9 +23,6 @@ bindkey -v
 bindkey '^R' history-incremental-pattern-search-backward
 export DOCKER_HOST=tcp://localhost:4243
 
-PATH="/usr/local/share/npm/bin:$PATH"
-PATH="$HOME/bin:$PATH"
-PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin:$HOME/go/bin
 
 export NARWHAL_ENGINE=jsc
 
@@ -29,8 +32,6 @@ export CAPP_BUILD="/Users/clauswitt/Downloads/Starter/Build"
 
 # added by travis gem
 [ -f /Users/clauswitt/.travis/travis.sh ] && source /Users/clauswitt/.travis/travis.sh
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
 source `brew --prefix`/etc/profile.d/z.sh
 
 PERL_MB_OPT="--install_base \"/Users/clauswitt/perl5\""; export PERL_MB_OPT;
