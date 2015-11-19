@@ -5,3 +5,6 @@ Session.vim
 tmux/dottmux/sidebar
 tmux/dottmux/plugins
 emacs/
+bin/nanobox
+bin/BinaryBuilder
+bin/carina
