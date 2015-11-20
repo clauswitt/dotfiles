@@ -5,7 +5,6 @@ endif
 source ~/.vim/setup/rainbow.vim
 silent! call pathogen#runtime_append_all_bundles()
 call pathogen#infect()
-Helptags
 source ~/.vim/setup/basics.vim
 source ~/.vim/setup/theme.vim
 source ~/.vim/setup/goyo.vim
