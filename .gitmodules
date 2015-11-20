@@ -4,9 +4,6 @@
 [submodule "zsh/oh-my-zsh"]
 	path = zsh/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
-[submodule "fish/oh-my-fish"]
-	path = fish/oh-my-fish
-	url = https://github.com/bpinto/oh-my-fish.git
 [submodule "tmux/dottmux/plugins/tpm"]
 	path = tmux/dottmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
