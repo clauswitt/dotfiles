@@ -8,3 +8,4 @@ emacs/
 bin/nanobox
 bin/BinaryBuilder
 bin/carina
+vim/dotvim/plugged

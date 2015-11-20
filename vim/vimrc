@@ -2,9 +2,8 @@ scriptencoding utf-8
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
+source ~/.vim/setup/plugins.vim
 source ~/.vim/setup/rainbow.vim
-silent! call pathogen#runtime_append_all_bundles()
-call pathogen#infect()
 source ~/.vim/setup/basics.vim
 source ~/.vim/setup/theme.vim
 source ~/.vim/setup/goyo.vim
