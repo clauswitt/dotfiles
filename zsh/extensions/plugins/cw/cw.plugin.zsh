@@ -123,13 +123,11 @@ emacsd() {
 }
 
 emacsg() {
-  emacsd
-  command emacsclient -c &
+  emacsclient -c -a "" $*
 }
 
 emacs() {
-  emacsd
-  command emacsclient -t
+  emacsclient -t -a "" $*
 }
 
 
