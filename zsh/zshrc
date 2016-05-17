@@ -9,31 +9,27 @@ export LANG=en_US.UTF-8
 plugins=(tmux git osx cw)
 fpath=(/usr/local/share/zsh-completions $fpath)
 
-
 PATH="/usr/local/share/npm/bin:$PATH"
 PATH="$HOME/bin:$PATH"
 PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin:$HOME/go/bin
+export NARWHAL_ENGINE=jsc
+export PATH="/usr/local/narwhal/bin:$PATH"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 source $ZSH/oh-my-zsh.sh
 
-export GOPATH=$HOME/go
 echo "export SSH_AUTH_SOCK=$SSH_AUTH_SOCK" > ~/.auth_ssh
 
 bindkey -v
 bindkey '^R' history-incremental-pattern-search-backward
-export DOCKER_HOST=tcp://localhost:4243
 
 
-export NARWHAL_ENGINE=jsc
-
-export PATH="/usr/local/narwhal/bin:$PATH"
-
-export CAPP_BUILD="/Users/clauswitt/Downloads/Starter/Build"
 
 # added by travis gem
 [ -f /Users/clauswitt/.travis/travis.sh ] && source /Users/clauswitt/.travis/travis.sh
 source `brew --prefix`/etc/profile.d/z.sh
-source $(brew --prefix php-version)/php-version.sh && php-version 5
 
 PERL_MB_OPT="--install_base \"/Users/clauswitt/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/clauswitt/perl5"; export PERL_MM_OPT;
+

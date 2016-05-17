@@ -67,4 +67,5 @@ Plug 'vim-scripts/vis'
 Plug 'jondkinney/vmath.vim'
 Plug 'wakatime/vim-wakatime'
 Plug 'wellsjo/wells-colorscheme.vim'
+Plug 'editorconfig/editorconfig-vim'
 call plug#end()

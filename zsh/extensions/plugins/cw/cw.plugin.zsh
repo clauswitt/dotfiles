@@ -1,4 +1,5 @@
 TERM=screen-256color-bce
+alias strace=dtruss
 alias tc="~/Scripts/tmux-copy-session.sh"
 alias editzsh='vim ~/.oh-my-zsh/plugins/cw/cw.plugin.zsh'
 alias ez="editzsh"

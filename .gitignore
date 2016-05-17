@@ -9,3 +9,4 @@ bin/nanobox
 bin/BinaryBuilder
 bin/carina
 vim/dotvim/plugged
+vim/dotvim/bundle
