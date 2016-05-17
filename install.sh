@@ -29,6 +29,7 @@ function install_packages {
   install "Scripts" "Scripts"
 
   install "ruby/gemrc" ".gemrc"
+  install "ruby/irbrc" ".irbrc"
   install "bin" "bin"
   install "emacs/spacemacs/spacemacs" ".spacemacs"
   install "emacs/spacemacs/layers" ".emacs.d/private"
