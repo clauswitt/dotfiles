@@ -1,12 +1,16 @@
 [submodule "vim/dotvim/bundle/matchit"]
 	path = vim/dotvim/bundle/matchit
 	url = https://github.com/clauswitt/vim-matchit.git
+	ignore = dirty
 [submodule "zsh/oh-my-zsh"]
 	path = zsh/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
+	ignore = dirty
 [submodule "tmux/dottmux/plugins/tpm"]
 	path = tmux/dottmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+	ignore = dirty
 [submodule "emacs/spacemacs/layers/snippets"]
 	path = emacs/spacemacs/layers/snippets
 	url = https://github.com/clauswitt/yasnippet-snippets.git
+	ignore = dirty

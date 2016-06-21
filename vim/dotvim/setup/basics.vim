@@ -39,7 +39,7 @@ set hlsearch                      " Highlight matches.
 
 " highlight current line
 set cursorline
-set cursorcolumn
+"set cursorcolumn
 hi CursorLine cterm=NONE ctermbg=black
 
 
@@ -73,7 +73,7 @@ set smartindent
 set list
 set listchars=nbsp:¬,tab:>-,extends:»,precedes:«,trail:•
 
-highlight ColorColumn ctermbg=magenta
+"highlight ColorColumn ctermbg=magenta
 call matchadd('ColorColumn', '\%81v', 100)
 
 set exrc" enable per-directory .vimrc files

@@ -130,6 +130,9 @@ emacsg() {
 emacs() {
   emacsclient -t -a "" $*
 }
+alias m=make
+alias p=phpunit
+alias s=rspec
 
 
 alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"
