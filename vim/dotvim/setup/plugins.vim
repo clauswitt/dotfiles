@@ -68,4 +68,6 @@ Plug 'jondkinney/vmath.vim'
 Plug 'wakatime/vim-wakatime'
 Plug 'wellsjo/wells-colorscheme.vim'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'elzr/vim-json'
+Plug 'isruslan/vim-es6'
 call plug#end()
