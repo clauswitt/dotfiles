@@ -7,3 +7,6 @@ doc
 coverage
 .git
 bower_components
+*.jpg
+*.tif
+

@@ -45,11 +45,6 @@ daemons() {
   fi
 }
 
-newpost() {
-  middleman article $1
-  vim `gsts |awk '{print \$2}'`
-}
-
 
 alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc'
 # Setup default root paths
@@ -134,8 +129,6 @@ alias m=make
 alias p=phpunit
 alias s=rspec
 
-
-alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"
 
 zle -C tmux-pane-words-prefix   complete-word _generic
 zle -C tmux-pane-words-anywhere complete-word _generic

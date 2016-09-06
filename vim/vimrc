@@ -23,4 +23,4 @@ source ~/.vim/setup/vimwiki.vim
 
 
 let g:syntastic_always_populate_loc_list = 1
-
+set laststatus=2
