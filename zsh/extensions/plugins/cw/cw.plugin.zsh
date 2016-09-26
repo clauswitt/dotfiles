@@ -11,6 +11,7 @@ alias dup='open . -a "iTerm.app"'
 alias deck='open -a "DeckSet.app"'
 
 alias gas='git add `git status --short | selecta|cut -d " " -f2`'
+alias gds='git diff `git status --short | selecta|cut -d " " -f2`'
 
 
 alias cdg='cd "$(git rev-parse --show-toplevel)"'
