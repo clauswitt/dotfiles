@@ -77,3 +77,14 @@ nnoremap ,,gr :GoldenRatioToggle<cr>
 nnoremap ,,re :GoldenRatioResize<cr>
 
 nnoremap <C-f> :CtrlPFunky<Cr>
+
+
+
+
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
+let test#strategy = "dispatch"
+map <C-n> :NERDTreeToggle<CR>

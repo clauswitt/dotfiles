@@ -73,4 +73,6 @@ Plug 'isruslan/vim-es6'
 Plug 'elmcast/elm-vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'janko-m/vim-test'
+Plug 'scrooloose/nerdtree'
 call plug#end()
