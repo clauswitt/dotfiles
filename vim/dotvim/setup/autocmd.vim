@@ -18,6 +18,14 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 au BufRead,BufNewFile *.hbs set filetype=html.handlebars
 au BufRead,BufNewFile *.handlebars set filetype=html.handlebars
 
+augroup json_autocmd
+  autocmd!
+  autocmd FileType json set autoindent
+  autocmd FileType json set formatoptions=tcq2l
+  autocmd FileType json set textwidth=78 shiftwidth=2
+  autocmd FileType json set softtabstop=2 tabstop=8
+  autocmd FileType json set expandtab
+augroup END
 
 " Rename current file, thanks Gary Bernhardt via Ben Orenstein
 function! RenameFile()

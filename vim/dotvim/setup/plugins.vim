@@ -70,4 +70,7 @@ Plug 'wellsjo/wells-colorscheme.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'elzr/vim-json'
 Plug 'isruslan/vim-es6'
+Plug 'elmcast/elm-vim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 call plug#end()
