@@ -147,6 +147,8 @@ function! GetRubyTestCommand(filename)
       else
           if filereadable("script/test")
               return "script/test " . a:filename
+          elseif filereadable("bin/rspec")
+              return "bin/rspec " . a:filename
           elseif filereadable("Gemfile")
               return "bundle exec rspec --color " . a:filename
           else
@@ -167,6 +169,8 @@ function! GetTestCommand(filename)
       return g:test_default_command
     elseif filereadable("script/test")
       return "script/test " . a:filename
+    elseif filereadable("bin/rspec")
+      return "bin/rspec" . a:filename
     elseif filereadable("Gemfile")
       return "bundle exec rspec --color " . a:filename
     elseif filereadable("phpunit.xml")
