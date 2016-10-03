@@ -32,7 +32,6 @@ function install_packages {
   install "ruby/irbrc" ".irbrc"
   install "bin" "bin"
   install "emacs/spacemacs/spacemacs" ".spacemacs"
-  install "emacs/spacemacs/layers" ".emacs.d/private"
 }
 function install() {
   TARGET=$ROOT/${2:-.$1}

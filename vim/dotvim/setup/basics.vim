@@ -96,3 +96,6 @@ augroup checktime
 augroup END
 set sessionoptions+=tabpages,globals
 
+let g:syntastic_cpp_checkers = ['gcc']
+let g:syntastic_cpp_compiler = 'gcc'
+let g:syntastic_cpp_compiler_options = '-std=c++14'
