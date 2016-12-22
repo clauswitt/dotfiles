@@ -74,7 +74,7 @@ set list
 set listchars=nbsp:¬,tab:>-,extends:»,precedes:«,trail:•
 
 "highlight ColorColumn ctermbg=magenta
-call matchadd('ColorColumn', '\%81v', 100)
+"call matchadd('ColorColumn', '\%81v', 100)
 
 set exrc" enable per-directory .vimrc files
 set secure" disable Usefulnsafe commands in local .vimrc files
