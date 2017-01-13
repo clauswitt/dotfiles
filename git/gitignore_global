@@ -44,3 +44,4 @@ Thumbs.db
 
 plugins/cw
 themes/clauswitt.zsh-theme
+dump.rdb
