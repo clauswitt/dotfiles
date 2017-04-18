@@ -399,9 +399,9 @@ nmap <silent> <leader>g :TestVisit<CR>
 let test#strategy = "dispatch"
 map <C-n> :NERDTreeToggle<CR>
 
-vmap <silent> <leader>t= :Tabularize/=.*<cr>
-vmap <silent> <leader>t| :Tabularize/|<cr>
-vmap <silent> <leader>t: :Tabularize/^[^:]*\zs:<cr>
+vmap <silent> <leader>t= :Tabularize /=.*<cr>
+vmap <silent> <leader>t\| :Tabularize /\|<cr>
+vmap <silent> <leader>t: :Tabularize /^[^:]*\zs:<cr>
 
 
 " Auto commands
