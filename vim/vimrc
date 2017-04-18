@@ -3,22 +3,701 @@ scriptencoding utf-8
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
-source ~/.vim/setup/plugins.vim
-source ~/.vim/setup/rainbow.vim
-source ~/.vim/setup/basics.vim
-source ~/.vim/setup/theme.vim
-source ~/.vim/setup/goyo.vim
-source ~/.vim/setup/keybindings.vim
-source ~/.vim/setup/autocmd.vim
-source ~/.vim/setup/remove_arrow_keys.vim
-source ~/.vim/setup/dash.vim
-source ~/.vim/setup/ultisnips.vim
-source ~/.vim/setup/silversearcher.vim
-source ~/.vim/setup/selecta.vim
-source ~/.vim/setup/vimux.vim
-source ~/.vim/setup/lightline.vim
-source ~/.vim/setup/calendar.vim
-source ~/.vim/setup/vimwiki.vim
+
+" Install plugins
+call plug#begin('~/.vim/plugged')
+Plug 'vim-scripts/a.vim'
+Plug 'tpope/vim-abolish'
+Plug 'itchyny/calendar.vim'
+Plug 'Rip-Rip/clang_complete'
+Plug 'tpope/vim-classpath'
+Plug 'guns/vim-clojure-static'
+Plug 'kien/ctrlp.vim'
+Plug 'markwu/ctrlp-colorscheme'
+Plug 'tacahiroy/ctrlp-funky'
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'tpope/vim-dispatch'
+Plug 'clauswitt/Dockerfile.vim'
+Plug 'mattn/emmet-vim'
+Plug 'Sirupsen/vim-execrus'
+Plug 'terryma/vim-expand-region'
+Plug 'mohitleo9/vim-fidget'
+Plug 'tpope/vim-fireplace'
+Plug 'ajh17/vim-fist'
+Plug 'airblade/vim-gitgutter'
+Plug 'tikhomirov/vim-glsl'
+Plug 'junegunn/goyo.vim'
+Plug 'wikitopian/hardmode'
+Plug 'takac/vim-hardtime'
+Plug 'honza/vim-snippets'
+Plug 'pangloss/vim-javascript'
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'benekastah/neomake'
+Plug 'myusuf3/numbers.vim'
+Plug 'tpope/vim-obsession'
+Plug 'dbarsam/vim-rainbow-parentheses'
+Plug 'ecomba/vim-ruby-refactoring'
+Plug 'rhysd/vim-textobj-ruby'
+Plug 'wting/rust.vim'
+Plug 'tpope/vim-rvm'
+Plug 'tpope/vim-speeddating'
+Plug 'ervandew/supertab'
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdcommenter'
+Plug 'gcmt/taboo.vim'
+Plug 'godlygeek/tabular'
+Plug 'kana/vim-textobj-user'
+Plug 'Julian/vim-textobj-variable-segment'
+Plug 'kchmck/vim-coffee-script'
+Plug 'altercation/vim-colors-solarized'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-liquid'
+Plug 'tpope/vim-markdown'
+Plug 'clauswitt/vim-phpunit'
+Plug 'tpope/vim-rails'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-surround'
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'tpope/vim-unimpaired'
+Plug 'Shougo/vimproc.vim'
+Plug 'Shougo/vimshell.vim'
+Plug 'benmills/vimux'
+Plug 'vim-scripts/vimwiki'
+Plug 'vim-scripts/vis'
+Plug 'jondkinney/vmath.vim'
+Plug 'wakatime/vim-wakatime'
+Plug 'wellsjo/wells-colorscheme.vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'isruslan/vim-es6'
+Plug 'elmcast/elm-vim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'janko-m/vim-test'
+Plug 'scrooloose/nerdtree'
+Plug 'mxw/vim-jsx'
+Plug 'elixir-lang/vim-elixir'
+call plug#end()
+
+" Activate rainbows
+let g:rainbow_activate = 1
+
+" Basic setup
+scriptencoding utf-8
+let mapleader = ","
+set nocompatible                  " Must come first because it changes other options.
+set notimeout
+set ttimeout
+set ttimeoutlen=100
+set ttyfast
+set ttyscroll=3
+set lazyredraw
+
+syntax enable                     " Turn on syntax highlighting.
+filetype plugin indent on         " Turn on file type detection.
+
+set linespace=0                 " number of pixels between the lines
+set splitright                  " open vertical splits on the right
+set splitbelow                  " open the horizontal split below
+
+set showcmd                       " Display incomplete commands.
+set showmode                      " Display the mode you're in.
+set pastetoggle=<F2>
+set backspace=indent,eol,start    " Intuitive backspacing.
+
+set hidden                        " Handle multiple buffers better.
+
+set wildmenu                      " Enhanced command line completion.
+set wildmode=list:longest         " Complete files like a shell.
+
+
+set ignorecase                    " Case-insensitive searching.
+set smartcase                     " But case-sensitive if expression contains a capital letter.
+
+set number                        " Show line numbers.
+set ruler                         " Show cursor position.
+
+set incsearch                     " Highlight matches as you type.
+set hlsearch                      " Highlight matches.
+
+
+
+" highlight current line
+set cursorline
+"set cursorcolumn
+hi CursorLine cterm=NONE ctermbg=black
+
+
+set wrap                          " Turn on line wrapping.
+set scrolloff=6                   " Show 3 lines of context around the cursor.
+set showmatch
+set title                         " Set the terminal's title
+
+set visualbell                    " No beeping.
+
+set nobackup                      " Don't make a backup before overwriting a file.
+set nowritebackup                 " And again.
+set noswapfile
+set backupskip=/tmp/*,/private/tmp/*
+set undodir=~/.vim/undo
+
+
+" UNCOMMENT TO USE
+set tabstop=2                    " Global tab width.
+set backspace=2
+set shiftwidth=2                 " And again, related.
+set smarttab
+set expandtab                    " Use spaces instead of tabs
+set laststatus=2                  " Show the status line all the time
+" Useful status information at bottom of screen
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+
+set autoindent " Indent at the same level as previous line
+set smartindent
+
+set list
+set listchars=nbsp:¬,tab:>-,extends:»,precedes:«,trail:•
+
+"highlight ColorColumn ctermbg=magenta
+"call matchadd('ColorColumn', '\%81v', 100)
+
+set exrc" enable per-directory .vimrc files
+set secure" disable Usefulnsafe commands in local .vimrc files
+set shortmess+=I
+
+set autoread
+augroup checktime
+    au!
+    if !has("gui_running")
+        "silent! necessary otherwise throws errors when using command
+        "line window.
+        autocmd BufEnter        * silent! checktime
+        autocmd CursorHold      * silent! checktime
+        autocmd CursorHoldI     * silent! checktime
+        "these two _may_ slow things down. Remove if they do.
+        autocmd CursorMoved     * silent! checktime
+        autocmd CursorMovedI    * silent! checktime
+    endif
+augroup END
+set sessionoptions+=tabpages,globals
+
+let g:syntastic_cpp_checkers = ['gcc']
+let g:syntastic_cpp_compiler = 'gcc'
+let g:syntastic_cpp_compiler_options = '-std=c++14'
+
+
+
+"" Map Goyo toggle to <Leader> + spacebar
+nnoremap <Leader><Space> :Goyo<CR> 
+nnoremap <Leader>l :Limelight!!<CR>
+
+function! GoyoBefore()
+  silent !tmux set status off
+  set noshowmode
+  set noshowcmd
+  Limelight
+  " ...
+endfunction
+
+function! GoyoAfter()
+  silent !tmux set status on
+  set showmode
+  set showcmd
+  Limelight!
+  " ...
+endfunction
+
+let g:goyo_callbacks = [function('GoyoBefore'), function('GoyoAfter')]
+
+"########################################
+"
+" KEYBINDINGS
+"
+"
+"
+"
+"########################################
+
+" Remove trailing whitespace
+nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+nnoremap <silent> <F6> :let _s=@/<Bar>:%s/\vecho (\$.{-});/if(isset(\1)) echo \1;/g<Bar>:let @/=_s<Bar>:nohl<CR>
+
+" Fugitive mappings
+map <Leader><Leader>ga :Gwrite<cr>
+map <Leader><Leader>gc :Gcommit<cr>
+map <Leader><Leader>gb :Gblame<cr>
+map <Leader><Leader>gr :Gread<cr>
+map <Leader><Leader>gp :GitPush<cr>
+map <Leader><Leader>gs :Gstatus<cr>
+
+" Easy split navigation remapping splits
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" split resizing
+noremap - <C-W><
+noremap + <C-W>>
+
+noremap <A-j> <C-W>-
+noremap <A-k> <C-W>+
+
+" Open splits with leader
+noremap <leader>vs :vs %<cr>
+noremap <leader>ss :split %<cr>
+
+
+function! BufSel(pattern)
+  let bufcount = bufnr("$")
+  let currbufnr = 1
+  let nummatches = 0
+  let firstmatchingbufnr = 0
+  while currbufnr <= bufcount
+    if(bufexists(currbufnr))
+      let currbufname = bufname(currbufnr)
+      if(match(currbufname, a:pattern) > -1)
+        echo currbufnr . ": ". bufname(currbufnr)
+        let nummatches += 1
+        let firstmatchingbufnr = currbufnr
+      endif
+    endif
+    let currbufnr = currbufnr + 1
+  endwhile
+  if(nummatches == 1)
+    execute ":buffer ". firstmatchingbufnr
+  elseif(nummatches > 1)
+    let desiredbufnr = input("Enter buffer number: ")
+    if(strlen(desiredbufnr) != 0)
+      execute ":buffer ". desiredbufnr
+    endif
+  else
+    echo "No matching buffers"
+  endif
+endfunction
+
+"Bind the BufSel() function to a user-command
+command! -nargs=1 Bs :call BufSel("<args>")
+
+noremap <Leader><Leader>d :bd<cr>
+noremap <Leader><Leader>c :Bclose<cr>
+noremap <Leader><Leader>bd :noautocmd bufdo bdelete<cr>
+noremap <Leader><Leader>n  :enew<cr>
+noremap <Leader><Leader>sn  :new<cr>
+noremap <Leader><Leader>vn  :vnew<cr>
+noremap ; :bp<cr>
+
+noremap <Leader>n :cn<cr>
+noremap <Leader>p :cp<cr>
+
+nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>m :CtrlPMRUFiles<CR>
+
+nnoremap <leader>gs :CtrlP spec<cr>
+nnoremap <leader>ga :CtrlP app<cr>
+nnoremap <leader>gl :CtrlP lib<cr>
+
+
+function! CmdTNoOp()
+endfunction
+
+command! -nargs=0 CommandTFlush :call CmdTNoOp()
+com! -n=? -com=dir CommandT         cal ctrlp#init(0, { 'dir': <q-args> })
+nnoremap <leader><leader>cs :CtrlPColorScheme<cr>
+
+let g:fist_in_private = 1
+let g:fist_anonymously = 0
+
+nmap <leader><leader>l <plug>fov_list
+nmap <leader><leader>f <plug>fov_new
+nmap <leader><leader>u <plug>fov_update
+
+vmap <leader><leader>f <plug>fov_visual_new
+vmap <leader><leader>u <plug>fov_visual_update
+
+
+nnoremap <c-c> <esc>
+noremap <Tab> <C-w>w
+noremap <F1> <Esc>
+noremap Z zz
+" Mappings for write
+noremap <Leader>w :w<CR>
+
+" Clear search highlights
+noremap <silent><Leader>/ :nohls<CR>
+
+nnoremap <F3> :NumbersToggle<CR>
+
+
+" copy file name or parent path from current file
+noremap cp :let @" = expand("%")<cr>
+
+
+noremap <leader>r :redraw!<cr>
+
+" jk is escape
+inoremap jk <esc>
+nnoremap <leader>ex :e .exrc<cr>
+
+
+" plain annotations
+map <silent> <F10> !xmpfilter -a<cr>
+nmap <silent> <F10> V<F10>
+imap <silent> <F10> <ESC><F10>a
+
+" Test::Unit assertions; use -s to generate RSpec expectations instead
+map <silent> <S-F10> !xmpfilter -u<cr>
+nmap <silent> <S-F10> V<S-F10>
+imap <silent> <S-F10> <ESC><S-F10>a
+
+" Annotate the full buffer
+" I actually prefer ggVG to %; it's a sort of poor man's visual bell 
+nmap <silent> <F11> mzggVG!xmpfilter -a<cr>'z
+imap <silent> <F11> <ESC><F11>
+
+" assertions
+nmap <silent> <S-F11> mzggVG!xmpfilter -u<cr>'z
+imap <silent> <S-F11> <ESC><S-F11>a
+
+" Add # => markers
+vmap <silent> <F12> !xmpfilter -m<cr>
+nmap <silent> <F12> V<F12>
+imap <silent> <F12> <ESC><F12>a
+
+" Remove # => markers
+vmap <silent> <S-F12> ms:call RemoveRubyEval()<CR>
+nmap <silent> <S-F12> V<S-F12>
+imap <silent> <S-F12> <ESC><S-F12>a
+
+
+function! RemoveRubyEval() range
+  let begv = a:firstline
+  let endv = a:lastline
+  normal Hmt
+  set lz
+  execute ":" . begv . "," . endv . 's/\s*# \(=>\|!!\).*$//e'
+  normal 'tzt`s
+  set nolz
+  redraw
+endfunction
+
+nnoremap ,,t :!taste the soup<cr>
+nnoremap <tab><tab>r :!open "http://www.youtube.com/watch?v=Eky6bCnCLOI\#t=171"<cr>
+nnoremap ,,gr :GoldenRatioToggle<cr>
+nnoremap ,,re :GoldenRatioResize<cr>
+
+nnoremap <C-f> :CtrlPFunky<Cr>
+
+
+
+
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
+let test#strategy = "dispatch"
+map <C-n> :NERDTreeToggle<CR>
+
+
+" Auto commands
+function! SetScreenTitle()
+  silent !clear
+  let titlestring = "Program: vim | File: " . expand("%") . ""
+  let cmd = "!~/Scripts/name.sh \"".titlestring."\""
+  silent execute(cmd)
+  redraw!
+endfunction
+
+autocmd BufEnter * call SetScreenTitle()
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd Filetype coffeescript setlocal ts=2 sts=2 sw=2
+autocmd Filetype php setlocal ts=4 sts=4 sw=4
+autocmd Filetype gitcommit setlocal spell textwidth=72
+au BufRead,BufNewFile *.hbs set filetype=html.handlebars
+au BufRead,BufNewFile *.handlebars set filetype=html.handlebars
+
+augroup json_autocmd
+  autocmd!
+  autocmd FileType json set autoindent
+  autocmd FileType json set formatoptions=tcq2l
+  autocmd FileType json set textwidth=78 shiftwidth=2
+  autocmd FileType json set softtabstop=2 tabstop=8
+  autocmd FileType json set expandtab
+augroup END
+
+" Rename current file, thanks Gary Bernhardt via Ben Orenstein
+function! RenameFile()
+  let old_name = expand('%')
+  let new_name = input('New file name: ', expand('%'), 'file')
+  if new_name != '' && new_name != old_name
+    exec ':saveas ' . new_name
+    exec ':silent !rm ' . old_name
+    redraw!
+  endif
+endfunction
+
+noremap <leader>ren :call RenameFile()<cr>
+
+function s:MkNonExDir(file, buf)
+    if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+        let dir=fnamemodify(a:file, ':h')
+        if !isdirectory(dir)
+            call mkdir(dir, 'p')
+        endif
+    endif
+endfunction
+augroup BWCCreateDir
+    autocmd!
+    autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+augroup END
+
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ARROW KEYS ARE UNACCEPTABLE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <Left> <Nop>
+map <Right> <Nop>
+map <Up> <Nop>
+map <Down> <Nop>
+
+" Search Dash for word under cursor
+function! SearchDash()
+  let s:browser = "/usr/bin/open"
+  let s:wordUnderCursor = expand("<cword>")
+  let s:currentFileType = &filetype
+  let s:url = "dash://".s:currentFileType.":".s:wordUnderCursor
+  let s:cmd ="silent ! " . s:browser . " " . s:url
+  execute s:cmd
+  redraw!
+endfunction
+noremap <leader>d :call SearchDash()<CR>
+
+" UltiSnip key bindings
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsListSnippets ="<c-l>"
+noremap <leader>U :UltiSnipsEdit<cr>
+
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+endif
+
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" bind \ (backward slash) to grep shortcut
+command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+nnoremap \ :Ag<SPACE>
+
+
+" Run a given vim command on the results of fuzzy selecting from a given shell
+" command. See usage below.
+function! SelectaCommand(choice_command, selecta_args, vim_command)
+  try
+    let selection = system(a:choice_command . " | selecta " . a:selecta_args)
+  catch /Vim:Interrupt/
+    " Swallow the ^C so that the redraw below happens; otherwise there will be
+    " leftovers from selecta on the screen
+    redraw!
+    return
+  endtry
+  redraw!
+  exec a:vim_command . " " . selection
+endfunction
+
+" Find all files in all non-dot directories starting in the working directory.
+" Fuzzy select one of those. Open the selected file with :e.
+nnoremap <leader>g :call SelectaCommand("git ls-files", "", ":e")<cr>
+nnoremap <leader>f :call SelectaCommand('ag . -l --nocolor  -g ""', "", ":e")<cr>
+nnoremap <leader><leader>f :call SelectaCommand('git status --short \|cut -d " " -f3', "", ":e")<cr>
+
+function! SelectaIdentifier()
+  " Yank the word under the cursor into the z register
+  normal "zyiw
+  " Fuzzy match files in the current directory, starting with the word under
+  " the cursor
+  call SelectaCommand("find * -type f", "-s " . @z, ":e")
+endfunction
+
+if exists('$TMUX')
+  let g:VimuxOrientation = "h"
+  let VimuxUseNearest = 1
+
+  noremap <leader>rr :call VimuxRunCommand("irb")<CR>
+  noremap <leader>nr :call VimuxRunCommand("node")<cr>
+  noremap <leader>pr :call VimuxRunCommand("php -a")<cr>
+
+  function! VimuxSlime()
+    call VimuxSendText(@v)
+  endfunction
+
+  " If text is selected, save it in the v buffer and send that buffer it to tmux
+  vmap <leader><leader>tm "vy :call VimuxSlime()<CR>
+
+  " Select current paragraph and send it to tmux
+  nmap <leader><leader>tm vip<leader><leader>tm<CR>
+
+  " Prompt for a command to run
+  map <Leader>vp :VimuxPromptCommand<CR>
+
+  " Run last command executed by VimuxRunCommand
+  map <Leader>vl :VimuxRunLastCommand<CR>
+
+  " Inspect runner pane
+  map <Leader>vi :VimuxInspectRunner<CR>
+
+  " Close vim tmux runner opened by VimuxRunCommand
+  map <Leader>vq :VimuxCloseRunner<CR>
+
+  " Interrupt any command running in the runner pane
+  map <Leader>vx :VimuxInterruptRunner<CR>
+
+  " Zoom the runner pane (use <bind-key> z to restore runner pane)
+  map <Leader>vz :call VimuxZoomRunner()<CR>
+
+  let g:tmuxcomplete#trigger = ''
+
+endif
+
+
+" Lightline setup
+"
+let g:lightline = {
+      \ 'colorscheme': 'landscape',
+      \ 'mode_map': { 'c': 'NORMAL' },
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste'], ['formatoptions', 'modified' ], [ 'fugitive', 'filename' ] ],
+      \   'right': [ [ 'syntastic'], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \ },
+      \ 'inactive': {
+      \   'left': [  [ 'filename' ] ],
+      \   'right': [ [ 'syntastic'] ]
+      \ },
+      \ 'component_function': {
+      \   'modified': 'MyModified',
+      \   'readonly': 'MyReadonly',
+      \   'fugitive': 'MyFugitive',
+      \   'filename': 'MyFilename',
+      \   'formatoptions': 'MyFormatOptions',
+      \   'mode': 'LightLineMode',
+      \   'ctrlpmark': 'CtrlPMark'
+      \ },
+      \ 'component_expand': {
+      \   'syntastic': 'SyntasticStatuslineFlag',
+      \ },
+      \ 'component_type': {
+      \   'syntastic': 'error',
+      \ },
+      \ 'separator': { 'left': '⮀', 'right': '⮂' },
+      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+      \ }
+
+function! MyModified()
+  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! MyFormatOptions()
+  return &ft =~ '[%{&fo}]'
+
+endfunction
+
+function! MyReadonly()
+  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? '⭤' : ''
+endfunction
+
+function! MyFilename()
+  return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() : 
+        \  &ft == 'unite' ? unite#get_status_string() : 
+        \  &ft == 'vimshell' ? vimshell#get_status_string() :
+        \ '' != expand('%') ? expand('%') : '[No Name]') .
+        \ ('' != MyModified() ? ' ' . MyModified() : '')
+endfunction
+
+function! MyFugitive()
+  if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head")
+    let _ = fugitive#head()
+    return strlen(_) ? '⭠ '._ : ''
+  endif
+  return ''
+endfunction
+
+
+function! LightLineFileformat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! LightLineFiletype()
+  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+endfunction
+
+function! LightLineFileencoding()
+  return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
+endfunction
+
+function! LightLineMode()
+  let fname = expand('%:t')
+  return fname == '__Tagbar__' ? 'Tagbar' :
+        \ fname == 'ControlP' ? 'CtrlP' :
+        \ fname == '__Gundo__' ? 'Gundo' :
+        \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
+        \ fname =~ 'NERD_tree' ? 'NERDTree' :
+        \ &ft == 'unite' ? 'Unite' :
+        \ &ft == 'vimfiler' ? 'VimFiler' :
+        \ &ft == 'vimshell' ? 'VimShell' :
+        \ winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+function! CtrlPMark()
+  if expand('%:t') =~ 'ControlP' && has_key(g:lightline, 'ctrlp_item')
+    call lightline#link('iR'[g:lightline.ctrlp_regex])
+    return lightline#concatenate([g:lightline.ctrlp_prev, g:lightline.ctrlp_item
+          \ , g:lightline.ctrlp_next], 0)
+  else
+    return ''
+  endif
+endfunction
+
+let g:ctrlp_status_func = {
+  \ 'main': 'CtrlPStatusFunc_1',
+  \ 'prog': 'CtrlPStatusFunc_2',
+  \ }
+
+function! CtrlPStatusFunc_1(focus, byfname, regex, prev, item, next, marked)
+  let g:lightline.ctrlp_regex = a:regex
+  let g:lightline.ctrlp_prev = a:prev
+  let g:lightline.ctrlp_item = a:item
+  let g:lightline.ctrlp_next = a:next
+  return lightline#statusline(0)
+endfunction
+
+function! CtrlPStatusFunc_2(str)
+  return lightline#statusline(0)
+endfunction
+
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
+
+map ,,cw :Calendar -view=week<cr>
+map ,,cd :Calendar -view=day<cr>
+
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+          \ 'template_path': '~/vimwiki/templates/',
+          \ 'template_default': 'default',
+          \ 'template_ext': '.html'}]
+
+let g:auto_export = 1
+
 
 
 
