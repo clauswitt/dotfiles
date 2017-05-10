@@ -1,0 +1,10 @@
+#!/bin/bash
+if [[ $1 == "all" ]] 
+then
+  find . -name "*.xml*" -exec $0 {} \;
+else
+  xmllint --format $1 > $1.tmp
+  rm $1
+  mv $1.tmp $1
+fi
+
