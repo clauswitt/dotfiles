@@ -43,6 +43,7 @@ Plug 'tpope/vim-speeddating'
 Plug 'ervandew/supertab'
 Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdcommenter'
+Plug 'rhysd/vim-clang-format'
 Plug 'gcmt/taboo.vim'
 Plug 'godlygeek/tabular'
 Plug 'kana/vim-textobj-user'
@@ -701,7 +702,9 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
 let g:auto_export = 1
 
 
-
+let g:clang_format#code_style = "google"
+let g:clang_format#detect_style_file = 1
+let g:clang_format#auto_format = 1
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_javascript_checkers = ['eslint']
