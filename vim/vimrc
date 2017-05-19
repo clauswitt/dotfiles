@@ -78,6 +78,7 @@ Plug 'janko-m/vim-test'
 Plug 'scrooloose/nerdtree'
 Plug 'mxw/vim-jsx'
 Plug 'elixir-lang/vim-elixir'
+Plug 'udalov/kotlin-vim'
 call plug#end()
 
 " Activate rainbows
