@@ -705,7 +705,7 @@ let g:auto_export = 1
 
 let g:clang_format#code_style = "google"
 let g:clang_format#detect_style_file = 1
-let g:clang_format#auto_format = 1
+let g:clang_format#auto_format = 0
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_javascript_checkers = ['eslint']
