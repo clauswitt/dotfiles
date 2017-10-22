@@ -6,14 +6,12 @@ endif
 
 " Install plugins
 call plug#begin('~/.vim/plugged')
+Plug 'sheerun/vim-polyglot'
+Plug 'mileszs/ack.vim'
 Plug 'vim-scripts/a.vim'
 Plug 'tpope/vim-abolish'
-Plug 'itchyny/calendar.vim'
 Plug 'tpope/vim-classpath'
 Plug 'guns/vim-clojure-static'
-Plug 'kien/ctrlp.vim'
-Plug 'markwu/ctrlp-colorscheme'
-Plug 'tacahiroy/ctrlp-funky'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'tpope/vim-dispatch'
 Plug 'clauswitt/Dockerfile.vim'
@@ -31,18 +29,16 @@ Plug 'takac/vim-hardtime'
 Plug 'pangloss/vim-javascript'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'benekastah/neomake'
 Plug 'myusuf3/numbers.vim'
 Plug 'tpope/vim-obsession'
 Plug 'dbarsam/vim-rainbow-parentheses'
 Plug 'ecomba/vim-ruby-refactoring'
 Plug 'rhysd/vim-textobj-ruby'
 Plug 'wting/rust.vim'
-Plug 'tpope/vim-rvm'
+Plug 'tpope/vim-rbenv'
 Plug 'tpope/vim-speeddating'
 Plug 'ervandew/supertab'
-Plug 'scrooloose/syntastic'
-Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-commentary'
 Plug 'rhysd/vim-clang-format'
 Plug 'gcmt/taboo.vim'
 Plug 'godlygeek/tabular'
@@ -64,7 +60,6 @@ Plug 'tpope/vim-unimpaired'
 Plug 'Shougo/vimproc.vim'
 Plug 'Shougo/vimshell.vim'
 Plug 'benmills/vimux'
-Plug 'vim-scripts/vimwiki'
 Plug 'vim-scripts/vis'
 Plug 'jondkinney/vmath.vim'
 Plug 'wakatime/vim-wakatime'
@@ -79,6 +74,9 @@ Plug 'scrooloose/nerdtree'
 Plug 'mxw/vim-jsx'
 Plug 'elixir-lang/vim-elixir'
 Plug 'udalov/kotlin-vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'w0rp/ale'
 call plug#end()
 
 " Activate rainbows
@@ -183,10 +181,6 @@ augroup checktime
 augroup END
 set sessionoptions+=tabpages,globals
 
-let g:syntastic_cpp_checkers = ['gcc']
-let g:syntastic_cpp_compiler = 'gcc'
-let g:syntastic_cpp_compiler_options = '-std=c++14'
-
 
 
 "" Map Goyo toggle to <Leader> + spacebar
@@ -287,35 +281,17 @@ noremap <Leader><Leader>bd :noautocmd bufdo bdelete<cr>
 noremap <Leader><Leader>n  :enew<cr>
 noremap <Leader><Leader>sn  :new<cr>
 noremap <Leader><Leader>vn  :vnew<cr>
-noremap ; :bp<cr>
 
 noremap <Leader>n :cn<cr>
 noremap <Leader>p :cp<cr>
 
-nnoremap <leader>b :CtrlPBuffer<CR>
-nnoremap <leader>m :CtrlPMRUFiles<CR>
-
-nnoremap <leader>gs :CtrlP spec<cr>
-nnoremap <leader>ga :CtrlP app<cr>
-nnoremap <leader>gl :CtrlP lib<cr>
 
 
 function! CmdTNoOp()
 endfunction
 
-command! -nargs=0 CommandTFlush :call CmdTNoOp()
-com! -n=? -com=dir CommandT         cal ctrlp#init(0, { 'dir': <q-args> })
-nnoremap <leader><leader>cs :CtrlPColorScheme<cr>
-
 let g:fist_in_private = 1
 let g:fist_anonymously = 0
-
-nmap <leader><leader>l <plug>fov_list
-nmap <leader><leader>f <plug>fov_new
-nmap <leader><leader>u <plug>fov_update
-
-vmap <leader><leader>f <plug>fov_visual_new
-vmap <leader><leader>u <plug>fov_visual_update
 
 
 nnoremap <c-c> <esc>
@@ -373,22 +349,20 @@ imap <silent> <S-F12> <ESC><S-F12>a
 
 
 function! RemoveRubyEval() range
-  let begv = a:firstline
-  let endv = a:lastline
-  normal Hmt
-  set lz
-  execute ":" . begv . "," . endv . 's/\s*# \(=>\|!!\).*$//e'
-  normal 'tzt`s
-  set nolz
-  redraw
+let begv = a:firstline
+let endv = a:lastline
+normal Hmt
+set lz
+execute ":" . begv . "," . endv . 's/\s*# \(=>\|!!\).*$//e'
+normal 'tzt`s
+set nolz
+redraw
 endfunction
 
 nnoremap ,,t :!taste the soup<cr>
 nnoremap <tab><tab>r :!open "http://www.youtube.com/watch?v=Eky6bCnCLOI\#t=171"<cr>
 nnoremap ,,gr :GoldenRatioToggle<cr>
 nnoremap ,,re :GoldenRatioResize<cr>
-
-nnoremap <C-f> :CtrlPFunky<Cr>
 
 
 
@@ -405,17 +379,6 @@ vmap <silent> <leader>t= :Tabularize /=.*<cr>
 vmap <silent> <leader>t\| :Tabularize /\|<cr>
 vmap <silent> <leader>t: :Tabularize /^[^:]*\zs:<cr>
 
-
-" Auto commands
-function! SetScreenTitle()
-  silent !clear
-  let titlestring = "Program: vim | File: " . expand("%") . ""
-  let cmd = "!~/Scripts/name.sh \"".titlestring."\""
-  silent execute(cmd)
-  redraw!
-endfunction
-
-autocmd BufEnter * call SetScreenTitle()
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
@@ -426,38 +389,38 @@ au BufRead,BufNewFile *.hbs set filetype=html.handlebars
 au BufRead,BufNewFile *.handlebars set filetype=html.handlebars
 
 augroup json_autocmd
-  autocmd!
-  autocmd FileType json set autoindent
-  autocmd FileType json set formatoptions=tcq2l
-  autocmd FileType json set textwidth=78 shiftwidth=2
-  autocmd FileType json set softtabstop=2 tabstop=8
-  autocmd FileType json set expandtab
+autocmd!
+autocmd FileType json set autoindent
+autocmd FileType json set formatoptions=tcq2l
+autocmd FileType json set textwidth=78 shiftwidth=2
+autocmd FileType json set softtabstop=2 tabstop=8
+autocmd FileType json set expandtab
 augroup END
 
 " Rename current file, thanks Gary Bernhardt via Ben Orenstein
 function! RenameFile()
-  let old_name = expand('%')
-  let new_name = input('New file name: ', expand('%'), 'file')
-  if new_name != '' && new_name != old_name
-    exec ':saveas ' . new_name
-    exec ':silent !rm ' . old_name
-    redraw!
-  endif
+let old_name = expand('%')
+let new_name = input('New file name: ', expand('%'), 'file')
+if new_name != '' && new_name != old_name
+  exec ':saveas ' . new_name
+  exec ':silent !rm ' . old_name
+  redraw!
+endif
 endfunction
 
 noremap <leader>ren :call RenameFile()<cr>
 
 function s:MkNonExDir(file, buf)
-    if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
-        let dir=fnamemodify(a:file, ':h')
-        if !isdirectory(dir)
-            call mkdir(dir, 'p')
-        endif
-    endif
+  if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+      let dir=fnamemodify(a:file, ':h')
+      if !isdirectory(dir)
+          call mkdir(dir, 'p')
+      endif
+  endif
 endfunction
 augroup BWCCreateDir
-    autocmd!
-    autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+  autocmd!
+  autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
 augroup END
 
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
@@ -472,13 +435,13 @@ map <Down> <Nop>
 
 " Search Dash for word under cursor
 function! SearchDash()
-  let s:browser = "/usr/bin/open"
-  let s:wordUnderCursor = expand("<cword>")
-  let s:currentFileType = &filetype
-  let s:url = "dash://".s:currentFileType.":".s:wordUnderCursor
-  let s:cmd ="silent ! " . s:browser . " " . s:url
-  execute s:cmd
-  redraw!
+let s:browser = "/usr/bin/open"
+let s:wordUnderCursor = expand("<cword>")
+let s:currentFileType = &filetype
+let s:url = "dash://".s:currentFileType.":".s:wordUnderCursor
+let s:cmd ="silent ! " . s:browser . " " . s:url
+execute s:cmd
+redraw!
 endfunction
 noremap <leader>d :call SearchDash()<CR>
 
@@ -491,39 +454,30 @@ noremap <leader>U :UltiSnipsEdit<cr>
 
 " The Silver Searcher
 if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+" Use ag over grep
+set grepprg=ag\ --nogroup\ --nocolor
+let g:ackprg = 'ag --vimgrep'
 endif
 
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
-" bind \ (backward slash) to grep shortcut
-command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-nnoremap \ :Ag<SPACE>
-
 
 " Run a given vim command on the results of fuzzy selecting from a given shell
 " command. See usage below.
 function! SelectaCommand(choice_command, selecta_args, vim_command)
-  try
-    let selection = system(a:choice_command . " | selecta " . a:selecta_args)
-  catch /Vim:Interrupt/
-    " Swallow the ^C so that the redraw below happens; otherwise there will be
-    " leftovers from selecta on the screen
-    redraw!
-    return
-  endtry
+try
+  let selection = system(a:choice_command . " | selecta " . a:selecta_args)
+catch /Vim:Interrupt/
+  " Swallow the ^C so that the redraw below happens; otherwise there will be
+  " leftovers from selecta on the screen
   redraw!
-  exec a:vim_command . " " . selection
+  return
+endtry
+redraw!
+exec a:vim_command . " " . selection
 endfunction
 
-" Find all files in all non-dot directories starting in the working directory.
-" Fuzzy select one of those. Open the selected file with :e.
-nnoremap <leader>g :call SelectaCommand("git ls-files", "", ":e")<cr>
-nnoremap <leader>f :call SelectaCommand('ag . -l --nocolor  -g ""', "", ":e")<cr>
-nnoremap <leader><leader>f :call SelectaCommand('git status --short \|cut -d " " -f3', "", ":e")<cr>
 
 function! SelectaIdentifier()
   " Yank the word under the cursor into the z register
@@ -537,9 +491,10 @@ if exists('$TMUX')
   let g:VimuxOrientation = "h"
   let VimuxUseNearest = 1
 
-  noremap <leader>rr :call VimuxRunCommand("irb")<CR>
-  noremap <leader>nr :call VimuxRunCommand("node")<cr>
-  noremap <leader>pr :call VimuxRunCommand("php -a")<cr>
+  noremap <leader><leader>rr :call VimuxRunCommand("irb")<CR>
+  noremap <leader><leader>nr :call VimuxRunCommand("node")<cr>
+  noremap <leader><leader>pr :call VimuxRunCommand("php -a")<cr>
+  noremap <leader><leader>rr :call VimuxRunCommand("
 
   function! VimuxSlime()
     call VimuxSendText(@v)
@@ -581,11 +536,11 @@ let g:lightline = {
       \ 'mode_map': { 'c': 'NORMAL' },
       \ 'active': {
       \   'left': [ [ 'mode', 'paste'], ['formatoptions', 'modified' ], [ 'fugitive', 'filename' ] ],
-      \   'right': [ [ 'syntastic'], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \   'right': [  ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
       \ },
       \ 'inactive': {
       \   'left': [  [ 'filename' ] ],
-      \   'right': [ [ 'syntastic'] ]
+      \   'right': [ ]
       \ },
       \ 'component_function': {
       \   'modified': 'MyModified',
@@ -593,14 +548,7 @@ let g:lightline = {
       \   'fugitive': 'MyFugitive',
       \   'filename': 'MyFilename',
       \   'formatoptions': 'MyFormatOptions',
-      \   'mode': 'LightLineMode',
-      \   'ctrlpmark': 'CtrlPMark'
-      \ },
-      \ 'component_expand': {
-      \   'syntastic': 'SyntasticStatuslineFlag',
-      \ },
-      \ 'component_type': {
-      \   'syntastic': 'error',
+      \   'mode': 'LightLineMode'
       \ },
       \ 'separator': { 'left': '⮀', 'right': '⮂' },
       \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
@@ -652,7 +600,6 @@ endfunction
 function! LightLineMode()
   let fname = expand('%:t')
   return fname == '__Tagbar__' ? 'Tagbar' :
-        \ fname == 'ControlP' ? 'CtrlP' :
         \ fname == '__Gundo__' ? 'Gundo' :
         \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
         \ fname =~ 'NERD_tree' ? 'NERDTree' :
@@ -662,44 +609,6 @@ function! LightLineMode()
         \ winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
 
-function! CtrlPMark()
-  if expand('%:t') =~ 'ControlP' && has_key(g:lightline, 'ctrlp_item')
-    call lightline#link('iR'[g:lightline.ctrlp_regex])
-    return lightline#concatenate([g:lightline.ctrlp_prev, g:lightline.ctrlp_item
-          \ , g:lightline.ctrlp_next], 0)
-  else
-    return ''
-  endif
-endfunction
-
-let g:ctrlp_status_func = {
-  \ 'main': 'CtrlPStatusFunc_1',
-  \ 'prog': 'CtrlPStatusFunc_2',
-  \ }
-
-function! CtrlPStatusFunc_1(focus, byfname, regex, prev, item, next, marked)
-  let g:lightline.ctrlp_regex = a:regex
-  let g:lightline.ctrlp_prev = a:prev
-  let g:lightline.ctrlp_item = a:item
-  let g:lightline.ctrlp_next = a:next
-  return lightline#statusline(0)
-endfunction
-
-function! CtrlPStatusFunc_2(str)
-  return lightline#statusline(0)
-endfunction
-
-let g:calendar_google_calendar = 1
-let g:calendar_google_task = 1
-
-map ,,cw :Calendar -view=week<cr>
-map ,,cd :Calendar -view=day<cr>
-
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-          \ 'template_path': '~/vimwiki/templates/',
-          \ 'template_default': 'default',
-          \ 'template_ext': '.html'}]
-
 let g:auto_export = 1
 
 
@@ -707,6 +616,25 @@ let g:clang_format#code_style = "google"
 let g:clang_format#detect_style_file = 1
 let g:clang_format#auto_format = 0
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_javascript_checkers = ['eslint']
 set laststatus=2
+
+au BufNewFile *.fs setlocal filetype=glsl fileencoding=utf-8 fileformat=unix
+au BufRead *.fs setlocal filetype=glsl fileencoding=utf-8 fileformat=unix
+au BufNewFile *.vs setlocal filetype=glsl fileencoding=utf-8 fileformat=unix
+au BufRead *.vs setlocal filetype=glsl fileencoding=utf-8 fileformat=unix
+
+nmap <leader>m :Make<cr>
+nmap <leader><leader>m :Make!<cr>
+
+
+
+
+
+nmap ; :Buffers<CR>
+nmap <Leader>f :Files<CR>
+nmap <Leader>r :Tags<CR>
+
+" Find all files in all non-dot directories starting in the working directory.
+" Fuzzy select one of those. Open the selected file with :e.
+nnoremap <leader>g :GFiles
+nnoremap <leader><leader>f :GFiles?

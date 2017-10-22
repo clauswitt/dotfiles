@@ -17,6 +17,14 @@ alias cdz='cd `z |selecta|rev|cut -d " " -f1 | rev`'
 
 alias cdg='cd "$(git rev-parse --show-toplevel)"'
 
+tf() {
+if [ -z "$TMUX_PANE" ]; then
+  tmux attach-session -t `tmux ls | selecta | cut -f1 -d:`
+else
+  tmux switch-client -t `tmux ls | selecta | cut -f1 -d:`
+fi
+}
+
 daemons() {
   if (( $# == 0 )) then
     echo "Usage: daemons [pattern] [command]"
@@ -130,9 +138,18 @@ emacs() {
   emacsclient -t -a "" $*
 }
 alias m=make
-alias p=phpunit
 alias s=rspec
 
+function mcd() { mkdir -p $1 && cd $1 }
+function cdf() { cd *$1*/ }
+#
+# Switch projects
+function p() {
+    proj=$(find ~/Documents/Projects -type d -maxdepth 3 | selecta)
+    if [[ -n "$proj" ]]; then
+        cd $proj
+    fi
+}
 
 zle -C tmux-pane-words-prefix   complete-word _generic
 zle -C tmux-pane-words-anywhere complete-word _generic
