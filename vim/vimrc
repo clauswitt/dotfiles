@@ -20,7 +20,6 @@ Plug 'Sirupsen/vim-execrus'
 Plug 'terryma/vim-expand-region'
 Plug 'mohitleo9/vim-fidget'
 Plug 'tpope/vim-fireplace'
-Plug 'ajh17/vim-fist'
 Plug 'airblade/vim-gitgutter'
 Plug 'tikhomirov/vim-glsl'
 Plug 'junegunn/goyo.vim'
@@ -181,11 +180,6 @@ augroup checktime
 augroup END
 set sessionoptions+=tabpages,globals
 
-
-
-"" Map Goyo toggle to <Leader> + spacebar
-nnoremap <Leader><Space> :Goyo<CR> 
-nnoremap <Leader>l :Limelight!!<CR>
 
 function! GoyoBefore()
   silent !tmux set status off
@@ -370,7 +364,6 @@ nnoremap ,,re :GoldenRatioResize<cr>
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
-nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 let test#strategy = "dispatch"
 map <C-n> :NERDTreeToggle<CR>
@@ -633,6 +626,7 @@ nmap <leader><leader>m :Make!<cr>
 nmap ; :Buffers<CR>
 nmap <Leader>f :Files<CR>
 nmap <Leader>r :Tags<CR>
+nnoremap <Leader>l :Lines<CR>
 
 " Find all files in all non-dot directories starting in the working directory.
 " Fuzzy select one of those. Open the selected file with :e.
