@@ -40,14 +40,14 @@ _force_prepend_to_path() {
 }
 ssh-add -A &> /dev/null
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="clauswitt"
+ZSH_THEME=""
 export DISABLE_AUTO_TITLE="true"
 
 LANG=en_US.UTF-8
 LC_ALL=en_US.UTF-8
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
-plugins=(tmux git osx cw)
+plugins=(tmux git osx zsh-syntax-highlighting cw)
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 PATH="/usr/local/share/npm/bin:$PATH"
@@ -57,6 +57,9 @@ export NARWHAL_ENGINE=jsc
 export PATH="/usr/local/narwhal/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
+
+autoload -U promptinit; promptinit
+prompt pure
 
 echo "export SSH_AUTH_SOCK=$SSH_AUTH_SOCK" > ~/.auth_ssh
 
@@ -68,6 +71,45 @@ bindkey '^R' history-incremental-pattern-search-backward
 # added by travis gem
 [ -f /Users/clauswitt/.travis/travis.sh ] && source /Users/clauswitt/.travis/travis.sh
 source `brew --prefix`/etc/profile.d/z.sh
+unalias z
+z() {
+  if [[ -z "$*" ]]; then
+    cd "$(_z -l 2>&1 | fzf +s --tac | sed 's/^[0-9,.]* *//')"
+  else
+    _last_z_args="$@"
+    _z "$@"
+  fi
+}
+
+zz() {
+  cd "$(_z -l 2>&1 | sed 's/^[0-9,.]* *//' | fzf -q "$_last_z_args")"
+}
+
+alias j=z
+alias jj=zz
+
+# c - browse chrome history
+chrome() {
+  local cols sep google_history open
+  cols=$(( COLUMNS / 3 ))
+  sep='{::}'
+
+  if [ "$(uname)" = "Darwin" ]; then
+    google_history="$HOME/Library/Application Support/Google/Chrome/Default/History"
+    open=open
+  else
+    google_history="$HOME/.config/google-chrome/Default/History"
+    open=xdg-open
+  fi
+  cp -f "$google_history" /tmp/h
+  sqlite3 -separator $sep /tmp/h \
+    "select substr(title, 1, $cols), url
+     from urls order by last_visit_time desc" |
+  awk -F $sep '{printf "%-'$cols's  \x1b[36m%s\x1b[m\n", $1, $2}' |
+  fzf --ansi --multi | sed 's#.*\(https*://\)#\1#' | xargs $open > /dev/null 2> /dev/null
+}
+
+
 
 PERL_MB_OPT="--install_base \"/Users/clauswitt/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/clauswitt/perl5"; export PERL_MM_OPT;

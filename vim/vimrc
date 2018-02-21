@@ -4,82 +4,139 @@ if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
 
+set updatetime=250
+let g:ale_set_loclist = 1
+" UltiSnip key bindings
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsListSnippets ="<c-l>"
+
+" Lightline setup
+"
+let g:lightline = {
+      \ 'colorscheme': 'landscape',
+      \ 'mode_map': { 'c': 'NORMAL' },
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste'], ['formatoptions', 'modified' ], [ 'fugitive', 'filename' ] ],
+      \   'right': [  ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \ },
+      \ 'inactive': {
+      \   'left': [  [ 'filename' ] ],
+      \   'right': [ ]
+      \ },
+      \ 'component_function': {
+      \   'modified': 'MyModified',
+      \   'readonly': 'MyReadonly',
+      \   'fugitive': 'MyFugitive',
+      \   'filename': 'MyFilename',
+      \   'formatoptions': 'MyFormatOptions',
+      \   'mode': 'LightLineMode'
+      \ },
+      \ 'separator': { 'left': '⮀', 'right': '⮂' },
+      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+      \ }
+
+function! MyModified()
+  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! MyFormatOptions()
+  return &ft =~ '[%{&fo}]'
+
+endfunction
+
+function! MyReadonly()
+  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? '⭤' : ''
+endfunction
+
+function! MyFilename()
+  return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+        \  &ft == 'unite' ? unite#get_status_string() :
+        \  &ft == 'vimshell' ? vimshell#get_status_string() :
+        \ '' != expand('%') ? expand('%') : '[No Name]') .
+        \ ('' != MyModified() ? ' ' . MyModified() : '')
+endfunction
+
+function! MyFugitive()
+  if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head")
+    let _ = fugitive#head()
+    return strlen(_) ? '⭠ '._ : ''
+  endif
+  return ''
+endfunction
+
+
+function! LightLineFileformat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! LightLineFiletype()
+  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+endfunction
+
+function! LightLineFileencoding()
+  return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
+endfunction
+
+function! LightLineMode()
+  let fname = expand('%:t')
+  return fname == '__Tagbar__' ? 'Tagbar' :
+        \ fname == '__Gundo__' ? 'Gundo' :
+        \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
+        \ fname =~ 'NERD_tree' ? 'NERDTree' :
+        \ &ft == 'unite' ? 'Unite' :
+        \ &ft == 'vimfiler' ? 'VimFiler' :
+        \ &ft == 'vimshell' ? 'VimShell' :
+        \ winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+let g:auto_export = 1
+
+
+let g:clang_format#code_style = "google"
+let g:clang_format#detect_style_file = 1
+let g:clang_format#auto_format = 0
+let g:clang_library_path = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/"
+
 " Install plugins
 call plug#begin('~/.vim/plugged')
 Plug 'sheerun/vim-polyglot'
-Plug 'mileszs/ack.vim'
-Plug 'vim-scripts/a.vim'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-classpath'
-Plug 'guns/vim-clojure-static'
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'tpope/vim-dispatch'
-Plug 'clauswitt/Dockerfile.vim'
-Plug 'mattn/emmet-vim'
-Plug 'Sirupsen/vim-execrus'
-Plug 'terryma/vim-expand-region'
-Plug 'mohitleo9/vim-fidget'
-Plug 'tpope/vim-fireplace'
 Plug 'airblade/vim-gitgutter'
-Plug 'tikhomirov/vim-glsl'
-Plug 'junegunn/goyo.vim'
-Plug 'wikitopian/hardmode'
-Plug 'takac/vim-hardtime'
-Plug 'pangloss/vim-javascript'
+Plug 'mileszs/ack.vim'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-dispatch'
+Plug 'mattn/emmet-vim'
 Plug 'itchyny/lightline.vim'
-Plug 'junegunn/limelight.vim'
 Plug 'myusuf3/numbers.vim'
 Plug 'tpope/vim-obsession'
-Plug 'dbarsam/vim-rainbow-parentheses'
-Plug 'ecomba/vim-ruby-refactoring'
-Plug 'rhysd/vim-textobj-ruby'
-Plug 'wting/rust.vim'
 Plug 'tpope/vim-rbenv'
-Plug 'tpope/vim-speeddating'
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-commentary'
 Plug 'rhysd/vim-clang-format'
-Plug 'gcmt/taboo.vim'
 Plug 'godlygeek/tabular'
 Plug 'kana/vim-textobj-user'
-Plug 'Julian/vim-textobj-variable-segment'
-Plug 'kchmck/vim-coffee-script'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
-Plug 'tpope/vim-liquid'
-Plug 'tpope/vim-markdown'
-Plug 'clauswitt/vim-phpunit'
 Plug 'tpope/vim-rails'
-Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-surround'
-Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tpope/vim-unimpaired'
-Plug 'Shougo/vimproc.vim'
-Plug 'Shougo/vimshell.vim'
 Plug 'benmills/vimux'
-Plug 'vim-scripts/vis'
 Plug 'jondkinney/vmath.vim'
 Plug 'wakatime/vim-wakatime'
 Plug 'wellsjo/wells-colorscheme.vim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'isruslan/vim-es6'
-Plug 'elmcast/elm-vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'janko-m/vim-test'
 Plug 'scrooloose/nerdtree'
-Plug 'mxw/vim-jsx'
-Plug 'elixir-lang/vim-elixir'
-Plug 'udalov/kotlin-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'
 call plug#end()
-
-" Activate rainbows
-let g:rainbow_activate = 1
 
 " Basic setup
 scriptencoding utf-8
@@ -181,24 +238,6 @@ augroup END
 set sessionoptions+=tabpages,globals
 
 
-function! GoyoBefore()
-  silent !tmux set status off
-  set noshowmode
-  set noshowcmd
-  Limelight
-  " ...
-endfunction
-
-function! GoyoAfter()
-  silent !tmux set status on
-  set showmode
-  set showcmd
-  Limelight!
-  " ...
-endfunction
-
-let g:goyo_callbacks = [function('GoyoBefore'), function('GoyoAfter')]
-
 "########################################
 "
 " KEYBINDINGS
@@ -283,9 +322,6 @@ noremap <Leader>p :cp<cr>
 
 function! CmdTNoOp()
 endfunction
-
-let g:fist_in_private = 1
-let g:fist_anonymously = 0
 
 
 nnoremap <c-c> <esc>
@@ -438,18 +474,13 @@ redraw!
 endfunction
 noremap <leader>d :call SearchDash()<CR>
 
-" UltiSnip key bindings
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsListSnippets ="<c-l>"
 noremap <leader>U :UltiSnipsEdit<cr>
 
 " The Silver Searcher
-if executable('ag')
+if executable('rg')
 " Use ag over grep
 set grepprg=ag\ --nogroup\ --nocolor
-let g:ackprg = 'ag --vimgrep'
+let g:ackprg = 'rg --vimgrep'
 endif
 
 " bind K to grep word under cursor
@@ -522,93 +553,6 @@ if exists('$TMUX')
 endif
 
 
-" Lightline setup
-"
-let g:lightline = {
-      \ 'colorscheme': 'landscape',
-      \ 'mode_map': { 'c': 'NORMAL' },
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste'], ['formatoptions', 'modified' ], [ 'fugitive', 'filename' ] ],
-      \   'right': [  ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
-      \ },
-      \ 'inactive': {
-      \   'left': [  [ 'filename' ] ],
-      \   'right': [ ]
-      \ },
-      \ 'component_function': {
-      \   'modified': 'MyModified',
-      \   'readonly': 'MyReadonly',
-      \   'fugitive': 'MyFugitive',
-      \   'filename': 'MyFilename',
-      \   'formatoptions': 'MyFormatOptions',
-      \   'mode': 'LightLineMode'
-      \ },
-      \ 'separator': { 'left': '⮀', 'right': '⮂' },
-      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
-      \ }
-
-function! MyModified()
-  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
-
-function! MyFormatOptions()
-  return &ft =~ '[%{&fo}]'
-
-endfunction
-
-function! MyReadonly()
-  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? '⭤' : ''
-endfunction
-
-function! MyFilename()
-  return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
-        \  &ft == 'unite' ? unite#get_status_string() :
-        \  &ft == 'vimshell' ? vimshell#get_status_string() :
-        \ '' != expand('%') ? expand('%') : '[No Name]') .
-        \ ('' != MyModified() ? ' ' . MyModified() : '')
-endfunction
-
-function! MyFugitive()
-  if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head")
-    let _ = fugitive#head()
-    return strlen(_) ? '⭠ '._ : ''
-  endif
-  return ''
-endfunction
-
-
-function! LightLineFileformat()
-  return winwidth(0) > 70 ? &fileformat : ''
-endfunction
-
-function! LightLineFiletype()
-  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
-endfunction
-
-function! LightLineFileencoding()
-  return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
-endfunction
-
-function! LightLineMode()
-  let fname = expand('%:t')
-  return fname == '__Tagbar__' ? 'Tagbar' :
-        \ fname == '__Gundo__' ? 'Gundo' :
-        \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
-        \ fname =~ 'NERD_tree' ? 'NERDTree' :
-        \ &ft == 'unite' ? 'Unite' :
-        \ &ft == 'vimfiler' ? 'VimFiler' :
-        \ &ft == 'vimshell' ? 'VimShell' :
-        \ winwidth(0) > 60 ? lightline#mode() : ''
-endfunction
-
-let g:auto_export = 1
-
-
-let g:clang_format#code_style = "google"
-let g:clang_format#detect_style_file = 1
-let g:clang_format#auto_format = 0
-
 set laststatus=2
 
 au BufNewFile *.fs setlocal filetype=glsl fileencoding=utf-8 fileformat=unix
@@ -630,5 +574,8 @@ nnoremap <Leader>l :Lines<CR>
 
 " Find all files in all non-dot directories starting in the working directory.
 " Fuzzy select one of those. Open the selected file with :e.
-nnoremap <leader>g :GFiles
-nnoremap <leader><leader>f :GFiles?
+nnoremap <leader>g :GFiles<cr>
+nnoremap <leader><leader>f :GFiles?<cr>
+nnoremap \ :Ag
+nnoremap <leader>\ :Ag <C-R><C-W><CR>
+

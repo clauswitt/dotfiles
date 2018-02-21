@@ -10,3 +10,5 @@ bin/BinaryBuilder
 bin/carina
 vim/dotvim/plugged
 vim/dotvim/bundle
+s3_upload
+cluster_backup
