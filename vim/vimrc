@@ -1,11 +1,12 @@
-let g:ruby_path = system('echo $HOME/.rbenv/shims')
 scriptencoding utf-8
+set redrawtime=10000
+let g:ruby_path = system('echo $HOME/.rbenv/shims')
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
 
+set number relativenumber
 set updatetime=250
-let g:ale_set_loclist = 1
 " UltiSnip key bindings
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -85,7 +86,6 @@ function! LightLineMode()
   return fname == '__Tagbar__' ? 'Tagbar' :
         \ fname == '__Gundo__' ? 'Gundo' :
         \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
-        \ fname =~ 'NERD_tree' ? 'NERDTree' :
         \ &ft == 'unite' ? 'Unite' :
         \ &ft == 'vimfiler' ? 'VimFiler' :
         \ &ft == 'vimshell' ? 'VimShell' :
@@ -95,13 +95,11 @@ endfunction
 let g:auto_export = 1
 
 
-let g:clang_format#code_style = "google"
-let g:clang_format#detect_style_file = 1
-let g:clang_format#auto_format = 0
-let g:clang_library_path = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/"
 
 " Install plugins
 call plug#begin('~/.vim/plugged')
+Plug 'qpkorr/vim-bufkill'
+Plug 'robertbasic/vim-hugo-helper'
 Plug 'sheerun/vim-polyglot'
 Plug 'airblade/vim-gitgutter'
 Plug 'mileszs/ack.vim'
@@ -109,12 +107,10 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-dispatch'
 Plug 'mattn/emmet-vim'
 Plug 'itchyny/lightline.vim'
-Plug 'myusuf3/numbers.vim'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-rbenv'
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-commentary'
-Plug 'rhysd/vim-clang-format'
 Plug 'godlygeek/tabular'
 Plug 'kana/vim-textobj-user'
 Plug 'altercation/vim-colors-solarized'
@@ -123,6 +119,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'benmills/vimux'
 Plug 'jondkinney/vmath.vim'
@@ -132,10 +129,8 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'janko-m/vim-test'
-Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'w0rp/ale'
 call plug#end()
 
 " Basic setup
@@ -220,21 +215,6 @@ set listchars=nbsp:¬,tab:>-,extends:»,precedes:«,trail:•
 set exrc" enable per-directory .vimrc files
 set secure" disable Usefulnsafe commands in local .vimrc files
 set shortmess+=I
-
-set autoread
-augroup checktime
-    au!
-    if !has("gui_running")
-        "silent! necessary otherwise throws errors when using command
-        "line window.
-        autocmd BufEnter        * silent! checktime
-        autocmd CursorHold      * silent! checktime
-        autocmd CursorHoldI     * silent! checktime
-        "these two _may_ slow things down. Remove if they do.
-        autocmd CursorMoved     * silent! checktime
-        autocmd CursorMovedI    * silent! checktime
-    endif
-augroup END
 set sessionoptions+=tabpages,globals
 
 
@@ -391,10 +371,6 @@ endfunction
 
 nnoremap ,,t :!taste the soup<cr>
 nnoremap <tab><tab>r :!open "http://www.youtube.com/watch?v=Eky6bCnCLOI\#t=171"<cr>
-nnoremap ,,gr :GoldenRatioToggle<cr>
-nnoremap ,,re :GoldenRatioResize<cr>
-
-
 
 
 nmap <silent> <leader>t :TestNearest<CR>
@@ -402,7 +378,6 @@ nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 let test#strategy = "dispatch"
-map <C-n> :NERDTreeToggle<CR>
 
 vmap <silent> <leader>t= :Tabularize /=.*<cr>
 vmap <silent> <leader>t\| :Tabularize /\|<cr>
@@ -438,6 +413,19 @@ endif
 endfunction
 
 noremap <leader>ren :call RenameFile()<cr>
+
+
+function! Issue()
+  let issue_text = input('Issue text: ', '')
+  exec ':Dispatch! issue ' . issue_text
+endfunction
+noremap <leader>i :call Issue()<cr>
+
+function! Bug()
+  let issue_text = input('Bug text: ', '')
+  exec ':Dispatch! bug ' . issue_text
+endfunction
+noremap <leader>bug :call Bug()<cr>
 
 function s:MkNonExDir(file, buf)
   if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
@@ -479,7 +467,7 @@ noremap <leader>U :UltiSnipsEdit<cr>
 " The Silver Searcher
 if executable('rg')
 " Use ag over grep
-set grepprg=ag\ --nogroup\ --nocolor
+set grepprg=rg\ --nogroup\ --nocolor
 let g:ackprg = 'rg --vimgrep'
 endif
 

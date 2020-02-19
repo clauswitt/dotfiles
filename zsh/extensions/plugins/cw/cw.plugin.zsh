@@ -126,20 +126,6 @@ cg() {
 compdef _files -W $GOPATH/src/github.com/ -/
 
 
-emacsd() {
-  CHECK=`ps aux|grep emacs|grep daemon|wc -l|bc`
-  if [[ "$CHECK" == 0 ]]; then
-    command emacs --daemon
-  fi
-}
-
-emacsg() {
-  emacsclient -c -a "" $*
-}
-
-emacs() {
-  emacsclient -t -a "" $*
-}
 alias m=make
 alias s=rspec
 
@@ -239,6 +225,18 @@ bcp() {
   fi
 }
 
+gsave() {
+  local date=$(date +%Y-%m-%d)
+  # Create a new branch (only one per day guys)
+  git checkout -b SAVEPOINTS-$date
+  # Add all files
+  git add -A
+  # Commit everything - skipping checks
+  git commit -n -m "SAVEPOINT $date"
+  # Force push
+  git push origin $(git_current_branch) -f
+}
+
 
 # v - open files in ~/.viminfo
 v() {
@@ -249,4 +247,4 @@ v() {
           done | fzf-tmux -d -m -q "$*" -1) && vim ${files//\~/$HOME}
 }
 
-[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+

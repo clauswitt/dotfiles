@@ -40,7 +40,7 @@ _force_prepend_to_path() {
 }
 ssh-add -A &> /dev/null
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME=""
+ZSH_THEME="clauswitt"
 export DISABLE_AUTO_TITLE="true"
 
 LANG=en_US.UTF-8
@@ -56,10 +56,11 @@ PATH=/usr/local/bin:$PATH:$HOME/go/bin
 export NARWHAL_ENGINE=jsc
 export PATH="/usr/local/narwhal/bin:$PATH"
 
+DISABLE_AUTO_UPDATE="true"
 source $ZSH/oh-my-zsh.sh
 
-autoload -U promptinit; promptinit
-prompt pure
+# autoload -U promptinit; promptinit
+# prompt pure
 
 echo "export SSH_AUTH_SOCK=$SSH_AUTH_SOCK" > ~/.auth_ssh
 
