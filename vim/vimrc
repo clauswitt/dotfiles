@@ -13,6 +13,10 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsListSnippets ="<c-l>"
 
+let g:goyo_width=120
+let g:goyo_height=90
+
+
 " Lightline setup
 "
 let g:lightline = {
@@ -98,6 +102,7 @@ let g:auto_export = 1
 
 " Install plugins
 call plug#begin('~/.vim/plugged')
+Plug 'wakatime/vim-wakatime'
 Plug 'qpkorr/vim-bufkill'
 Plug 'robertbasic/vim-hugo-helper'
 Plug 'sheerun/vim-polyglot'
@@ -123,7 +128,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'benmills/vimux'
 Plug 'jondkinney/vmath.vim'
-Plug 'wakatime/vim-wakatime'
 Plug 'wellsjo/wells-colorscheme.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'SirVer/ultisnips'
@@ -131,6 +135,7 @@ Plug 'honza/vim-snippets'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
 call plug#end()
 
 " Basic setup
@@ -255,6 +260,8 @@ noremap <A-k> <C-W>+
 " Open splits with leader
 noremap <leader>vs :vs %<cr>
 noremap <leader>ss :split %<cr>
+noremap <C-w>\| :vs %<cr>
+noremap <C-w>- :split %<cr>
 
 
 function! BufSel(pattern)
@@ -560,10 +567,22 @@ nmap <Leader>f :Files<CR>
 nmap <Leader>r :Tags<CR>
 nnoremap <Leader>l :Lines<CR>
 
+nnoremap <Leader><Leader>G :Goyo<CR>
+
 " Find all files in all non-dot directories starting in the working directory.
 " Fuzzy select one of those. Open the selected file with :e.
 nnoremap <leader>g :GFiles<cr>
 nnoremap <leader><leader>f :GFiles?<cr>
 nnoremap \ :Ag
 nnoremap <leader>\ :Ag <C-R><C-W><CR>
+
+
+function! JsonPrettyPrint()
+  %!python -m json.tool
+endfunction
+
+
+noremap <Leader><Leader>jp :call JsonPrettyPrint()<cr>
+command! -nargs=0 JsonPretty :call JsonPrettyPrint()
+
 

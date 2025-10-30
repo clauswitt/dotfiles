@@ -1,81 +1,196 @@
-install ack
-install ant
-install apple-gcc42
-install asciidoc
-install bash
-install binutils
-install boot2docker
-install chicken
-install cloc
-install coreutils
-install cmake
-install ctags
-install dart
-install dartium
-install dnsmasq
-install doxygen
-install elixir
-install emacs --HEAD --use-git-head --with-cocoa --srgb
-install erlang
-install exiftool
-install faac
-install ffmpeg
-install figlet
-install findutils
-install fish
-install fontforge
-install fop
-install gcc
-install gdb
-install gh
-install ghc
-install git
-install glm
-install gnupg
-install graphviz
-install grep
-install html2text
-install htop-osx
-install hub
-install leiningen
-install libksba
-install libyaml
-install llvm
-install mackup
-install markdown
-install md5sha1sum
-install mercurial
-install mongodb
-install mp3info
-install ncurses
-install nginx
-install normalize
-install nvm
-install phantomjs
-install postgresql
-install python
-install python3
-install qcachegrind
-install qt5
-install r
-install reattach-to-user-namespace
-install redis
-install rename
-install rhino
-install rust
-install scala
-install sdl
-install sdl2
-install sfml
-install siege
-install sox
-install ssh-copy-id
-install the_silver_searcher
-install tmux
-install tree
-install ttfautohint
-install vim
-install webkit2png
-install wget
-install xmlstarlet
-install zsh
+ack
+aom
+aribb24
+asciidoc
+autoconf
+berkeley-db
+binutils
+boost
+brotli
+ca-certificates
+cairo
+cjson
+cloc
+cmake
+coreutils
+ctags
+dav1d
+docbook
+doxygen
+elixir
+erlang
+exiftool
+faac
+ffmpeg
+findutils
+flac
+fontconfig
+fontforge
+freetype
+frei0r
+fribidi
+fzf
+gd
+gdbm
+gdk-pixbuf
+gettext
+gh
+ghc
+giflib
+git
+glib
+glm
+gmp
+gnupg
+gnutls
+graphite2
+graphviz
+grep
+gts
+harfbuzz
+highway
+html2text
+htop
+hub
+icu4c
+imath
+jasper
+jpeg-turbo
+jpeg-xl
+krb5
+lame
+leptonica
+libarchive
+libass
+libassuan
+libavif
+libb2
+libbluray
+libevent
+libgcrypt
+libgit2@1.6
+libgpg-error
+libidn2
+libksba
+libnghttp2
+libogg
+libpng
+librist
+librsvg
+libsamplerate
+libsndfile
+libsodium
+libsoxr
+libspiro
+libssh2
+libtasn1
+libtermkey
+libtiff
+libtool
+libunibreak
+libuninameslist
+libunistring
+libusb
+libuv
+libvidstab
+libvmaf
+libvorbis
+libvpx
+libvterm
+libx11
+libxau
+libxcb
+libxdmcp
+libxext
+libxrender
+libyaml
+little-cms2
+llvm
+llvm@16
+lua
+luajit
+luv
+lz4
+lzo
+m4
+mad
+markdown
+mbedtls
+md5sha1sum
+mp3info
+mpdecimal
+mpg123
+msgpack
+ncurses
+neovim
+netpbm
+nettle
+nginx
+normalize
+npth
+nvm
+opencore-amr
+openexr
+openjpeg
+openldap
+openssl@3
+opus
+opusfile
+p11-kit
+pango
+pcre
+pcre2
+perl
+pinentry
+pixman
+pkg-config
+postgresql@14
+python@3.11
+python@3.12
+rav1e
+rbenv
+readline
+reattach-to-user-namespace
+redis
+rename
+rubberband
+ruby
+ruby-build
+rust
+sdl2
+sfml
+six
+snappy
+source-highlight
+sox
+speex
+sqlite
+srt
+ssh-copy-id
+svt-av1
+tesseract
+the_silver_searcher
+theora
+tmux
+tree
+tree-sitter
+unbound
+unibilium
+unixodbc
+utf8proc
+vim
+webkit2png
+webp
+wget
+woff2
+wxwidgets
+x264
+x265
+xorgproto
+xvid
+xz
+z
+z3
+zeromq
+zimg
+zstd

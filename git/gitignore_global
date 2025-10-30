@@ -45,3 +45,7 @@ Thumbs.db
 plugins/cw
 themes/clauswitt.zsh-theme
 dump.rdb
+
+
+.ignore
+.claude/settings.local.json

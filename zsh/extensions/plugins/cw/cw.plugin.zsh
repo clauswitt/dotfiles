@@ -10,9 +10,65 @@ alias here='open . '
 alias dup='open . -a "iTerm.app"'
 alias deck='open -a "DeckSet.app"'
 
-alias gas='git add `git status --short | selecta|cut -d " " -f2`'
-alias gds='git diff `git status --short | selecta|cut -d " " -f2`'
-alias cdz='cd `z |selecta|rev|cut -d " " -f1 | rev`'
+alias yolo=claude --dangerously-skip-permissions
+
+
+# --- replace old selecta aliases ---
+
+# gas / gds: pick a file (modified or untracked), then add/diff it
+gas() {
+  local f
+  f=$(git ls-files -m -o --exclude-standard \
+      | fzf --height=40% --reverse \
+             --preview 'git diff --color=always -- {} | sed -n "1,200p"')
+  [[ -n $f ]] && git add -- "$f"
+}
+
+# add many with <TAB>
+gms() {
+  git ls-files -m -o --exclude-standard \
+  | fzf -m --height=40% --reverse \
+         --preview 'git diff --color=always -- {} | sed -n "1,200p"' \
+  | while IFS= read -r f; do [[ -n $f ]] && git add -- "$f"; done
+}
+
+gds() {
+  local f
+  f=$(git ls-files -m -o --exclude-standard \
+      | fzf --height=40% --reverse \
+             --preview 'git diff --color=always -- {} | sed -n "1,200p"')
+  [[ -n $f ]] && git diff -- "$f"
+}
+
+# cdz: jump to a dir from 'z' output (last column), via fzf
+cdz() {
+  local dir
+  dir=$(z | fzf --height=40% --reverse | rev | cut -d " " -f1 | rev)
+  [[ -n $dir ]] && cd "$dir"
+}
+
+# git-select-lint / git-select-checkout: pick a file, then act
+git-select-lint() {
+  local f
+  f=$(gss | cut -d ' ' -f3 | fzf --height=40% --reverse \
+            --preview 'php -l {} 2>&1 | sed -n "1,200p"')
+  [[ -n $f ]] && php -l "$f"
+}
+
+git-select-checkout() {
+  local f
+  f=$(gss | cut -d ' ' -f3 | fzf --height=40% --reverse \
+            --preview 'git diff --color=always -- {} | sed -n "1,200p"')
+  [[ -n $f ]] && git checkout -- "$f"
+}
+
+# p: switch projects with fzf
+p() {
+  local proj
+  proj=$(find ~/Documents/Projects -maxdepth 3 -type d 2>/dev/null \
+         | fzf --height=40% --reverse)
+  [[ -n $proj ]] && cd "$proj"
+}
 alias pulls='hub browse -- pulls'
 alias pr='hub pull-request'
 
@@ -111,14 +167,6 @@ git-php-cs-psr2() {
   for file in $(gss |cut -d ' ' -f3|grep php); php-cs-fixer fix $file
 }
 
-git-select-lint() {
-  file=$(gss |cut -d ' ' -f3 | selecta); php -l $file
-}
-
-git-select-checkout() {
-  file=$(gss |cut -d ' ' -f3 | selecta); git checkout $file
-}
-
 
 cg() {
     cd $GOPATH/src/github.com/$1;
@@ -131,14 +179,7 @@ alias s=rspec
 
 function mcd() { mkdir -p $1 && cd $1 }
 function cdf() { cd *$1*/ }
-#
-# Switch projects
-function p() {
-    proj=$(find ~/Documents/Projects -type d -maxdepth 3 | selecta)
-    if [[ -n "$proj" ]]; then
-        cd $proj
-    fi
-}
+
 
 zle -C tmux-pane-words-prefix   complete-word _generic
 zle -C tmux-pane-words-anywhere complete-word _generic
@@ -248,3 +289,15 @@ v() {
 }
 
 
+
+function p() {
+  local query_opts=()
+  if [[ $# -gt 0 ]]; then
+    query_opts=(-q "$@")
+  fi
+
+  proj=$(find ~/documents/projects -type d -maxdepth 3 | fzf "${query_opts[@]}")
+  if [[ -n "$proj" ]]; then
+    cd "$proj"
+  fi
+}
