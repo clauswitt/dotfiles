@@ -19,3 +19,8 @@ Scripts
 
 # Backup files
 *.bak
+
+# Zed conversations and temp files
+zed/conversations/
+zed/.tmp*
+zed/tasks.json
