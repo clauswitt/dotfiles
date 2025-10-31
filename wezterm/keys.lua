@@ -9,6 +9,8 @@ if wezterm.target_triple == 'aarch64-apple-darwin' then
 end
 
 M.bindings = {
+  -- Claude Code multi-line support: Shift+Enter adds newlines
+  {key="Enter", mods="SHIFT", action=wezterm.action{SendString="\x1b\r"}},
   -- Shortcuts
 }
 
