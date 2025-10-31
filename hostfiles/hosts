@@ -18,5 +18,3 @@ fe80::1%lo0	tweaker2.production
 
 127.0.0.1	system.development
 fe80::1%lo0	system.development
-
-108.166.59.45 bpm-registry.arnsbomedia.com
