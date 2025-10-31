@@ -163,15 +163,10 @@ wezterm.on('update-status',
   end
 )
 
-local colors_object
-if is_appearance_dark() then
-  colors_object = colors.theme_config.dark
-else
-  colors_object = colors.theme_config.light
-end
-config.colors = colors_object
-config.command_palette_bg_color = colors_object.tab_bar.active_tab.bg_color
-config.command_palette_fg_color = colors_object.tab_bar.active_tab.fg_color
+-- Always use dark mode
+config.colors = colors.theme_config.dark
+config.command_palette_bg_color = colors.theme_config.dark.tab_bar.active_tab.bg_color
+config.command_palette_fg_color = colors.theme_config.dark.tab_bar.active_tab.fg_color
 config.keys = keys.bindings
 config.mouse_bindings = keys.mouse_bindings
 config.default_prog = { 'zsh', '-l' }
