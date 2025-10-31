@@ -1,0 +1,12 @@
+
+[keys.normal]
+# Add comma mappings that mirror space mappings
+"," = { f = "file_picker" }  # ,f = <space>f (file picker)
+";" = "buffer_picker"        # ; lists open buffers
+
+# Add ^ and $ motions for line start/end
+"^" = "goto_first_nonwhitespace"  # ^ goes to first non-whitespace
+"$" = "goto_line_end"              # $ goes to end of line
+
+# Keep default space mappings (they'll still work)
+# 

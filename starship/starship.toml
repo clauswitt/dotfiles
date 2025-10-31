@@ -1,0 +1,59 @@
+# Starship configuration for wezterm status bar
+# All modules optimized for compact status bar display
+
+# Memory usage - always show
+[memory_usage]
+disabled = false
+threshold = 0  # Always display
+format = "$ram"  # Shows as "24GiB/36GiB"
+
+# Battery - show when not full or when discharging
+[battery]
+disabled = false
+full_symbol = "🔋"
+charging_symbol = "⚡"
+discharging_symbol = "🔋"
+unknown_symbol = "🔋"
+empty_symbol = "🪫"
+
+[[battery.display]]
+threshold = 100
+style = "bold green"
+
+# Git branch
+[git_branch]
+disabled = false
+format = "[$symbol$branch]($style)"
+symbol = " "
+style = "bold purple"
+
+# Git status - show dirty/clean state
+[git_status]
+disabled = false
+format = "([$all_status$ahead_behind]($style))"
+conflicted = "="
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+untracked = "?"
+stashed = "$"
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = "✘"
+
+# Disable modules we don't need in status bar
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[package]
+disabled = true
+
+[terraform]
+disabled = true

@@ -1,0 +1,9 @@
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-t": ["task::Spawn", { "task_name": "All tests" }],
+      "cmd-shift-t": ["task::Spawn", { "task_name": "Current test" }]
+    }
+  }
+]
