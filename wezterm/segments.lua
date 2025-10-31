@@ -6,7 +6,7 @@ local M = {}
 local cache = {
   spotify = '',
   kube = '',
-  memory = '',
+  git = '',
   day = '',
   last_update_ms = 0,
 }
@@ -77,22 +77,6 @@ local function get_playback_status()
   end
 end
 
-local function get_memory_usage()
-  -- the below command will give us the following output:
-  --  13GiB/24GiB
-  local pcall_ok, success, output, _ = pcall(wezterm.run_child_process, {
-    '/opt/homebrew/bin/starship',
-    'module',
-    'memory_usage'
-  })
-
-  if not pcall_ok then
-    return ''
-  end
-
-  -- Disabled: starship memory_usage module not configured on this machine
-  return ''
-end
 
 local function get_current_kube_context()
   -- the below command will give us the following output:
@@ -121,6 +105,48 @@ local function get_current_kube_context()
   return '󱃾 ' .. short_name
 end
 
+local function get_git_info(pane)
+  -- Only get git info if we're in a git repo
+  local ok, cwd = pcall(function() return pane:get_current_working_dir() end)
+  if not ok or not cwd then
+    return ''
+  end
+
+  -- Extract path from file:// URL
+  local path = cwd.file_path or cwd
+  path = tostring(path):gsub('^file://[^/]*', '')
+
+  local pcall_ok, success, branch_output, _ = pcall(wezterm.run_child_process, {
+    '/opt/homebrew/bin/starship',
+    'module',
+    'git_branch',
+    '--path', path
+  })
+
+  if not pcall_ok or not success or not branch_output or branch_output == '' then
+    return ''
+  end
+
+  -- Get git status as well
+  local _, status_success, status_output, _ = pcall(wezterm.run_child_process, {
+    '/opt/homebrew/bin/starship',
+    'module',
+    'git_status',
+    '--path', path
+  })
+
+  local result = branch_output
+  if status_success and status_output and status_output ~= '' then
+    result = result .. status_output
+  end
+
+  -- Strip ANSI codes and trim
+  result = result:gsub('\27%[[0-9;]*m', ''):gsub("^%s*(.-)%s*$", "%1")
+
+  return result
+end
+
+
 -- Returns true if we should refresh based on the effective status update interval
 local function is_stale(window)
   local now_ms = os.time() * 1000
@@ -128,18 +154,44 @@ local function is_stale(window)
   return (now_ms - cache.last_update_ms) >= interval_ms
 end
 
-local function refresh_cache()
+local function refresh_cache(pane)
   -- Update synchronously; this runs at most as often as status_update_interval
   cache.spotify = get_playback_status() or ''
-  cache.memory = get_memory_usage() or ''
   cache.kube = get_current_kube_context() or ''
+  cache.git = get_git_info(pane) or ''
   cache.day = wezterm.strftime(' %a, %b %-d')
   cache.last_update_ms = os.time() * 1000
 end
 
 function M.get_right_status_segments(window, pane)
-  local domain = pane:get_domain_name()
+  -- Protect against stale pane references
+  local ok, domain = pcall(function() return pane:get_domain_name() end)
+  if not ok then
+    wezterm.log_warn('Failed to get domain name from pane: ' .. tostring(domain))
+    return {}
+  end
+
   local items = {}
+
+  -- If we're in tmux, return empty segments (tmux will handle its own status line)
+  -- Check TMUX environment variable (standard variable set by tmux)
+  local user_vars_ok, user_vars = pcall(function() return pane:get_user_vars() end)
+  if user_vars_ok and user_vars.TMUX and user_vars.TMUX ~= '' then
+    return {}
+  end
+
+  -- Check pane title which contains tmux session info when tmux is running
+  local title_ok, title = pcall(function() return pane.title end)
+  if title_ok and title and (title:find('%[tmux') or title:find('tmux%[')) then
+    return {}
+  end
+
+  -- Also check foreground process
+  local process_ok, foreground_process = pcall(function() return pane.foreground_process_name end)
+  if process_ok and foreground_process and foreground_process:find('tmux') then
+    return {}
+  end
+
   -- we can use `cols` to do conditional rendering of segments
   -- local cols = window:mux_window():active_tab():get_size().cols
 
@@ -150,13 +202,13 @@ function M.get_right_status_segments(window, pane)
     end
 
     if is_stale(window) then
-      refresh_cache()
+      refresh_cache(pane)
     end
 
     items = {
       cache.spotify,
       cache.kube,
-      cache.memory,
+      cache.git,
       cache.day,
       domain_display
     }
