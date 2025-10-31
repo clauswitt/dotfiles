@@ -301,3 +301,5 @@ function p() {
     cd "$proj"
   fi
 }
+
+alias spot=spotify_player
