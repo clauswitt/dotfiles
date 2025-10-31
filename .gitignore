@@ -13,3 +13,9 @@ vim/dotvim/bundle
 s3_upload
 cluster_backup
 Scripts
+
+# Claude Code local settings
+**/.claude/settings.local.json
+
+# Backup files
+*.bak
