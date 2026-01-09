@@ -13,7 +13,6 @@ function install_packages {
   install "ag/agignore" ".agignore"
   install "git/gitmessage" ".gitmessage"
   install "git/gitignore_global" ".gitignore_global"
-  install "grunt"
   install "tmux/tmux.conf" ".tmux.conf"
   install "tmux/dottmux" ".tmux"
   install "vim/vimrc" ".vimrc"
@@ -31,6 +30,15 @@ function install_packages {
   install "ruby/gemrc" ".gemrc"
   install "ruby/irbrc" ".irbrc"
   install "bin" "bin"
+
+  # Modern tools (.config)
+  install "wezterm" ".config/wezterm"
+  install "helix" ".config/helix"
+  install "zed" ".config/zed"
+  install "starship/starship.toml" ".config/starship.toml"
+  install "spotify-player" ".config/spotify-player"
+  install "aerospace" ".config/aerospace"
+  install "karabiner" ".config/karabiner"
 }
 function install() {
   TARGET=$ROOT/${2:-.$1}
