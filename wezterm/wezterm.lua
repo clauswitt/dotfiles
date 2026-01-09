@@ -196,4 +196,17 @@ config.unix_domains = {
 config.send_composed_key_when_left_alt_is_pressed = true
 config.send_composed_key_when_right_alt_is_pressed = true
 
+-- Allow CMD key to bypass mouse reporting in tmux
+-- This makes CMD+click work for opening links even when tmux has mouse mode enabled
+config.bypass_mouse_reporting_modifiers = 'CMD'
+
+-- Enable clickable hyperlinks
+config.hyperlink_rules = wezterm.default_hyperlink_rules()
+
+-- Add custom rules for URLs without explicit protocol
+table.insert(config.hyperlink_rules, {
+  regex = [[\b\w+@[\w-]+(\.[\w-]+)+\b]],
+  format = 'mailto:$0',
+})
+
 return config;
