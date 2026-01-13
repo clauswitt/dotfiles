@@ -164,8 +164,21 @@ fi
 alias brew86="arch -x86_64 /usr/local/bin/brew"
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Load nvm (try common install locations)
+if [ -s "$NVM_DIR/nvm.sh" ]; then
+  . "$NVM_DIR/nvm.sh"
+elif [ -s "/opt/homebrew/opt/nvm/nvm.sh" ]; then
+  . "/opt/homebrew/opt/nvm/nvm.sh"
+elif [ -s "/usr/local/opt/nvm/nvm.sh" ]; then
+  . "/usr/local/opt/nvm/nvm.sh"
+fi
+
+# Optional: nvm bash_completion (only if present)
+if [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ]; then
+  . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+elif [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ]; then
+  . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
+fi
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/clauswitt/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/clauswitt/google-cloud-sdk/path.zsh.inc'; fi
