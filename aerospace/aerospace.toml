@@ -171,6 +171,9 @@ alt-shift-l = ['join-with right', 'mode main']
 if.app-id = 'com.apple.Safari'
   run = "move-node-to-workspace B"
 [[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+  run = "move-node-to-workspace B"
+[[on-window-detected]]
 if.app-id = 'com.anthropic.claudefordesktop'
   run = "move-node-to-workspace A"
 [[on-window-detected]]
