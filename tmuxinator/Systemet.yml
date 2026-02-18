@@ -1,9 +1,0 @@
-name: work/Systemet
-root: ~/Documents/Projects/work/systemet
-windows:
-  - app-vim: cd Application; vim
-  - js-vim: cd SystemJs; vim
-  - app-shell: cd Application
-  - js-shell: cd SystemJs
-  - public: cd SystemPublic; vim
-  - framework: cd Framework; vim

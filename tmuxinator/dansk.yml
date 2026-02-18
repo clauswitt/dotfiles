@@ -1,0 +1,6 @@
+name: dansk
+root: ~/Documents/sites/dansk.clauswitt.com
+
+windows:
+  - vim: vim
+  - claude: claude

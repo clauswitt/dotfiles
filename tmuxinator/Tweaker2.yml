@@ -1,9 +1,0 @@
-project_name: work/tweaker2
-project_root: ~/Documents/Projects/work/tweaker2
-tabs:
-  - backendeditor: vim
-  - frontendeditor: cd Packages/Application/ArnsboMedia.VideoSystem.Tweaker/Resources/Public/Frontend && vim
-  - root:
-  - packages: cd Packages/Application
-  - frontend: cd Packages/Application/ArnsboMedia.VideoSystem.Tweaker/Resources/Public/Frontend
-  - watcher:  cd Packages/Application/ArnsboMedia.VideoSystem.Tweaker/Resources/Public/Frontend && ant watchAll

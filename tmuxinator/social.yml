@@ -1,0 +1,9 @@
+name: social
+root: ~/Documents/Projects/Work/fliva-social-poster
+
+windows:
+  - vim: vim
+  - claude: claude
+  - server: 
+  - console: bin/rails c
+  - logs: tail -f log/development.log

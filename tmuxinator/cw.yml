@@ -1,0 +1,6 @@
+name: cw
+root: ~/Documents/sites/clauswitt.com
+
+windows:
+  - vim: vim
+  - claude: claude

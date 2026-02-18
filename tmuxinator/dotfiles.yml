@@ -1,0 +1,6 @@
+name: dotfiles
+root: ~/dotfiles
+
+windows:
+  - vim: vim
+  - claude: claude

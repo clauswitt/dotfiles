@@ -187,5 +187,11 @@ if [ -f '/Users/clauswitt/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/claus
 if [ -f '/Users/clauswitt/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/clauswitt/google-cloud-sdk/completion.zsh.inc'; fi
 
 . "$HOME/.local/bin/env"
-alias claude="/Users/clauswitt/.claude/local/claude"
 alias dokku="ssh dokku@server.clauswitt.com"
+
+# bun completions
+[ -s "/Users/clauswitt/.bun/_bun" ] && source "/Users/clauswitt/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

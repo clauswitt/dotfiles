@@ -1,5 +1,0 @@
-project_name: work/chef
-project_root: ~/Documents/Projects/work/chef-repo
-windows:
-  - editor: vim
-  - shell: 
