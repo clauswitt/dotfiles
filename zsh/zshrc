@@ -50,7 +50,7 @@ export BITRIX_WEBHOOK_BASE=https://my.arnsbogroup.com/rest/19/b5oqgruo4dik4hxw/
 
 LANG=en_US.UTF-8
 LC_ALL=en_US.UTF-8
-export LC_ALL=en_US.UTF-8  
+export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 plugins=(git osx zsh-syntax-highlighting cw)
 fpath=(/usr/local/share/zsh-completions $fpath)
@@ -188,10 +188,3 @@ if [ -f '/Users/clauswitt/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users
 
 . "$HOME/.local/bin/env"
 alias dokku="ssh dokku@server.clauswitt.com"
-
-# bun completions
-[ -s "/Users/clauswitt/.bun/_bun" ] && source "/Users/clauswitt/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
