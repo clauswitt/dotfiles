@@ -1,0 +1,14 @@
+name: developers
+root: /Users/clauswitt/Documents/Projects/Work/fliva-developers-documentation
+#pre: 
+windows:
+  - vim: vim
+  - claude: claude
+  - shell: 
+name: developers
+root: /Users/clauswitt/Documents/Projects/Work/fliva-developers-documentation
+#pre: 
+windows:
+  - vim: 
+  - claude: 
+  - shell: 

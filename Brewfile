@@ -150,7 +150,6 @@ python@3.12
 rav1e
 rbenv
 readline
-reattach-to-user-namespace
 redis
 rename
 rubberband

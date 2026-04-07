@@ -11,7 +11,6 @@ touch "$FILENAME"
 echo "name: $SESSION_NAME" >> "$FILENAME"
 echo "root: $SESSION_PATH" >> "$FILENAME"
 echo "#pre: " >> "$FILENAME"
-echo "pre_window: reattach-to-user-namespace -l zsh"
 echo "#tmux_options: "
 echo "windows:"  >> "$FILENAME"
 for WINDOW in $WINDOW_NAMES; do
