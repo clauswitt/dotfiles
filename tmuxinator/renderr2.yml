@@ -1,0 +1,7 @@
+name: renderr2
+root: ~/Documents/Projects/Personal/renderr2
+
+windows:
+  - vim: vim
+  - claude: claude
+  - shell:

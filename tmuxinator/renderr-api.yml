@@ -1,0 +1,7 @@
+name: renderr-api
+root: ~/Documents/Projects/Work/renderr_api
+
+windows:
+  - vim: vim
+  - claude: claude
+  - shell:

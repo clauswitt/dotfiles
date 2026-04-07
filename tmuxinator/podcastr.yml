@@ -1,0 +1,7 @@
+name: podcastr
+root: ~/Documents/Projects/Personal/podcastr
+
+windows:
+  - vim: vim
+  - claude: claude
+  - shell:

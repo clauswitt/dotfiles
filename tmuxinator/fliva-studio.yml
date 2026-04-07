@@ -1,0 +1,7 @@
+name: fliva-studio
+root: ~/Documents/Projects/Work/fliva-studio-app
+
+windows:
+  - vim: vim
+  - claude: claude
+  - shell:

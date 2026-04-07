@@ -1,0 +1,7 @@
+name: edc
+root: ~/Documents/Projects/Work/fliva-edc-videos
+
+windows:
+  - vim: vim
+  - claude: claude
+  - shell:

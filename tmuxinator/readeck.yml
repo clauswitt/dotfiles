@@ -1,0 +1,7 @@
+name: readeck
+root: ~/Documents/Projects/Personal/readeck-summarizer
+
+windows:
+  - vim: vim
+  - claude: claude
+  - shell:

@@ -1,0 +1,7 @@
+name: dsf
+root: ~/Documents/Projects/Personal/dsf
+
+windows:
+  - vim: vim
+  - claude: claude
+  - shell:

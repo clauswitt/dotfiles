@@ -78,10 +78,26 @@ alias cdg='cd "$(git rev-parse --show-toplevel)"'
 
 tm() {
   [[ -n "$TMUX" ]] && change="switch-client" || change="attach-session"
-  if [ $1 ]; then 
+  if [ $1 ]; then
     tmux $change -t "$1" 2>/dev/null || (tmux new-session -d -s $1 && tmux $change -t "$1"); return
   fi
   session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --exit-0) &&  tmux $change -t "$session" || echo "No sessions found."
+}
+
+tp() {
+  local project matches
+  if [ $1 ]; then
+    matches=($(tmuxinator list -n | tail -n +2 | grep -i "^$1"))
+    if [[ ${#matches[@]} -eq 1 ]]; then
+      tmuxinator start "$matches[1]"; return
+    elif [[ ${#matches[@]} -gt 1 ]]; then
+      project=$(printf '%s\n' "${matches[@]}" | fzf --exit-0 --query "$1" --preview 'cat ~/.tmuxinator/{}.yml 2>/dev/null') && tmuxinator start "$project"
+      return
+    fi
+    echo "No project matching '$1'"
+    return 1
+  fi
+  project=$(tmuxinator list -n | tail -n +2 | fzf --exit-0 --preview 'cat ~/.tmuxinator/{}.yml 2>/dev/null') && tmuxinator start "$project"
 }
 
 daemons() {

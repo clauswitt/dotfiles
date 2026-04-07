@@ -1,0 +1,7 @@
+name: helm
+root: ~/Documents/Projects/Work/fliva-helm-repo
+
+windows:
+  - vim: vim
+  - claude: claude
+  - shell:

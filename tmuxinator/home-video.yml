@@ -1,0 +1,7 @@
+name: home-video
+root: ~/Documents/Projects/Work/home_video
+
+windows:
+  - vim: vim
+  - claude: claude
+  - shell:

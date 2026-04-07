@@ -1,0 +1,7 @@
+name: zettel
+root: ~/Documents/Zettel
+
+windows:
+  - vim: vim
+  - claude: claude
+  - shell:

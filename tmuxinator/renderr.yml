@@ -1,0 +1,7 @@
+name: renderr
+root: ~/Documents/Projects/Work/renderr_engine
+
+windows:
+  - vim: vim
+  - claude: claude
+  - shell:

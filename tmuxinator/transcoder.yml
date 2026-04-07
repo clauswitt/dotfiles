@@ -1,0 +1,7 @@
+name: transcoder
+root: ~/Documents/Projects/Work/fliva_transcoder
+
+windows:
+  - vim: vim
+  - claude: claude
+  - shell:

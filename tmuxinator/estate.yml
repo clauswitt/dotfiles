@@ -1,0 +1,7 @@
+name: estate
+root: ~/Documents/Projects/Work/Estates
+
+windows:
+  - vim: vim
+  - claude: claude
+  - shell:
