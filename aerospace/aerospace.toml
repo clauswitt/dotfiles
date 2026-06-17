@@ -121,6 +121,7 @@ cmd-alt-m = 'workspace M'
 cmd-alt-a = 'workspace A'
 cmd-alt-e = 'workspace E'
 cmd-alt-f = 'workspace F'
+cmd-alt-l = 'workspace L'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 ctrl-alt-cmd-1 = 'move-node-to-workspace 1'
@@ -140,6 +141,7 @@ ctrl-alt-cmd-m = 'move-node-to-workspace M'
 ctrl-alt-cmd-a = 'move-node-to-workspace A'
 ctrl-alt-cmd-e = 'move-node-to-workspace E'
 ctrl-alt-cmd-f = 'move-node-to-workspace F'
+ctrl-alt-cmd-l = 'move-node-to-workspace L'
 
 
 
@@ -148,6 +150,9 @@ alt-tab = 'workspace-back-and-forth'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 alt-shift-f = 'exec-and-forget /Users/clauswitt/dotfiles/aerospace/summon-finder.sh'
+# Rescue a floating window that drifted off-screen (e.g. After Effects) by
+# forcing it into the tiling layout, which snaps it onto the visible workspace.
+alt-shift-c = 'layout tiling'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-cmd-ctrl-r = 'mode service'
@@ -198,7 +203,6 @@ if.app-id = 'com.facebook.archon'
 [[on-window-detected]]
 if.app-id = 'com.apple.MobileSMS'
   run = "move-node-to-workspace M"
-
 [[on-window-detected]]
 if.app-id = 'com.microsoft.Outlook'
   run = "move-node-to-workspace 3"
@@ -234,6 +238,9 @@ if.app-id = 'com.adobe.AfterEffects.application'
 if.app-id = 'com.apple.iphonesimulator'
   run = "move-node-to-workspace T"
 
+[[on-window-detected]]
+if.app-id = 'com.linear'
+  run = "move-node-to-workspace L"
 
 # Force most used to sepcific places
 [workspace-to-monitor-force-assignment]
@@ -254,3 +261,4 @@ if.app-id = 'com.apple.iphonesimulator'
     S = 'secondary'
     E = 'main'
     F = 'secondary'
+    L = 'secondary'
