@@ -242,6 +242,13 @@ if.app-id = 'com.apple.iphonesimulator'
 if.app-id = 'com.linear'
   run = "move-node-to-workspace L"
 
+[[on-window-detected]]
+if.app-id = 'ru.keepcoder.Telegram'
+  run = "move-node-to-workspace 9"
+[[on-window-detected]]
+if.app-id = 'com.todoist.mac.Todoist'
+  run = "move-node-to-workspace 9"
+
 # Force most used to sepcific places
 [workspace-to-monitor-force-assignment]
     1 = 'main'
